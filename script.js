@@ -81,3 +81,11 @@ function toggleSections() {
     }
 }
 
+// Обработчик событий в window.onload
+window.onload = () => {
+    // ... остальной код ...
+
+    // Добавляем обработчик для кнопки
+    const projectButton = document.querySelector('button'); // Предполагается, что у вас только одна кнопка
+    projectButton.addEventListener('click', toggleSections); // Добавляем обработчик клика
+};
