@@ -176,6 +176,7 @@ section{
 .content .typewriter-text{
     color: #077b32;
     text-shadow: 0 0 10px #077b32;
+    font-size: clamp(0.8rem, 1rem + 3vw, 1.5rem); /* Уменьшение размера шрифта */
 }
 
 .content p{
