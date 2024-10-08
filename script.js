@@ -55,14 +55,17 @@ window.onload = () => {
     cancelIcon.addEventListener("click", cancel); // Добавляем обработчик клика
     
     // Закрытие меню при клике вне него
-
     window.addEventListener('click', function(event) {
         const navbar = document.querySelector(".dropdown");
         if (!navbar.contains(event.target) && !hamburgIcon.contains(event.target)) {
             cancel();
         }
     });
-}
+    
+    // Добавляем обработчик для кнопки
+    const projectButton = document.querySelector('button'); // Предполагается, что у вас только одна кнопка
+    projectButton.addEventListener('click', toggleSections); // Добавляем обработчик клика
+};
 
 function toggleSections() {
     const aboutSection = document.querySelector('#about');
