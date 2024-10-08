@@ -63,3 +63,18 @@ window.onload = () => {
         }
     });
 }
+
+function toggleSections() {
+    const aboutSection = document.querySelector('#about');
+    const skillsSection = document.querySelector('#skills');
+    
+    // Проверяем, отображаются ли секции, и переключаем их видимость
+    if (aboutSection.style.display === 'block') {
+        aboutSection.style.display = 'none';
+        skillsSection.style.display = 'none';
+    } else {
+        aboutSection.style.display = 'block';
+        skillsSection.style.display = 'block';
+    }
+}
+
