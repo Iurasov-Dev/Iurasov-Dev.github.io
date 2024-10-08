@@ -316,6 +316,18 @@ section{
     .nav-container .links a {
         margin: 10px 0; /* Уменьшить отступы между ссылками */
     }
+    
+@media (max-width: 600px) {
+    .btn {
+        margin-top: 30px; /* Отступ для мобильных */
+    }
+
+    .content button {
+        width: 80%; /* Кнопка занимает 80% ширины экрана на мобильных устройствах */
+        font-size: 1.2rem; /* Увеличиваем размер шрифта */
+    }
+}
+
 }
 
 
