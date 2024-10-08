@@ -6,14 +6,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Projects</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Добавим стили для изображений и анимации */
+        .project {
+            list-style: none;
+            margin: 20px 0;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .project img {
+            width: 250px; /* задай нужный размер */
+            border-radius: 10px; /* закругленные углы */
+            transition: transform 0.3s;
+        }
+
+        .project:hover img {
+            transform: scale(1.05); /* увеличиваем изображение при наведении */
+        }
+    </style>
 </head>
 <body>
     <h1>My Data Science Projects</h1>
     <ul>
-        <li><a href="https://github.com/Iurasov-Dev/kaprekara_num_app" target="_blank">Kaprekara Number Application</a></li>
-        <li><a href="https://github.com/Iurasov-Dev/New-York-City-Taxi-Fare-Prediction" target="_blank">New York City Taxi Fare Prediction</a></li>
-        <li><a href="https://github.com/Iurasov-Dev/convolutional-neural-net-CNN" target="_blank">convolutional-neural-net-CNN</a></li>
-        <li><a href="https://github.com/Iurasov-Dev/pipelines" target="_blank">Pipelines Project</a></li>
+        <li class="project">
+            <a href="https://github.com/Iurasov-Dev/kaprekara_num_app" target="_blank">
+                <img src="kaprekara.jpg" alt="Kaprekara Number App">
+                <p>Kaprekara Number Application</p>
+            </a>
+        </li>
+        <li class="project">
+            <a href="https://github.com/Iurasov-Dev/New-York-City-Taxi-Fare-Prediction/blob/main/F_W_taxi_nyc.ipynb" target="_blank">
+                <img src="taxi_fare.png" alt="Taxi Fare Prediction">
+                <p>New York City Taxi Fare Prediction</p>
+            </a>
+        </li>
+        <li class="project">
+            <a href="https://github.com/Iurasov-Dev/convolutional-neural-net-CNN/blob/main/H_W_3RAZDEL.ipynb" target="_blank">
+                <img src="cnn.png" alt="Convolutional Neural Network">
+                <p>Convolutional Neural Network</p>
+            </a>
+        </li>
+        <li class="project">
+            <a href="https://github.com/Iurasov-Dev/pipelines/blob/main/H_W_2RAZDEL_pro.ipynb" target="_blank">
+                <img src="pipelines.png" alt="Pipelines Project">
+                <p>Pipelines Project</p>
+            </a>
+        </li>
     </ul>
 </body>
 </html>
