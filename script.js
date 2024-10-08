@@ -11,7 +11,6 @@ function cancel() {
 }
 
 // Typewriter Effect
-
 const texts = [
     "DATA SCIENTIST",
     "DESIGNER",
@@ -20,7 +19,7 @@ const texts = [
     "TILTED HORIZON"
 ];
 
-let speed  = 100;
+let speed = 100;
 const textElements = document.querySelector(".typewriter-text");
 
 let textIndex = 0;
@@ -30,7 +29,7 @@ function typeWriter() {
     if (charcterIndex < texts[textIndex].length) {
         textElements.innerHTML += texts[textIndex].charAt(charcterIndex);
         charcterIndex++;
-        setTimeout(typeWriter, speed); 
+        setTimeout(typeWriter, speed);
     } else {
         setTimeout(eraseText, 1000);
     }
@@ -47,13 +46,30 @@ function eraseText() {
     }
 }
 
+function toggleSections() {
+    const aboutSection = document.querySelector('#about');
+    const skillsSection = document.querySelector('#skills');
+
+    // Переключаем видимость секций
+    if (aboutSection.style.display === 'flex') {
+        aboutSection.style.display = 'none';
+        skillsSection.style.display = 'none';
+    } else {
+        aboutSection.style.display = 'flex';
+        skillsSection.style.display = 'flex';
+    }
+}
+
 window.onload = () => {
+    // Запускаем эффект печати
     typeWriter();
+
     const hamburgIcon = document.querySelector(".hamburg");
     hamburgIcon.addEventListener("click", hamburg); // Добавляем обработчик клика
+
     const cancelIcon = document.querySelector(".cancel");
     cancelIcon.addEventListener("click", cancel); // Добавляем обработчик клика
-    
+
     // Закрытие меню при клике вне него
     window.addEventListener('click', function(event) {
         const navbar = document.querySelector(".dropdown");
@@ -62,30 +78,7 @@ window.onload = () => {
         }
     });
     
-    // Добавляем обработчик для кнопки
+    // Добавляем обработчик для кнопки проект
     const projectButton = document.querySelector('button'); // Предполагается, что у вас только одна кнопка
-    projectButton.addEventListener('click', toggleSections); // Добавляем обработчик клика
-};
-
-function toggleSections() {
-    const aboutSection = document.querySelector('#about');
-    const skillsSection = document.querySelector('#skills');
-    
-    // Проверяем, отображаются ли секции, и переключаем их видимость
-    if (aboutSection.style.display === 'block') {
-        aboutSection.style.display = 'none';
-        skillsSection.style.display = 'none';
-    } else {
-        aboutSection.style.display = 'block';
-        skillsSection.style.display = 'block';
-    }
-}
-
-// Обработчик событий в window.onload
-window.onload = () => {
-    // ... остальной код ...
-
-    // Добавляем обработчик для кнопки
-    const projectButton = document.querySelector('button'); // Предполагается, что у вас только одна кнопка
-    projectButton.addEventListener('click', toggleSections); // Добавляем обработчик клика
+    projectButton.addEventListener('click', toggleSections);
 };
