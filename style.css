@@ -132,6 +132,7 @@ section{
 
 .main-container .image img{
     width: 100%;
+    height: auto;
 }
 
 .main-container .image:hover{
@@ -159,7 +160,7 @@ section{
 }
 
 .content h1{
-    font-size: clamp(1rem, 1rem + 5vw, 1.8rem);
+    font-size: clamp(1rem, 2vw + 1rem, 2rem);
 }
 
 .content h1 span{
@@ -280,7 +281,42 @@ section{
     .main-container button{
         margin-top: 15px;
     }
+    
+@media (max-width: 600px) {
+    .main-container {
+        flex-direction: column; /* Вертикальное размещение */
+        align-items: center; /* Центрировать элементы */
+    }
+
+    .main-container .image {
+        width: 80%; /* Ширина изображения уменьшается */
+        height: auto; /* Сохраняет соотношение сторон */
+    }
+
+    .main-container .content {
+        width: 90%; /* Контент займет большую часть экрана */
+        text-align: center; /* Центрируем текст */
+    }
+
+    .content button {
+        width: 100%; /* Кнопка занимает 100% ширины */
+    }
+    
+    nav .nav-container {
+        flex-direction: column; /* Вертикальная компоновка для навигации */
+        align-items: center;
+    }
+
+    .nav-container .links {
+        flex-direction: column; /* Вертикальная компоновка ссылок */
+        align-items: center;
+    }
+
+    .nav-container .links a {
+        margin: 10px 0; /* Уменьшить отступы между ссылками */
+    }
 }
+
 
 
 
