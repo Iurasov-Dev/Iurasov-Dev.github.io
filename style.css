@@ -327,3 +327,11 @@ section{
         font-size: 1.2rem; /* Увеличиваем размер шрифта */
     }
 }
+
+@media (max-width: 768px) {
+    #about,
+    #skills {
+        display: none; /* Скрыть секции на мобильных */
+    }
+}
+    
