@@ -1,11 +1,13 @@
 function hamburg() {
     const navbar = document.querySelector(".dropdown");
     navbar.style.transform = "translateY(0)";
+    document.body.style.overflow = "hidden"; // Блокируем прокрутку основного контента
 }
 
 function cancel() {
     const navbar = document.querySelector(".dropdown");
     navbar.style.transform = "translateY(-500px)";
+    document.body.style.overflow = "auto"; // Восстанавливаем прокрутку
 }
 
 // Typewriter Effect
