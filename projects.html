@@ -28,9 +28,10 @@
             max-height: 80vh; /* Максимальная высота контейнера, 80% от высоты окна */
             overflow-y: auto; /* Включаем прокрутку при необходимости */
             padding: 20px;
-            background-color: rgba(255, 255, 255, 0.95); /* Полупрозрачный белый фон для контейнера */
+            background-color: #ffffff; /* Непрозрачный белый фон для контейнера */
+            border: 2px solid #00ff00; /* Зеленая рамка для контейнера */
             border-radius: 10px; /* Закругленные углы */
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Тень для контейнера */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7); /* Тень для контейнера */
             position: relative; /* Чтобы проекты были выше фона */
             z-index: 3; /* Чтобы контейнер был поверх фона */
         }
@@ -87,11 +88,12 @@
 
     <script>
         const C = document.querySelector("canvas"),
+
               $ = C.getContext("2d"),
               W = C.width = innerWidth,
               H = C.height = innerHeight;
 
-        const str = "X+Y7Z-A1B=C4D E5F G6H0, I8J K9L M!N O?P Q.R S:T;U V,W2;4",
+        const str = "A+B7Z-A1B=C4D E5F G6H I8J K9L M!N O?P Q.R S:T;U V,W",
               matrix = str.split('');
 
         let font = 11,
