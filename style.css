@@ -131,7 +131,7 @@ section{
 }
 
 .main-container .image img{
-    width: 90%;
+    width: 100%;
     height: auto;
 }
 
@@ -318,7 +318,7 @@ section{
     
 @media (max-width: 600px) {
     .btn {
-        margin-top: 10px; /* Отступ для мобильных */
+        margin-top: 20px; /* Отступ для мобильных */
     }
 
     .content button {
