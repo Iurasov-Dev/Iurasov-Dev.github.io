@@ -140,7 +140,7 @@ section{
 }
 
 #about {
-    padding-top: 250px; /* Увеличьте отступ сверху, если нужно */
+    padding-top: 220px; /* Увеличьте отступ сверху, если нужно */
 }
 @keyframes animate {
     0%{
