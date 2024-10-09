@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Projects with Matrix Effect</title>
     <style>
-        body {
+       body {
             margin: 0;
             padding: 0;
             font-family: 'Courier New', monospace;
@@ -51,64 +51,40 @@
         .project {
             list-style: none;
             margin: 10px 0; /* Уменьшаем отступ между проектами */
+            text-align: center; /* Центрируем текст внутри проекта */
             transition: transform 0.3s;
-            width: 100%; /* Это дает возможность элементам занимать всю ширину контейнера */
-        }
-        
-        .project-img {
-            width: 70%; /* Уменьшаем размер изображения */
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Courier New', monospace;
-            background: #000; /* Черный фон для "Матрицы" */
-            overflow: hidden; /* Скрываем полосу прокрутки */
-        }
-        
-        canvas {
-            position: absolute; /* Позиционируем холст */
-            top: 0;
-            left: 0;
-            z-index: 1; /* Холст ниже контейнера */
-        }
-        
-        h1 {
-            color: #00ff00; /* Цвет заголовка */
-            text-align: center;
-            text-shadow: 0 0 10px #00ff00;
-            position: relative;
-            z-index: 2; /* Чтобы заголовок был выше фона */
-            margin-top: 20px; /* Отступ сверху */
-        }
-        
-        .project-list {
-            max-width: 800px; /* Максимальная ширина контейнера */
-            margin: 20px auto; /* Центрирование по горизонтали с отступом сверху */
-            max-height: 80vh; /* Максимальная высота контейнера, 80% от высоты окна */
-            overflow-y: auto; /* Включаем прокрутку при необходимости */
-            padding: 20px;
-            background-color: rgba(255, 255, 255, 0.5); /* Полупрозрачный белый фон для контейнера */
-            border: 2px solid #00ff00; /* Зеленая рамка для контейнера */
-            border-radius: 10px; /* Закругленные углы */
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7); /* Тень для контейнера */
-            position: relative; /* Чтобы проекты были выше фона */
-            z-index: 3; /* Чтобы контейнер был поверх фона */
-            display: flex; /* Включаем flexbox */
+            display: flex; /* Включаем flexbox для контейнера проекта */
             flex-direction: column; /* Устанавливаем вертикальное направление */
             align-items: center; /* Центрируем элементы по горизонтали */
-            justify-content: center; /* Центрируем элементы по вертикали */
-            text-align: center; /* Выравниваем текст по центру */
-        }
-        
-        .project {
-            list-style: none;
-            margin: 10px 0; /* Уменьшаем отступ между проектами */
-            transition: transform 0.3s;
-            width: 100%; /* Это дает возможность элементам занимать всю ширину контейнера */
         }
         
         .project-img {
             width: 70%; /* Уменьшаем размер изображения */
+            max-width: 200px; /* Ограничиваем максимальный размер */
+            border-radius: 10px; /* Закругленные углы */
+            transition: transform 0.3s;
+        }
+        
+        .project:hover .project-img {
+            transform: scale(1.05); /* Увеличиваем изображение при наведении */
+        }
+        
+        @media (max-width: 400px) {
+            .project-list {
+                max-width: 90%; /* Сделаем контейнер шире на мобильных устройствах */
+                margin: 20px auto; /* Центрирование по горизонтали */
+                padding: 10px; /* Уменьшаем отступ для компактности */
+            }
+        
+            h1 {
+                font-size: 24px; /* Уменьшаем размер заголовка на мобильных */
+            }
+
+    .project-img {
+        width: 100%; /* Изменяем размер изображения для адаптивности на мобильных */
+    }
+}
+
     </style>
 </head>
 <body>
