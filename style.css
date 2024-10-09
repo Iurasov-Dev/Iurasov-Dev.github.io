@@ -267,6 +267,7 @@ section{
     .content button {
         width: 80%; /* Увеличиваем ширину кнопки на мобильных */
         height: 50px; /* Задаем фиксированную высоту кнопки */
+        z-index: 10; /* Увеличиваем z-index для кнопки */
     }
 
    .main-container .image {
