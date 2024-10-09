@@ -232,7 +232,7 @@ section{
 }
 
 @media (max-width: 884px) {
-    nav .logo{
+    nav .logo {
         position: absolute;
         top: 16px;
         left: 15px;
@@ -242,38 +242,27 @@ section{
     .main-container {
         display: flex;
         flex-direction: column;
+        align-items: center; /* Выравниваем содержимое по центру */
     }
 
-    .nav-container .links{
-        display: none;
+    .nav-container .links {
+        display: none; /* Скрываем ссылки навигации */
     }
 
     .hamburg,
-    .cancel{
-        display: block;
+    .cancel {
+        display: block; /* Показываем меню-бургер */
     }
 
-    .main-container .content{
-        width: 80%;
+    .main-container .content {
+        width: 80%; /* Увеличиваем ширину контента */
+        text-align: center; /* Центрируем текст */
     }
 
-    .social-links i{
+    .social-links i {
         width: 2.5rem;
         height: 2.5rem;
         font-size: 1.5rem;
-    }
-
-    .main-container .image{
-        z-index: -1;
-        width: 50%;
-        height: 60%;
-    }
-}
-
-@media (max-width: 600px) {
-    .main-container {
-        flex-direction: column;
-        align-items: center;
     }
 
     .main-container .image {
@@ -282,7 +271,7 @@ section{
         height: auto; /* Высота адаптируется автоматически */
         border-radius: 50%; /* Округляем углы */
         overflow: hidden; /* Скрываем излишки */
-        box-shadow: none; /* Убираем тень для мобильной версии (можно оставить) */
+        box-shadow: none; /* Убираем тень для мобильной версии */
     }
 
     .main-container .image img {
@@ -290,34 +279,30 @@ section{
         height: auto; /* Сохраняем пропорции изображения */
         display: block; /* Убираем пробелы под изображением */
     }
+}
 
+@media (max-width: 600px) {
     .main-container .content {
-        width: 90%; /* Увеличиваем ширину контента на мобильных устройствах */
-        text-align: center; /* Выравниваем текст по центру */
+        width: 90%; /* Увеличиваем ширину контента для маленьких экранов */
     }
 
     .content button {
-        width: 80%; /* Установим ширину кнопки на 80% для мобильной версии */
+        width: 80%; /* Установим ширину кнопки на 80% */
         font-size: 1.2rem; /* Увеличиваем шрифт кнопки */
     }
 }
 
-@media (max-width: 440px){
-    .main-container .image{
-        width: 50%;
-        height: 60%;
-        margin-bottom: 0px;
+@media (max-width: 440px) {
+    .main-container .image {
+        /* Не нужно изменять ширину изображения с 100% для мобильных */
+        margin-bottom: 0px; /* Убираем нижний отступ */
     }
 
-    .main-container .content{
-        width: 80%;
+    .main-container .content {
+        width: 80%; /* Оставляем ширину контента 80% для наименьших экранов */
     }
 
-    .main-container button{
-        margin-top: 15px;
+    .main-container button {
+        margin-top: 15px; /* Убираем верхний отступ для кнопок */
     }
-}
-
-#about {
-    padding-top: 300px;
 }
