@@ -180,7 +180,7 @@ section{
 .content .typewriter-text{
     color: #077b32;
     text-shadow: 0 0 10px #077b32;
-    font-size: clamp(0.8rem, 1rem + 3vw, 1.5rem);
+    font-size: clamp(1rem, 2vw + 1rem, 2rem);
 }
 
 .content p{
@@ -280,7 +280,7 @@ section{
     }
 
     .main-container .image {
-        width: 80%; /* Ширина изображения уменьшается */
+        width: auto%; /* Ширина изображения уменьшается */
         height: auto; /* Сохраняет соотношение сторон */
     }
 
