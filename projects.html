@@ -27,29 +27,38 @@
             position: relative;
             z-index: 2; /* Чтобы заголовок был выше фона */
             margin-top: 10px; /* Отступ сверху */
-            animation: glitch-animation 1s infinite, fadeIn 2s ease-in; /* Появление с анимацией и эффект глитча */
+            animation: fadeIn 2s ease-in forwards, glitch-animation 5s infinite 2s; /* Появление с анимацией и эффект глитча */
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
         
         @keyframes glitch-animation {
-            0% {
-                text-shadow: 1px 1px red, -1px -1px blue;
+            0%, 100% {
+                text-shadow: 0 0 10px #00ff00;
                 transform: translate(0);
             }
             10% {
-                text-shadow: -1px -1px red, 1px 1px blue;
+                text-shadow: 1px 1px red, -1px -1px blue;
                 transform: translate(2px, -1px);
             }
             20% {
-                text-shadow: 1px 1px blue, -1px -1px red;
+                text-shadow: -1px -1px red, 1px 1px blue;
                 transform: translate(-2px, 2px);
             }
             30% {
-                text-shadow: -2px -2px red, 2px 2px blue;
-                transform: translate(1px, 1px);
+                text-shadow: 1px 1px blue, -1px -1px red;
+                transform: translate(2px, 1px);
             }
-            100% {
-                text-shadow: 1px 1px red, -1px -1px blue;
-                transform: translate(0);
+            40% {
+                text-shadow: -2px -2px red, 2px 2px blue;
+                transform: translate(-1px, 1px);
             }
         }
 
