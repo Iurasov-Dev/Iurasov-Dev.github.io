@@ -19,19 +19,37 @@
             text-shadow: 0 0 10px #00ff00;
             position: relative;
             z-index: 2; /* Чтобы заголовок был выше фона */
+            margin-top: 20px; /* Отступ сверху */
         }
 
         .project-list {
             max-width: 800px; /* Максимальная ширина контейнера */
-            margin: 0 auto; /* Центрирование по горизонтали */
+            margin: 20px auto; /* Центрирование по горизонтали с отступом сверху */
             max-height: 80vh; /* Максимальная высота контейнера, 80% от высоты окна */
             overflow-y: auto; /* Включаем прокрутку при необходимости */
             padding: 20px;
-            background-color: rgba(255, 255, 255, 0.9); /* Полупрозрачный белый фон для контейнера */
+            background-color: rgba(255, 255, 255, 0.95); /* Полупрозрачный белый фон для контейнера */
             border-radius: 10px; /* Закругленные углы */
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Тень для контейнера */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Тень для контейнера */
             position: relative; /* Чтобы проекты были выше фона */
             z-index: 3; /* Чтобы контейнер был поверх фона */
+        }
+
+        .project {
+            list-style: none;
+            margin: 20px 0;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .project img {
+            width: 250px; /* Задай нужный размер */
+            border-radius: 10px; /* Закругленные углы */
+            transition: transform 0.3s;
+        }
+
+        .project:hover img {
+            transform: scale(1.05); /* Увеличиваем изображение при наведении */
         }
     </style>
 </head>
@@ -84,7 +102,6 @@
         for (let i = 0; i < col; i++) arr[i] = 1;
 
         function draw() {
-
             // Цвет фона для эффекта затухания
             $.fillStyle = "rgba(0, 0, 0, .05)";
             $.fillRect(0, 0, W, H);
