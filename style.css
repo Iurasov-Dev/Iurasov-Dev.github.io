@@ -132,7 +132,6 @@ section{
 
 .main-container .image img{
     width: 100%;
-    height: auto;
 }
 
 .main-container .image:hover{
@@ -160,7 +159,7 @@ section{
 }
 
 .content h1{
-    font-size: clamp(1rem, 2vw + 1rem, 2rem);
+    font-size: clamp(1rem, 1rem + 5vw, 1.8rem);
 }
 
 .content h1 span{
@@ -169,18 +168,17 @@ section{
 }
 
 .content .typewriter{
-    font-size: clamp(1rem, 2vw + 1rem, 2rem);
+    font-size: clamp(1rem, 1rem + 5vw, 2.5rem);
     font-weight: 600;
 }
 
 .content .typewriter-text{
     color: #077b32;
     text-shadow: 0 0 10px #077b32;
-    font-size: clamp(0.8rem, 1rem + 3vw, 1.5rem);
 }
 
 .content p{
-    font-size: clamp(0.4rem, 0.2rem + 9vw, 1rem);
+    font-size: clamp(0.4rem , 0.2rem + 9vw, 1rem);
     margin: 10px 0;
 }
 
@@ -229,8 +227,8 @@ section{
     box-shadow: 0 0 40px #077b32;
 }
 
-@media (max-width: 884px) {
-    nav .logo {
+@media (max-width:884px) {
+    nav .logo{
         position: absolute;
         top: 16px;
         left: 15px;
@@ -242,34 +240,44 @@ section{
         flex-direction: column;
     }
 
-    .nav-container {
-        position: relative; /* Добавляем относительное позиционирование */
-        z-index: 40; /* Увеличиваем z-index для nav-container */
-    }
-
-    .nav-container .links {
-        display: none; /* Скрываем ссылки навигации */
+    .nav-container .links{
+        display: none;
     }
 
     .hamburg,
-    .cancel {
-        display: block; /* Показываем меню-бургер */
-        z-index: 50; /* Увеличиваем z-index для кнопки */
+    .cancel{
+        display: block;
     }
 
-    .main-container .content {
-        width: 80%; /* Увеличиваем ширину контента */
+    .main-container .content{
+        width: 80%;
     }
 
-    .content button {
-        width: 80%; /* Увеличиваем ширину кнопки на мобильных */
-        height: 50px; /* Задаем фиксированную высоту кнопки */
+    .social-links i{
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1.5rem;
     }
-    
-    .main-container .image {
-        width: 60%; /* Желательная ширина */
-        height: auto; /* Авто высота */
-        position: relative; /* Относительное позиционирование */
-        z-index: 1; /* Уменьшаем z-index */
+
+    .main-container .image{
+        z-index: -1;
+        width: 50%;
+        height: 60%;
+    }
+}
+
+@media (max-width:440px){
+    .main-container .image{
+        width: 50%;
+        height: 60%;
+        margin-bottom: 0px;
+    }
+
+    .main-container .content{
+        width: 80%;
+    }
+
+    .main-container button{
+        margin-top: 15px;
     }
 }
