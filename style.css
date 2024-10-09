@@ -131,7 +131,7 @@ section{
 }
 
 .main-container .image img{
-    width: 80%;
+    width: 90%;
     height: auto;
 }
 
@@ -318,7 +318,7 @@ section{
     
 @media (max-width: 600px) {
     .btn {
-        margin-top: 300px; /* Отступ для мобильных */
+        margin-top: 10px; /* Отступ для мобильных */
     }
 
     .content button {
@@ -328,5 +328,5 @@ section{
 }
     
 #about {
-    padding-top: 160px; /* Увеличьте отступ сверху, если нужно */
+    padding-top: 300px; /* Увеличьте отступ сверху, если нужно */
 }
