@@ -27,7 +27,7 @@
             position: relative;
             z-index: 2; /* Чтобы заголовок был выше фона */
             margin-top: 10px; /* Отступ сверху */
-            animation: fadeIn 2s ease-in forwards, glitch-animation 5s infinite 2s forwards; /* Появление с анимацией и эффект глитча */
+            animation: fadeIn 2s ease-in forwards, glitch-animation 5s infinite 2s forwards, normal-state 1s forwards 7s; /* Появление, затем глитч и возврат к нормальному состоянию */
         }
         
         @keyframes fadeIn {
@@ -60,8 +60,15 @@
                 text-shadow: -2px -2px red, 2px 2px blue;
                 transform: translate(-1px, 1px);
             }
-            80%, 90% {
-                text-shadow: 0 0 10px #00ff00; /* Вернуться к обычному состоянию перед окончанием */
+        }
+        
+        @keyframes normal-state {
+            0% {
+                text-shadow: 1px 1px red, -1px -1px blue; /* Признак глитча */
+            }
+            100% {
+                text-shadow: 0 0 10px #00ff00; /* Вернуться к обычному состоянию */
+                transform: translate(0);
             }
         }
 
