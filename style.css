@@ -227,8 +227,8 @@ section{
     box-shadow: 0 0 40px #077b32;
 }
 
-@media (max-width:884px) {
-    nav .logo{
+@media (max-width: 884px) {
+    nav .logo {
         position: absolute;
         top: 16px;
         left: 15px;
@@ -240,44 +240,35 @@ section{
         flex-direction: column;
     }
 
-    .nav-container .links{
-        display: none;
+    .nav-container {
+        position: relative; /* Добавляем относительное позиционирование */
+        z-index: 40; /* Увеличиваем z-index для nav-container */
+    }
+
+    .nav-container .links {
+        display: none; /* Скрываем ссылки навигации */
     }
 
     .hamburg,
-    .cancel{
-        display: block;
+    .cancel {
+        display: block; /* Показываем меню-бургер */
+        z-index: 50; /* Увеличиваем z-index для кнопки */
     }
 
-    .main-container .content{
-        width: 80%;
+    .main-container .content {
+        width: 80%; /* Увеличиваем ширину контента */
     }
 
-    .social-links i{
-        width: 2.5rem;
-        height: 2.5rem;
-        font-size: 1.5rem;
+    .content button {
+        width: 80%; /* Увеличиваем ширину кнопки на мобильных */
+        height: 50px; /* Задаем фиксированную высоту кнопки */
     }
 
-    .main-container .image{
-        z-index: -1;
-        width: 50%;
-        height: 60%;
+    .main-container .image {
+        width: 60%; /* Желательная ширина */
+        height: auto; /* Авто высота */
+        position: relative; /* Относительное позиционирование */
+        z-index: 1; /* Уменьшаем z-index */
     }
 }
 
-@media (max-width:440px){
-    .main-container .image{
-        width: 50%;
-        height: 60%;
-        margin-bottom: 0px;
-    }
-
-    .main-container .content{
-        width: 80%;
-    }
-
-    .main-container button{
-        margin-top: 15px;
-    }
-}
