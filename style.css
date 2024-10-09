@@ -187,16 +187,8 @@ section{
     margin: 10px 0;
 }
 
-.social-links {
-    display: flex; /* Используем flexbox для размещения иконок */
-    justify-content: space-around; /* Распределяем иконки по ширине контейнера */
-    align-items: center; /* Центруем иконки по вертикали */
-    width: 100%; /* Занимает всю ширину контейнера */
-    flex-wrap: wrap; /* Позволяет переходить иконкам на новую строку при необходимости */
-}
-
-.social-links i {
-    display: flex; /* Делаем иконки flex-контейнером */
+.social-links i{
+    display: inline-flex;
     justify-content: center;
     align-items: center;
     width: 3rem;
@@ -205,10 +197,16 @@ section{
     border: 0.2rem solid #077b32;
     border-radius: 50%;
     color: #077b32;
-    margin: 5px; /* Убираем боковые отступы, чтобы иконки растянулись по контейнеру */
+    margin: 5px 15px;
     font-size: 1.5rem;
     transition: 0.2s linear;
-    flex: 1; /* Используем flex-grow для равномерного распределения по ширине */
+}
+
+.social-links i:hover{
+    scale: 1.1;
+    color: black;
+    background-color: #077b32;
+    filter: drop-shadow(0 0 10px #077b32);
 }
 
 .social-links i:hover {
