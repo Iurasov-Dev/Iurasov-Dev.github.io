@@ -238,34 +238,42 @@ section{
     box-shadow: 0 0 40px #077b32;
 }
 
-@media (max-width: 600px) {
- .main-container {
-        flex-direction: column; /* Вертикальное размещение */
-        align-items: center; /* Центрировать элементы */
+@media (max-width: 884px) {
+    nav .logo {
+        position: absolute;
+        top: 16px;
+        left: 15px;
+        font-size: 1.5rem;
     }
 
-    .main-container .image {
-        width: auto%; /* Ширина изображения уменьшается */
-        height: auto; /* Сохраняет соотношение сторон */
+    .main-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .nav-container .links {
+        display: none; /* Скрываем ссылки навигации */
+    }
+
+    .hamburg,
+    .cancel {
+        display: block; /* Показываем меню-бургер */
     }
 
     .main-container .content {
-        width: 90%; /* Контент займет большую часть экрана */
-        text-align: center; /* Центрируем текст */
+        width: 80%; /* Увеличиваем ширину контента */
     }
-    
-    nav .nav-container {
-        flex-direction: column; /* Вертикальная компоновка для навигации */
-        align-items: center;
+
+    .main-container .image{
+        z-index: -1;
+        width: 100%; /* Замените на 100% */
+        height: auto; /* Замените на auto */
     }
-    
-    .nav-container .links a {
-        margin: 10px 0; /* Уменьшить отступы между ссылками */
-    }
-    
+
     .content button {
         width: 80%; /* Увеличиваем ширину кнопки на мобильных */
         height: 50px; /* Задаем фиксированную высоту кнопки */
     }
 }
-}
+
+
