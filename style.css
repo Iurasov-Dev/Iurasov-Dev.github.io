@@ -278,6 +278,8 @@ section{
         width: 100%; /* Замените на 100% */
         height: auto; /* Замените на auto */
     }
+    about {
+        padding-top: 100px; /* Увеличение отступа для 
 }
 
 @media (max-width: 600px) {
@@ -309,10 +311,15 @@ section{
         margin: 10px 0; /* Уменьшить отступы между ссылками */
     }
 
+    about {
+        padding-top: 100px; /* Увеличение отступа для 
+
     .content button {
         width: 80%; /* Кнопка занимает 80% ширины экрана на мобильных устройствах */
         font-size: 1.2rem; /* Увеличиваем размер шрифта */
     }
+
+    
 }
 
 @media (max-width: 440px) {
@@ -329,4 +336,7 @@ section{
     .main-container button {
         margin-top: 15px; /* Убираем верхний отступ для кнопок */
     }
+
+    about {
+        padding-top: 100px; /* Увеличение отступа для 
 }
