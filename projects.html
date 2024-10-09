@@ -31,16 +31,16 @@
 
         .project-list {
             max-width: 800px; /* Максимальная ширина контейнера */
+            margin: 20px auto; /* Центрирование по горизонтали с отступом сверху */
             max-height: 80vh; /* Максимальная высота контейнера, 80% от высоты окна */
             overflow-y: auto; /* Включаем прокрутку при необходимости */
             padding: 20px;
-            background-color: rgba(255, 255, 255, 0.6); /* Полупрозрачный белый фон для контейнера */
+            background-color: rgba(255, 255, 255, 0.5); /* Полупрозрачный белый фон для контейнера */
             border: 2px solid #00ff00; /* Зеленая рамка для контейнера */
             border-radius: 10px; /* Закругленные углы */
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7); /* Тень для контейнера */
             position: relative; /* Чтобы проекты были выше фона */
             z-index: 3; /* Чтобы контейнер был поверх фона */
-            margin: 0 auto; /* Центрируем по горизонтали */
         }
 
         .project {
@@ -59,42 +59,41 @@
         .project:hover img {
             transform: scale(1.05); /* Увеличиваем изображение при наведении */
         }
-
-        @media (max-width: 900px) {
-            .project-list {
-                max-width: 90%; /* Сделаем контейнер шире на мобильных устройствах */
-                margin: 20px auto; /* Центрирование по горизонтали */
-                padding: 10px; /* Уменьшаем отступ для компактности */
-            }
-        
-            h1 {
-                font-size: 24px; /* Уменьшаем размер заголовка на мобильных */
-            }
-
-            .project img {
-                width: 100%; /* Изменяем размер изображения для адаптивности на мобильных */
-            }
-        }
     </style>
 </head>
 <body>
-    <canvas id="matrixCanvas"></canvas>
-    <h1>My Projects</h1>
-    <ul class="project-list">
-        <li class="project">
-            <img src="path/to/image1.jpg" alt="Project 1" class="project-img">
-            <p>Project 1 Description</p>
-        </li>
-        <li class="project">
+    <canvas></canvas>
+    <h1>My Data Science Projects</h1>
+    <div class="project-list">
+        <ul>
+            <li class="project">
+                <a href="https://github.com/Iurasov-Dev/kaprekara_num_app" target="_blank">
+                    <img src="images/kaprekara.jpg" alt="Kaprekara Number App">
+                    <p>Kaprekara Number Application</p>
+                </a>
+            </li>
+            <li class="project">
+                <a href="https://github.com/Iurasov-Dev/New-York-City-Taxi-Fare-Prediction/blob/main/F_W_taxi_nyc.ipynb" target="_blank">
+                    <img src="images/taxi_fare.png" alt="Taxi Fare Prediction">
+                    <p>New York City Taxi Fare Prediction</p>
+                </a>
+            </li>
+            <li class="project">
+                <a href="https://github.com/Iurasov-Dev/convolutional-neural-net-CNN/blob/main/H_W_3RAZDEL.ipynb" target="_blank">
 
-            <img src="path/to/image2.jpg" alt="Project 2" class="project-img">
-            <p>Project 2 Description</p>
-        </li>
-        <!-- Добавьте больше проектов здесь -->
-    </ul>
+                    <img src="images/cnn.png" alt="Convolutional Neural Network">
+                    <p>Convolutional Neural Network</p>
+                </a>
+            </li>
+            <li class="project">
+                <a href="https://github.com/Iurasov-Dev/pipelines/blob/main/H_W_2RAZDEL_pro.ipynb" target="_blank">
+                    <img src="images/pipelines.png" alt="Heart disease prediction Project">
+                    <p>Pipelines Project</p>
+                </a>
+            </li>
+        </ul>
+    </div>
 
-    <script>
-        // Тут можно добавить логику для эффекта "Матрицы"
-    </script>
+    <script src="matrix.js"></script> <!-- Подключаем внешний скрипт -->
 </body>
 </html>
