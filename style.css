@@ -123,8 +123,9 @@ section{
 }
 
 .main-container .image{
-    width: 500px;
-    height: 80vh;
+    width: 100%; /* Задаем ширину 100% */
+    max-width: 500px; /* Максимальная ширина для больших экранов */
+    height: auto; /* Высота автоматически подстраивается */
     border-radius: 100%;
     overflow: hidden;
     box-shadow: 0 0 50px #077b32;
@@ -176,11 +177,11 @@ section{
 .content .typewriter-text{
     color: #077b32;
     text-shadow: 0 0 10px #077b32;
-    font-size: clamp(0.8rem, 1rem + 3vw, 1.5rem); /* Уменьшение размера шрифта */
+    font-size: clamp(0.8rem, 1rem + 3vw, 1.5rem);
 }
 
 .content p{
-    font-size: clamp(0.4rem , 0.2rem + 9vw, 1rem);
+    font-size: clamp(0.4rem, 0.2rem + 9vw, 1rem);
     margin: 10px 0;
 }
 
@@ -213,6 +214,7 @@ section{
     background-color: #077b32;
     color: white;
     border: none;
+
     outline: none;
     font-size: 120%;
     font-weight: 700;
@@ -227,8 +229,9 @@ section{
     background-color: transparent;
     font-weight: 700;
     box-shadow: 0 0 40px #077b32;
-    
-}@media (max-width:884px) {
+}
+
+@media (max-width: 884px) {
     nav .logo{
         position: absolute;
         top: 16px;
@@ -267,7 +270,42 @@ section{
     }
 }
 
-@media (max-width:440px){
+@media (max-width: 600px) {
+    .main-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .main-container .image {
+        width: 80%;
+        height: auto;
+    }
+
+    .main-container .content {
+        width: 90%;
+        text-align: center;
+    }
+
+    .content button {
+        width: 100%;
+    }
+
+    nav .nav-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-container .links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-container .links a {
+        margin: 10px 0;
+    }
+}
+
+@media (max-width: 440px){
     .main-container .image{
         width: 50%;
         height: 60%;
@@ -281,52 +319,8 @@ section{
     .main-container button{
         margin-top: 15px;
     }
-    
-@media (max-width: 600px) {
-    .main-container {
-        flex-direction: column; /* Вертикальное размещение */
-        align-items: center; /* Центрировать элементы */
-    }
-
-    .main-container .image {
-        width: 80%; /* Ширина изображения уменьшается */
-        height: auto; /* Сохраняет соотношение сторон */
-    }
-
-    .main-container .content {
-        width: 90%; /* Контент займет большую часть экрана */
-        text-align: center; /* Центрируем текст */
-    }
-
-    .content button {
-        width: 100%; /* Кнопка занимает 100% ширины */
-    }
-    
-    nav .nav-container {
-        flex-direction: column; /* Вертикальная компоновка для навигации */
-        align-items: center;
-    }
-
-    .nav-container .links {
-        flex-direction: column; /* Вертикальная компоновка ссылок */
-        align-items: center;
-    }
-
-    .nav-container .links a {
-        margin: 10px 0; /* Уменьшить отступы между ссылками */
-    }
-    
-@media (max-width: 600px) {
-    .btn {
-        margin-top: 20px; /* Отступ для мобильных */
-    }
-
-    .content button {
-        width: 80%; /* Кнопка занимает 80% ширины экрана на мобильных устройствах */
-        font-size: 1.2rem; /* Увеличиваем размер шрифта */
-    }
 }
-    
+
 #about {
-    padding-top: 300px; /* Увеличьте отступ сверху, если нужно */
+    padding-top: 300px;
 }
