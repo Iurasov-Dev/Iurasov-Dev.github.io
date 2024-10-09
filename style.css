@@ -253,7 +253,7 @@ section{
 
     .nav-container {
         position: relative; /* Добавляем относительное позиционирование */
-        z-index: 20; /* Увеличиваем z-index для nav-container */
+        z-index: 40; /* Увеличиваем z-index для nav-container */
     }
 
     .nav-container .links {
@@ -263,7 +263,7 @@ section{
     .hamburg,
     .cancel {
         display: block; /* Показываем меню-бургер */
-        z-index: 30; /* Увеличиваем z-index для кнопки */
+        z-index: 50; /* Увеличиваем z-index для кнопки */
     }
 
     .main-container .content {
@@ -275,9 +275,10 @@ section{
         height: 50px; /* Задаем фиксированную высоту кнопки */
     }
 
-   .main-container .image {
-        width: 60%; /* Измените на желаемую ширину, например 80% */
-        height: auto; /* Чтобы высота адаптировалась */
-        position: relative; /* Добавляем относительное позиционирование для изображения */
+    .main-container .image {
+        width: 60%; /* Желательная ширина */
+        height: auto; /* Авто высота */
+        position: relative; /* Относительное позиционирование */
+        z-index: 1; /* Уменьшаем z-index */
     }
 }
