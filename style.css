@@ -139,14 +139,6 @@ section{
     animation: animate 1.5s ease-in-out infinite;
 }
 
-#about {
-    display: flex;
-    flex-direction: column; /* Вертикальное расположение */
-    align-items: center;
-    justify-content: flex-start; /* Текст начинает сверху */
-    color: white;
-    background-color: #333; 
-    padding-top: 150px; /* Верхний отступ, чтобы текст не накладывался */
 }
 @keyframes animate {
     0%{
@@ -222,6 +214,16 @@ section{
     filter: drop-shadow(0 0 10px #077b32);
 }
 
+.content {
+    display: flex; /* Используем Flexbox */
+    flex-direction: column; /* Устанавливаем колонковое направление */
+    align-items: center; /* Центрируем по горизонтали */
+    justify-content: center; /* Центрируем по вертикали */
+    text-align: center; /* Центрируем текст */
+    max-width: 800px; /* Максимальная ширина контейнера */
+    padding: 20px; /* Отступы на всех устройствах */
+}
+
 .content button{
     width: 50%;
     height: 6vh;
@@ -277,6 +279,12 @@ section{
         width: 100%; /* Замените на 100% */
         height: auto; /* Замените на auto */
     }
+
+    .content button {
+        width: 80%; /* Увеличиваем ширину кнопки на мобильных */
+        height: 50px; /* Задаем фиксированную высоту кнопки */
+    }
+}
 }
 
 @media (max-width: 600px) {
@@ -294,10 +302,6 @@ section{
         width: 90%; /* Контент займет большую часть экрана */
         text-align: center; /* Центрируем текст */
     }
-
-    .content button {
-        width: 100%; /* Кнопка занимает 100% ширины */
-    }
     
     nav .nav-container {
         flex-direction: column; /* Вертикальная компоновка для навигации */
@@ -307,30 +311,10 @@ section{
     .nav-container .links a {
         margin: 10px 0; /* Уменьшить отступы между ссылками */
     }
-
-    .content button {
-        width: 80%; /* Кнопка занимает 80% ширины экрана на мобильных устройствах */
-        font-size: 1.2rem; /* Увеличиваем размер шрифта */
-    }
-
     
+    .content button {
+        width: 80%; /* Увеличиваем ширину кнопки на мобильных */
+        height: 50px; /* Задаем фиксированную высоту кнопки */
+    }
 }
-
-@media (max-width: 440px) {
-    .main-container .image{
-        width: 100%; /* Замените на 100% */
-        height: auto; /* Замените на auto */
-        margin-bottom: 0px;
-    }
-
-    .main-container .content {
-        width: 80%; /* Оставляем ширину контента 80% для наименьших экранов */
-    }
-
-    .main-container button {
-        margin-top: 15px; /* Убираем верхний отступ для кнопок */
-    }
-
-    about {
-        padding-top: 100px; /* Увеличение отступа для 
 }
