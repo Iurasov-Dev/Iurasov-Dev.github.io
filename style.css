@@ -254,6 +254,11 @@ section{
         flex-direction: column;
     }
 
+    .nav-container {
+        position: relative; /* Добавляем относительное позиционирование */
+        z-index: 40; /* Увеличиваем z-index для nav-container */
+    }
+
     .nav-container .links {
         display: none; /* Скрываем ссылки навигации */
     }
@@ -274,9 +279,9 @@ section{
     }
     
     .main-container .image {
-        z-index: -1
         width: 60%; /* Желательная ширина */
         height: auto; /* Авто высота */
         position: relative; /* Относительное позиционирование */
+        z-index: 1; /* Уменьшаем z-index */
     }
 }
