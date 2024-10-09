@@ -187,8 +187,16 @@ section{
     margin: 10px 0;
 }
 
-.social-links i{
-    display: inline-flex;
+.social-links {
+    display: flex; /* Используем flexbox для размещения иконок */
+    justify-content: space-around; /* Распределяем иконки по ширине контейнера */
+    align-items: center; /* Центруем иконки по вертикали */
+    width: 100%; /* Занимает всю ширину контейнера */
+    flex-wrap: wrap; /* Позволяет переходить иконкам на новую строку при необходимости */
+}
+
+.social-links i {
+    display: flex; /* Делаем иконки flex-контейнером */
     justify-content: center;
     align-items: center;
     width: 3rem;
@@ -197,12 +205,13 @@ section{
     border: 0.2rem solid #077b32;
     border-radius: 50%;
     color: #077b32;
-    margin: 5px 15px;
+    margin: 5px; /* Убираем боковые отступы, чтобы иконки растянулись по контейнеру */
     font-size: 1.5rem;
     transition: 0.2s linear;
+    flex: 1; /* Используем flex-grow для равномерного распределения по ширине */
 }
 
-.social-links i:hover{
+.social-links i:hover {
     scale: 1.1;
     color: black;
     background-color: #077b32;
@@ -259,12 +268,6 @@ section{
         width: 80%; /* Увеличиваем ширину контента */
     }
 
-    .social-links i {
-        width: 2.5rem;
-        height: 2.5rem;
-        font-size: 1.5rem;
-    }
-
     .main-container .image{
         z-index: -1;
         width: 100%; /* Замените на 100% */
@@ -294,11 +297,6 @@ section{
     
     nav .nav-container {
         flex-direction: column; /* Вертикальная компоновка для навигации */
-        align-items: center;
-    }
-
-    .nav-container .links {
-        flex-direction: column; /* Вертикальная компоновка ссылок */
         align-items: center;
     }
     
