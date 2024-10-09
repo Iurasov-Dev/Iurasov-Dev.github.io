@@ -3,21 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Projects</title>
-    <link rel="stylesheet" href="style.css">
+    <title>My Projects with Matrix Effect</title>
     <style>
         body {
             margin: 0;
             padding: 0;
             font-family: 'Courier New', monospace;
-            background-color: black; /* Черный фон для "Матрицы" */
-            overflow: hidden;
-            color: #0F0; /* Зеленый цвет текста */
+            background: #000; /* Черный фон для "Матрицы" */
+            overflow: hidden; /* Скрываем полосу прокрутки */
         }
 
         h1 {
-            text-align: center;
             color: #00ff00; /* Цвет заголовка */
+            text-align: center;
             text-shadow: 0 0 10px #00ff00;
             position: relative;
             z-index: 1; /* Чтобы заголовок был выше фона */
@@ -52,54 +50,14 @@
         .project:hover img {
             transform: scale(1.05); /* Увеличиваем изображение при наведении */
         }
-
-        .matrix {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none; /* Чтобы события мыши проходили сквозь элемент */
-            z-index: 0; /* На заднем плане */
-        }
-
-        .matrix span {
-            position: absolute;
-            top: -10px;
-            white-space: nowrap;
-            color: #0F0; /* Зеленый цвет символов */
-            animation: fall 5s linear infinite;
-        }
-
-        @keyframes fall {
-            to {
-                transform: translateY(100vh); /* Падает до нижней части экрана */
-            }
-        }
     </style>
 </head>
 <body>
-    <div class="matrix">
-        <script>
-            const chars = '01ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-            const matrix = document.querySelector('.matrix');
-
-            // Генерация падающих символов
-            for (let i = 0; i < 100; i++) {
-                const span = document.createElement('span');
-                span.textContent = chars.charAt(Math.floor(Math.random() * chars.length));
-                span.style.left = Math.random() * 100 + 'vw'; // Случайное положение по ширине
-                span.style.animationDelay = Math.random() * 5 + 's'; // Случайная задержка анимации
-                matrix.appendChild(span);
-            }
-        </script>
-    </div>
-
+    <canvas></canvas>
     <h1>My Data Science Projects</h1>
     <div class="project-list">
         <ul>
             <li class="project">
-
                 <a href="https://github.com/Iurasov-Dev/kaprekara_num_app" target="_blank">
                     <img src="images/kaprekara.jpg" alt="Kaprekara Number App">
                     <p>Kaprekara Number Application</p>
@@ -125,5 +83,53 @@
             </li>
         </ul>
     </div>
+
+    <script>
+        const C = document.querySelector("canvas"),
+              $ = C.getContext("2d"),
+              W = C.width = innerWidth,
+
+              H = C.height = innerHeight;
+
+        const str = "А+Б0В-Г1Д=Е2Ё Ж3З И4Й К5Л М6Н О7П Р8С Т9У Ф!Х Ц?Ч Ш.ЩЪ,Ы Ь:ЭЮ;Я",
+              matrix = str.split('');
+
+        let font = 11,
+            col = W / font,
+            arr = [];
+
+        // Заполняем массив единицами
+        for (let i = 0; i < col; i++) arr[i] = 1;
+
+        function draw() {
+            // Цвет фона для эффекта затухания
+            $.fillStyle = "rgba(0, 0, 0, .05)";
+            $.fillRect(0, 0, W, H);
+
+            // Цвет шрифта
+            $.fillStyle = "#0f0";
+            $.font = font + "px system-ui";
+
+            for (let i = 0; i < arr.length; i++) {
+                // Случайный набор символов
+                let txt = matrix[Math.floor(Math.random() * matrix.length)];
+
+                // Рисуем символ
+                $.fillText(txt, i * font, arr[i] * font);
+
+                // Обнуляем y, если "y" больше высоты холста или если случайное значение больше 0.975
+                if (arr[i] * font > H && Math.random() > 0.975) arr[i] = 0;
+
+                // Увеличиваем значение y
+                arr[i]++;
+            }
+        }
+
+        // Запускаем функцию рисования каждые 123 миллисекунды
+        setInterval(draw, 123);
+
+        // Перезагрузка страницы при изменении размеров окна
+        window.addEventListener('resize', () => location.reload());
+    </script>
 </body>
 </html>
