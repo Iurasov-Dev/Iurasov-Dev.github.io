@@ -227,6 +227,7 @@ section{
     background-color: transparent;
     font-weight: 700;
     box-shadow: 0 0 40px #077b32;
+    
 }@media (max-width:884px) {
     nav .logo{
         position: absolute;
@@ -324,4 +325,8 @@ section{
         width: 80%; /* Кнопка занимает 80% ширины экрана на мобильных устройствах */
         font-size: 1.2rem; /* Увеличиваем размер шрифта */
     }
+}
+    
+#about {
+    padding-top: 60px; /* Увеличьте отступ сверху, если нужно */
 }
