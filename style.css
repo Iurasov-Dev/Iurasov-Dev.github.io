@@ -277,31 +277,28 @@ section{
     }
 
     .main-container .image {
-        width: 80%;
-        height: auto;
+        width: 100%; /* Устанавливаем ширину 100% для мобильных */
+        max-width: none; /* Убираем максимальную ширину */
+        height: auto; /* Высота адаптируется автоматически */
+        border-radius: 50%; /* Округляем углы */
+        overflow: hidden; /* Скрываем излишки */
+        box-shadow: none; /* Убираем тень для мобильной версии (можно оставить) */
+    }
+
+    .main-container .image img {
+        width: 100%; /* Изображение занимает полную ширину контейнера */
+        height: auto; /* Сохраняем пропорции изображения */
+        display: block; /* Убираем пробелы под изображением */
     }
 
     .main-container .content {
-        width: 90%;
-        text-align: center;
+        width: 90%; /* Увеличиваем ширину контента на мобильных устройствах */
+        text-align: center; /* Выравниваем текст по центру */
     }
 
     .content button {
-        width: 100%;
-    }
-
-    nav .nav-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .nav-container .links {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .nav-container .links a {
-        margin: 10px 0;
+        width: 80%; /* Установим ширину кнопки на 80% для мобильной версии */
+        font-size: 1.2rem; /* Увеличиваем шрифт кнопки */
     }
 }
 
