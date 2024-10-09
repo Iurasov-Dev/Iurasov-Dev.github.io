@@ -21,21 +21,13 @@
         }
 
         h1 {
-            color: #00ff00;
+            color: #00ff00; /* Цвет заголовка */
             text-align: center;
             text-shadow: 0 0 10px #00ff00;
             position: relative;
-            z-index: 2;
-            margin-top: 10px;
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 20px;
-            border-radius: 10px;
-            font-family: 'Arial', sans-serif;
-            font-size: 36px;
-            font-weight: bold;
-            animation: fadeIn 1s ease-in;
-            border: 2px solid #00ff00;
-            box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+            z-index: 2; /* Чтобы заголовок был выше фона */
+            margin-top: 10px; /* Отступ сверху */
+            animation: fadeIn 2s ease-in; /* Появление с анимацией */
         }
         
         @keyframes fadeIn {
