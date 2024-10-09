@@ -267,11 +267,10 @@ section{
     .main-container .content{
         width: 80%;
     }
-
-    .social-links i{
-        width: 2.5rem;
-        height: 2.5rem;
-        font-size: 1.5rem;
+    
+    .content button {
+        width: 80%; /* Увеличиваем ширину кнопки на мобильных */
+        height: 50px; /* Задаем фиксированную высоту кнопки */
     }
 
     .main-container .image{
@@ -283,8 +282,8 @@ section{
 
 @media (max-width:440px){
     .main-container .image{
-        width: 50%;
-        height: 60%;
+        width: 60%;
+        height: auto; 
         margin-bottom: 0px;
     }
 
