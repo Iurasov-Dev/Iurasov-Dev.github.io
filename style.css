@@ -139,15 +139,19 @@ section{
     animation: animate 1.5s ease-in-out infinite;
 }
 
+#home {
+    position: relative;
+    padding-bottom: 50px; /* Добавьте отступ внизу для предотвращения наложения */
+}
+
 #about {
     display: flex;
-    flex-direction: column; /* Это поможет расположить текст вертикально */
+    flex-direction: column; /* Вертикальное расположение */
     align-items: center;
-    justify-content: flex-start; /* Изменить на flex-start для того, чтобы текст начинался сверху */
+    justify-content: flex-start; /* Текст начинает сверху */
     color: white;
     background-color: #333; 
-    padding-top: 250px; /* Добавлено отступы сверху */
-    min-height: auto; /* Или уберите фиксированную высоту для мобильных устройств */
+    padding-top: 50px; /* Верхний отступ, чтобы текст не накладывался */
 }
 @keyframes animate {
     0%{
@@ -278,8 +282,6 @@ section{
         width: 100%; /* Замените на 100% */
         height: auto; /* Замените на auto */
     }
-    about {
-        padding-top: 100px; /* Увеличение отступа для 
 }
 
 @media (max-width: 600px) {
