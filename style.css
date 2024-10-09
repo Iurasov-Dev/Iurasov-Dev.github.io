@@ -146,7 +146,7 @@ section{
     justify-content: flex-start; /* Изменить на flex-start для того, чтобы текст начинался сверху */
     color: white;
     background-color: #333; 
-    padding-top: 50px; /* Добавлено отступы сверху */
+    padding-top: 250px; /* Добавлено отступы сверху */
     min-height: auto; /* Или уберите фиксированную высоту для мобильных устройств */
 }
 @keyframes animate {
