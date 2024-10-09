@@ -8,30 +8,32 @@
     <style>
         body {
             margin: 0;
-            padding: 20px;
-            font-family: Arial, sans-serif;
-            background-color: #000; /* Непрозрачный черный фон для "Матрицы" */
-            overflow: hidden; /* Убираем прокрутку для эффекта */
-            position: relative;
+            padding: 0;
+            font-family: 'Courier New', monospace;
+            background-color: black; /* Черный фон для "Матрицы" */
+            overflow: hidden;
+            color: #0F0; /* Зеленый цвет текста */
         }
 
         h1 {
             text-align: center;
-            color: #00ff00; /* Цвет шрифта как в "Матрице" */
-            text-shadow: 0 0 10px #00ff00; /* Светится текст */
+            color: #00ff00; /* Цвет заголовка */
+            text-shadow: 0 0 10px #00ff00;
+            position: relative;
+            z-index: 1; /* Чтобы заголовок был выше фона */
         }
 
         .project-list {
-            max-width: 800px;
-            margin: 0 auto;
-            max-height: 80vh;
-            overflow-y: auto;
+            max-width: 800px; /* Максимальная ширина контейнера */
+            margin: 0 auto; /* Центрирование по горизонтали */
+            max-height: 80vh; /* Максимальная высота контейнера, 80% от высоты окна */
+            overflow-y: auto; /* Включаем прокрутку при необходимости */
             padding: 20px;
-            background-color: rgba(255, 255, 255, 0.9); /* Полупрозрачный белый фон для проектов */
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: relative;
-            z-index: 1; /* Надо, чтобы проекты были выше фона */
+            background-color: rgba(255, 255, 255, 0.9); /* Полупрозрачный белый фон для контейнера */
+            border-radius: 10px; /* Закругленные углы */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Тень для контейнера */
+            position: relative; /* Чтобы проекты были выше фона */
+            z-index: 1; /* Чтобы контент был поверх фона */
         }
 
         .project {
@@ -42,67 +44,55 @@
         }
 
         .project img {
-            width: 250px;
-            border-radius: 10px;
+            width: 250px; /* Задай нужный размер */
+            border-radius: 10px; /* Закругленные углы */
             transition: transform 0.3s;
         }
 
         .project:hover img {
-            transform: scale(1.05);
+            transform: scale(1.05); /* Увеличиваем изображение при наведении */
         }
 
-        /* Стили для анимированного фона */
         .matrix {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            overflow: hidden;
+            pointer-events: none; /* Чтобы события мыши проходили сквозь элемент */
             z-index: 0; /* На заднем плане */
-            color: #00ff00;
-            font-family: monospace;
-            white-space: nowrap;
-            opacity: 0.1; /* Делаем текст фона полупрозрачным */
         }
 
         .matrix span {
-            animation: fall 0.5s linear infinite;
-            display: inline-block;
-            animation-delay: calc(0.1s * var(--i));
+            position: absolute;
+            top: -10px;
+            white-space: nowrap;
+            color: #0F0; /* Зеленый цвет символов */
+            animation: fall 5s linear infinite;
         }
 
         @keyframes fall {
-            0% {
-                transform: translateY(-100%);
-            }
-            100% {
-                transform: translateY(100vh);
+            to {
+                transform: translateY(100vh); /* Падает до нижней части экрана */
             }
         }
     </style>
 </head>
 <body>
     <div class="matrix">
-        <!-- Создаем "падающие" символы -->
-        <div>
-            <span style="--i: 0;">0</span>
-            <span style="--i: 1;">1</span>
-            <span style="--i: 2;">0</span>
-            <span style="--i: 3;">1</span>
-            <span style="--i: 4;">0</span>
-            <span style="--i: 5;">1</span>
-            <span style="--i: 6;">0</span>
-            <span style="--i: 7;">1</span>
-            <span style="--i: 8;">1</span>
-            <span style="--i: 9;">0</span>
-            <span style="--i: 10;">1</span>
-            <span style="--i: 11;">1</span>
-            <span style="--i: 12;">0</span>
-            <span style="--i: 13;">1</span>
-            <span style="--i: 14;">1</span>
-            <span style="--i: 15;">0</span>
-        </div>
+        <script>
+            const chars = '01ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+            const matrix = document.querySelector('.matrix');
+
+            // Генерация падающих символов
+            for (let i = 0; i < 100; i++) {
+                const span = document.createElement('span');
+                span.textContent = chars.charAt(Math.floor(Math.random() * chars.length));
+                span.style.left = Math.random() * 100 + 'vw'; // Случайное положение по ширине
+                span.style.animationDelay = Math.random() * 5 + 's'; // Случайная задержка анимации
+                matrix.appendChild(span);
+            }
+        </script>
     </div>
 
     <h1>My Data Science Projects</h1>
