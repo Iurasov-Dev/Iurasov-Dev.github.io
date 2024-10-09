@@ -267,8 +267,8 @@ section{
 
     .main-container .image{
         z-index: -1;
-        width: 50%;
-        height: 60%;
+        width: 100%; /* Замените на 100% */
+        height: auto; /* Замените на auto */
     }
 }
 
@@ -314,8 +314,8 @@ section{
 
 @media (max-width: 440px) {
     .main-container .image{
-        width: 50%;
-        height: 60%;
+        width: 100%; /* Замените на 100% */
+        height: auto; /* Замените на auto */
         margin-bottom: 0px;
     }
 
