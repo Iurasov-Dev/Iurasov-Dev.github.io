@@ -139,11 +139,6 @@ section{
     animation: animate 1.5s ease-in-out infinite;
 }
 
-#home {
-    position: relative;
-    padding-bottom: 50px; /* Добавьте отступ внизу для предотвращения наложения */
-}
-
 #about {
     display: flex;
     flex-direction: column; /* Вертикальное расположение */
@@ -151,7 +146,7 @@ section{
     justify-content: flex-start; /* Текст начинает сверху */
     color: white;
     background-color: #333; 
-    padding-top: 50px; /* Верхний отступ, чтобы текст не накладывался */
+    padding-top: 150px; /* Верхний отступ, чтобы текст не накладывался */
 }
 @keyframes animate {
     0%{
@@ -312,9 +307,6 @@ section{
     .nav-container .links a {
         margin: 10px 0; /* Уменьшить отступы между ссылками */
     }
-
-    about {
-        padding-top: 100px; /* Увеличение отступа для 
 
     .content button {
         width: 80%; /* Кнопка занимает 80% ширины экрана на мобильных устройствах */
