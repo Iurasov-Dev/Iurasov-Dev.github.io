@@ -26,6 +26,7 @@ nav{
     display: flex;
     justify-content: space-around;
     align-items: center;
+    z-index: 40;
 }
 
 .logo{
@@ -52,6 +53,7 @@ nav{
 
 .nav-container .links{
     display: flex;
+    z-index: 40;
 }
 
 .nav-container .links a{
@@ -128,6 +130,7 @@ section{
     border-radius: 100%;
     overflow: hidden;
     box-shadow: 0 0 50px #077b32;
+    z-index: 1; /* Уменьшаем z-index */
 }
 
 .main-container .image img{
@@ -273,5 +276,12 @@ section{
     .content button {
         width: 80%; /* Увеличиваем ширину кнопки на мобильных */
         height: 50px; /* Задаем фиксированную высоту кнопки */
+    }
+    
+    .main-container .image {
+        width: 60%; /* Желательная ширина */
+        height: auto; /* Авто высота */
+        position: relative; /* Относительное позиционирование */
+        z-index: 1; /* Уменьшаем z-index */
     }
 }
