@@ -83,9 +83,6 @@ nav{
     color: #077b32;
 }
 
-#about {
-    padding-top: 300px; /* Увеличьте отступ сверху, если нужно */
-}
 .dropdown{
     z-index: 100;
     position: absolute;
@@ -126,9 +123,8 @@ section{
 }
 
 .main-container .image{
-    width: 100%; /* Задаем ширину 100% */
-    max-width: 500px; /* Максимальная ширина для больших экранов */
-    height: auto; /* Высота автоматически подстраивается */
+    width: 500px;
+    height: 80vh;
     border-radius: 100%;
     overflow: hidden;
     box-shadow: 0 0 50px #077b32;
@@ -143,6 +139,9 @@ section{
     animation: animate 1.5s ease-in-out infinite;
 }
 
+#about {
+    padding-top: 400px; /* Увеличьте отступ сверху, если нужно */
+}
 @keyframes animate {
     0%{
         scale: 1;
