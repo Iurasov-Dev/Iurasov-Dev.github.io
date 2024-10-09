@@ -251,14 +251,19 @@ section{
         flex-direction: column;
     }
 
+    .nav-container {
+        position: relative; /* Добавляем относительное позиционирование */
+        z-index: 20; /* Увеличиваем z-index для nav-container */
+    }
+
     .nav-container .links {
         display: none; /* Скрываем ссылки навигации */
-        z-index: 10; /* Увеличиваем z-index для кнопки */
     }
 
     .hamburg,
     .cancel {
         display: block; /* Показываем меню-бургер */
+        z-index: 30; /* Увеличиваем z-index для кнопки */
     }
 
     .main-container .content {
@@ -268,12 +273,12 @@ section{
     .content button {
         width: 80%; /* Увеличиваем ширину кнопки на мобильных */
         height: 50px; /* Задаем фиксированную высоту кнопки */
-        
     }
 
    .main-container .image {
         width: 60%; /* Измените на желаемую ширину, например 80% */
         height: auto; /* Чтобы высота адаптировалась */
+        z-index: 1; /* Убедитесь, что изображение имеет низкий z-index */
+        position: relative; /* Добавляем относительное позиционирование для изображения */
     }
 }
-
