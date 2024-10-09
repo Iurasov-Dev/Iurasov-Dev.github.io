@@ -214,16 +214,6 @@ section{
     filter: drop-shadow(0 0 10px #077b32);
 }
 
-.content {
-    display: flex; /* Используем Flexbox */
-    flex-direction: column; /* Устанавливаем колонковое направление */
-    align-items: center; /* Центрируем по горизонтали */
-    justify-content: center; /* Центрируем по вертикали */
-    text-align: center; /* Центрируем текст */
-    max-width: 800px; /* Максимальная ширина контейнера */
-    padding: 20px; /* Отступы на всех устройствах */
-}
-
 .content button{
     width: 50%;
     height: 6vh;
