@@ -130,7 +130,7 @@ section{
     border-radius: 100%;
     overflow: hidden;
     box-shadow: 0 0 50px #077b32;
-     margin-top: -80px; /* Поднимаем изображение на 20 пикселей */
+     margin-top: -50px; /* Поднимаем изображение на 20 пикселей */
 }
 
 .main-container .image img{
