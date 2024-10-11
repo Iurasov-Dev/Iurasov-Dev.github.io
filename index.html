@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Viacheslav Portfolio</title>
 </head>
@@ -37,7 +38,7 @@
     </nav>
         <section id="home" style="height: 100vh;">
         <div class="main-container">
-            <div class="image" data-aos="fade-in" data-aos-duration="1000">
+            <div class="image animate__animated animate__fadeIn" style="animation-duration: 1s;">
                 <img src="main.png" alt="">
             </div>
              <div class="content">
@@ -157,6 +158,26 @@
               });
           });
       });
+        // Анимация для изображения при скролле
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedImage = document.getElementById('animatedImage');
+
+            const options = {
+                root: null,
+                threshold: 0.1
+            };
+
+            const callback = (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animatedImage.classList.add('animate__animated', 'animate__fadeIn');
+                    }
+                });
+            };
+
+            const observer = new IntersectionObserver(callback, options);
+            observer.observe(animatedImage);
+        });
     </script>
     <script src="script.js"></script>
 </body>
