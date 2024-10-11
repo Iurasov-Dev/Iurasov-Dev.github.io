@@ -78,12 +78,10 @@ window.onload = () => {
         }
     });
 
-    <script>
     function playSound() {
         const sound = document.getElementById('dingSound');
         sound.play();
     }
-</script>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
