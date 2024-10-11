@@ -142,7 +142,7 @@
     <script>
       AOS.init({offset:0});
 
-      // Плавная прокрутка
+// Плавная прокрутка
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
           anchor.addEventListener('click', function (e) {
               e.preventDefault();
@@ -172,6 +172,13 @@
                     }
                 });
             };
+
+            const observer = new IntersectionObserver(callback, options);
+            observer.observe(animatedImage);
+        });
+    </script>
+    <script src="script.js"></script>
+    
 </body>
 </html>
 
