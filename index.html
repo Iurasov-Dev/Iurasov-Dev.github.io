@@ -136,72 +136,52 @@
         const sound = document.getElementById('dingSound');
         sound.play();
     }
-    
-<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-<script>
-  // Инициализация AOS
-  AOS.init({ offset: 0 });
-
-  // Плавная прокрутка
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-          e.preventDefault();
-          const targetId = this.getAttribute('href'); // Получаем цель прокрутки
-          const targetElement = document.querySelector(targetId); // Находим элемент
-
-          if (targetElement) { // Проверяем наличие элемента перед прокруткой
-              targetElement.scrollIntoView({
-                  behavior: 'smooth',
-                  block: 'start'
-              });
-          }
-      });
-  });
-
-  // Анимация для изображения при скролле
-  document.addEventListener('DOMContentLoaded', function() {
-      const animatedImage = document.getElementById('animatedImage');
-      const options = {
-          root: null,
-          threshold: 0.1
-      };
-
-      const callback = (entries) => {
-          entries.forEach(entry => {
-              if (entry.isIntersecting) {
-                  // Добавляем анимацию, когда элемент видим
-                  animatedImage.classList.add('animate__animated', 'animate__fadeIn');
-              }
-          });
-      };
-
-      const observer = new IntersectionObserver(callback, options);
-
-      if (animatedImage) { // Проверяем наличие элемента перед наблюдением
-          observer.observe(animatedImage);
-      }
-
-      // Обработчик для кнопки проект
-      const projectButton = document.querySelector('button');
-
-      if (projectButton) { // Проверяем наличие кнопки перед добавлением обработчика
-          projectButton.addEventListener('click', toggleSections);
-      }
-
-      // Функция для переключения секций
-      function toggleSections() {
-          const aboutSection = document.querySelector('#about');
-          const skillsSection = document.querySelector('#skills');
-
-          // Переключаем видимость секций
-          if (aboutSection && skillsSection) { // Проверяем наличие секций
-              const isVisible = aboutSection.style.display === 'block'; // Проверяем текущую видимость
-              aboutSection.style.display = isVisible ? 'none' : 'block'; // Устанавливаем новую видимость
-              skillsSection.style.display = isVisible ? 'none' : 'block'; // Устанавливаем новую видимость
-          }
-      }
-  });
 </script>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({ offset: 0 });
+
+        // Плавная прокрутка
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        });
+
+        // Анимация для изображения при скролле
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedImage = document.getElementById('animatedImage');
+
+            const options = {
+                root: null,
+                threshold: 0.1
+            };
+
+            const callback = (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animatedImage.classList.add('animate__animated', 'animate__fadeIn');
+                    }
+                });
+            };
+
+            const observer = new IntersectionObserver(callback, options);
+            observer.observe(animatedImage);
+        });
+    
+    // Добавляем обработчик для кнопки проект
+    const projectButton = document.querySelector('button'); // Предполагается, что у вас только одна кнопка
+    projectButton.addEventListener('click', toggleSections);
+};
 
 <script src="script.js"></script>
 </body>
