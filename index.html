@@ -8,12 +8,10 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     <link rel="stylesheet" href="plexus-effect/css/style.css" media="screen">
     <title>Viacheslav Portfolio</title>
 </head>
 <body>
-        <!-- Контейнер для анимации Plexus Effect -->
-  
-    
     <nav>
         <div class="nav-container">
             <div class="logo" data-aos="zoom-in" data-aos-duration="1500">
@@ -94,8 +92,8 @@
                 <audio id="dingSound" src="sounds/airplane-ding-dong.mp3"></audio>
             </div>
         </section>
-        <!-- Секция для Plexus Effect -->
-    <section id="plexus-section" style="height: 100vh; position: relative;">
+   
+   <section id="plexus-section" style="height: 100vh; position: relative;">
         <canvas id="plexus-test" class="plexus" style="width: 100%; height: 100%;"></canvas>
         <div class="controls" id="plexus-control" style="position: absolute; top: 20px; left: 20px; z-index: 10; background: rgba(0, 0, 0, 0.5); padding: 10px; border-radius: 5px;">
             <form>
@@ -153,7 +151,7 @@
             </div>
         </section>
    
-    <script src="plexus-effect/js/math.js"></script>
+   <script src="plexus-effect/js/math.js"></script>
     <script src="plexus-effect/js/plexus.js"></script>
     <script>
         var plexus = new Plexus("plexus-test", {
@@ -161,6 +159,10 @@
             pointsRadius: 1.1,
             pointsStartDistance: 60
         });
+        
+        // Инициализация контролов
+        var controls = new Controls("plexus-control", plexus);
+        var cursor = new Cursor(plexus, { pointsSpeed: 0.5 });
 
         // Обработчик событий для контролов
         document.querySelectorAll('input[data-plexus]').forEach(input => {
