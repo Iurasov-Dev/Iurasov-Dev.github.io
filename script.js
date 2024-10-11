@@ -81,4 +81,11 @@ window.onload = () => {
     // Добавляем обработчик для кнопки проект
     const projectButton = document.querySelector('button'); // Предполагается, что у вас только одна кнопка
     projectButton.addEventListener('click', toggleSections);
+
+    // Инициализация Plexus
+    const canvas = document.getElementById('plexus-canvas');
+    if (canvas) {
+        const plexus = new Plexus(canvas);
+        plexus.start(); // Запустите эффект Plexus
+    }
 };
