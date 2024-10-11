@@ -77,6 +77,53 @@ window.onload = () => {
             cancel();
         }
     });
+
+    <script>
+    function playSound() {
+        const sound = document.getElementById('dingSound');
+        sound.play();
+    }
+</script>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({ offset: 0 });
+
+        // Плавная прокрутка
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        });
+
+        // Анимация для изображения при скролле
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedImage = document.getElementById('animatedImage');
+
+            const options = {
+                root: null,
+                threshold: 0.1
+            };
+
+            const callback = (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animatedImage.classList.add('animate__animated', 'animate__fadeIn');
+                    }
+                });
+            };
+
+            const observer = new IntersectionObserver(callback, options);
+            observer.observe(animatedImage);
+        });
     
     // Добавляем обработчик для кнопки проект
     const projectButton = document.querySelector('button'); // Предполагается, что у вас только одна кнопка
