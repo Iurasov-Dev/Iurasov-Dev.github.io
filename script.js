@@ -77,11 +77,8 @@ window.onload = () => {
             cancel();
         }
     });
-
+    
     // Добавляем обработчик для кнопки проект
     const projectButton = document.querySelector('button'); // Предполагается, что у вас только одна кнопка
     projectButton.addEventListener('click', toggleSections);
 };
-
-
-
