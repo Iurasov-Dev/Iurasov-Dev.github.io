@@ -60,11 +60,6 @@ function toggleSections() {
     }
 }
 
-    function playSound() {
-        const sound = document.getElementById('dingSound');
-        sound.play();
-    }
-
 window.onload = () => {
     // Запускаем эффект печати
     typeWriter();
