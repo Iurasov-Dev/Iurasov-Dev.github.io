@@ -59,6 +59,10 @@ body {
   z-index: 1; /* Задаем низкий z-index для Plexus */
 }
 
+.main-container {
+    position: relative; /* Относительное положение для контента на переднем плане */
+    z-index: 2; /* Высокий z-index для контента */
+}
 
 /* Параметры для эффекта Plexus, если это необходимо */
 .plexus {
