@@ -107,103 +107,102 @@ var plexus = new Plexus('plexusBackground'); // храним экземпляр 
 plexus.init(); // инициируем
 
 
-var Point = function (_position, _plexus) {
-    var that = this;
-    this.app = _plexus;
-    this.active = false;
-    this.position = _position;
-    this.neighbours = [];
-    this.target = null;
+class Point {
+    constructor(_position, _plexus) {
+        this.app = _plexus;
+        this.active = false;
+        this.position = _position;
+        this.neighbours = [];
+        this.target = null;
 
-    this.direction = null;
-    this.intervalTime = null;
+        this.direction = null;
+        this.intervalTime = null;
 
-    this.setNewTarget = function () {
+        this.init();
+    }
 
-        var appSize = new Vector2(that.app.canvas.width, that.app.canvas.height);
-        var offset = that.app.config.targetsBoundsOffset;
+    setNewTarget() {
+        var appSize = new Vector2(this.app.canvas.width, this.app.canvas.height);
+        var offset = this.app.config.targetsBoundsOffset;
 
         do {
-            var newTarget = Vector2.RandomInRange(that.position, that.app.config.pointsTargetRange);
-        } while(newTarget.x < 0 - offset || newTarget.y < 0 - offset || newTarget.x > appSize.x + offset || newTarget.y > appSize.y + offset);
+            var newTarget = Vector2.RandomInRange(this.position, this.app.config.pointsTargetRange);
+        } while (newTarget.x < 0 - offset || newTarget.y < 0 - offset || newTarget.x > appSize.x + offset || newTarget.y > appSize.y + offset);
 
-        that.target = newTarget;
-    };
+        this.target = newTarget;
+    }
 
-    this.checkTarget = function () {
-        if(that.target == null || Vector2.DistanceFast(that.position, that.target) < that.app.configOptimized.pointsTargetOffset)
-            that.setNewTarget();
-    };
+    checkTarget() {
+        if (this.target == null || Vector2.DistanceFast(this.position, this.target) < this.app.configOptimized.pointsTargetOffset) {
+            this.setNewTarget();
+        }
+    }
 
-    this.checkNeighbours = function () {
-
-        var neighboursLength = that.neighbours.length - 1;
-        var pointsLength = that.app.points.length;
+    checkNeighbours() {
+        var neighboursLength = this.neighbours.length - 1;
+        var pointsLength = this.app.points.length;
 
         // Remove neighbours
-        for(var j = neighboursLength; j >= 0; j--) {
-            if(Vector2.DistanceFast(that.position, that.neighbours[j].position) > that.app.configOptimized.lineDistance) {
-                that.neighbours.splice(j, 1);
+        for (var j = neighboursLength; j >= 0; j--) {
+            if (Vector2.DistanceFast(this.position, this.neighbours[j].position) > this.app.configOptimized.lineDistance) {
+                this.neighbours.splice(j, 1);
             }
         }
 
         // Check points around
-        for(var i = 0; i < pointsLength; i++) {
-            if(that.neighbours.indexOf(that.app.points[i]) == -1 && Vector2.DistanceFast(that.position, that.app.points[i].position) < that.app.configOptimized.lineDistance) {
-                that.neighbours.push(that.app.points[i]);
+        for (var i = 0; i < pointsLength; i++) {
+            if (this.neighbours.indexOf(this.app.points[i]) == -1 && Vector2.DistanceFast(this.position, this.app.points[i].position) < this.app.configOptimized.lineDistance) {
+                this.neighbours.push(this.app.points[i]);
             }
         }
-    };
+    }
 
-    this.drawNeighbourLines = function () {
+    drawNeighbourLines() {
+        this.app.context.strokeStyle = this.app.configOptimized.lineColor;
+        this.app.context.beginPath();
 
-        that.app.context.strokeStyle = that.app.configOptimized.lineColor;
-        that.app.context.beginPath();
-
-        for(var i = 0; i < that.neighbours.length; i++) {
-            that.app.context.moveTo(that.position.x, that.position.y);
-            that.app.context.lineTo(that.neighbours[i].position.x, that.neighbours[i].position.y);
+        for (var i = 0; i < this.neighbours.length; i++) {
+            this.app.context.moveTo(this.position.x, this.position.y);
+            this.app.context.lineTo(this.neighbours[i].position.x, this.neighbours[i].position.y);
         }
 
-        that.app.context.stroke();
-    };
+        this.app.context.stroke();
+    }
 
-    this.setDirection = function () {
-        var directionVector = (Vector2.VectorTo(that.position, that.target)).Normalize();
-        directionVector.Multiply(that.app.config.pointsSpeed);
-        that.direction = directionVector;
-    };
+    setDirection() {
+        var directionVector = (Vector2.VectorTo(this.position, this.target)).Normalize();
+        directionVector.Multiply(this.app.config.pointsSpeed);
+        this.direction = directionVector;
+    }
 
-    this.move = function () {
-        that.setDirection();
-        that.position.Add( that.direction );
-    };
+    move() {
+        this.setDirection();
+        this.position.Add(this.direction);
+    }
 
-    this.draw = function () {
-        that.app.context.beginPath();
-        that.app.context.arc(this.position.x, this.position.y, that.app.config.pointsRadius, 0, 2*Math.PI);
-        that.app.context.fillStyle = that.app.config.pointsColor;
-        that.app.context.fill();
-    };
+    draw() {
+        this.app.context.beginPath();
+        this.app.context.arc(this.position.x, this.position.y, this.app.config.pointsRadius, 0, 2 * Math.PI);
+        this.app.context.fillStyle = this.app.config.pointsColor;
+        this.app.context.fill();
+    }
 
-    this.update = function () {
-        if(!that.active) return;
-        that.checkTarget();
-        that.move();
-        that.drawNeighbourLines();
-        that.draw();
-    };
+    update() {
+        if (!this.active) return;
+        this.checkTarget();
+        this.move();
+        this.drawNeighbourLines();
+        this.draw();
+    }
 
-    this.init = function () {
-        that.intervalTime = Math.randomInt(500, 1190);
-        that.neigboursInterval = setInterval(that.checkNeighbours, that.intervalTime);
-        that.directionInterval = setInterval(that.setDirection, that.intervalTime);
+    init() {
+        this.intervalTime = Math.randomInt(500, 1190);
+        this.neighboursInterval = setInterval(() => this.checkNeighbours(), this.intervalTime);
+        this.directionInterval = setInterval(() => this.setDirection(), this.intervalTime);
 
-        that.active = true;
-    };
-
-    setTimeout(that.init, Math.randomInt(0, 500));
-};
+        this.active = true;
+    }
+}
 
 var Controls = function (_id, _plexus) {
     var that = this;
