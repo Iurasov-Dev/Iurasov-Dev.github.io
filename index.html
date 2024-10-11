@@ -138,26 +138,31 @@
         const sound = document.getElementById('dingSound');
         sound.play();
     }
-    </script>
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-      AOS.init({offset:0});
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                offset: 0,
+                duration: 1000, // Добавлено для всех анимаций
+            });
+        });
 
-      // Плавная прокрутка
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-          anchor.addEventListener('click', function (e) {
-              e.preventDefault();
+        // Плавная прокрутка
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
 
-              const targetId = this.getAttribute('href');
-              const targetElement = document.querySelector(targetId);
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
 
-              targetElement.scrollIntoView({
-                  behavior: 'smooth',
-                  block: 'start'
-              });
-          });
-      });
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        });
     </script>
     <script src="script.js"></script>
 </body>
+</html>
 </html>
