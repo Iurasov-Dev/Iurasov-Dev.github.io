@@ -65,25 +65,3 @@ function toggleSections() {
     }
 }
 
-window.onload = () => {
-    // Запускаем эффект печати
-    typeWriter();
-
-    const hamburgIcon = document.querySelector(".hamburg");
-    hamburgIcon.addEventListener("click", hamburg); // Добавляем обработчик клика
-
-    const cancelIcon = document.querySelector(".cancel");
-    cancelIcon.addEventListener("click", cancel); // Добавляем обработчик клика
-
-    // Закрытие меню при клике вне него
-    window.addEventListener('click', function(event) {
-        const navbar = document.querySelector(".dropdown");
-        if (!navbar.contains(event.target) && !hamburgIcon.contains(event.target)) {
-            cancel();
-        }
-    });
-    
-    // Добавляем обработчик для кнопки проект
-    const projectButton = document.querySelector('button'); // Предполагается, что у вас только одна кнопка
-    projectButton.addEventListener('click', toggleSections);
-};
