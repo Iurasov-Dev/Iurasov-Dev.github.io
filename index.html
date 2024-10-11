@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-     
+     <link rel="stylesheet" href="plexus-effect/css/style.css" media="screen">
     <title>Viacheslav Portfolio</title>
 </head>
 <body>
@@ -37,7 +37,8 @@
             </div>
         </div>
     </nav>
-        <section id="home" style="height: 100vh;"> 
+        <section id="home" style="height: 100vh;"> 
+
         <div class="main-container">
             <div class="image animate__animated animate__fadeIn" style="animation-duration: 1s;">
                 <img src="main.png" alt="">
@@ -135,12 +136,15 @@
 <script src="plexus-effect/js/math.js"></script>
 <script src="plexus-effect/js/plexus.js"></script>
 <script>
-        // Инициализация Plexus
-        const plexus = new Plexus("plexus-test", {
+        var plexus = new Plexus("plexus-test", {
             pointsSpeed: 0.5,
             pointsRadius: 1.1,
             pointsStartDistance: 60
-         </script>
+        });
+        
+        // Инициализация контролов
+        var controls = new Controls("plexus-control", plexus);
+        var cursor = new Cursor(plexus, { pointsSpeed: 0.5 });
 
 <script>
     function playSound() {
