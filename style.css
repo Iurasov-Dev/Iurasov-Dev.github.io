@@ -131,29 +131,17 @@ section{
     overflow: hidden;
     box-shadow: 0 0 50px #077b32;
     margin-top: -50px; /* Поднимаем изображение на 50 пикселей */
+    position: relative; /* Добавляем позиционирование */
 }
 
 .main-container .image img {
     width: 100%;
     height: auto;
+    transition: transform 1.5s ease-in-out; /* Добавляем плавный переход */
 }
 
-.main-container .image:hover {
-    animation: animate 1.5s ease-in-out infinite;
-}
-
-@keyframes animate {
-    0% {
-        transform: scale(1);
-    }
-    
-    50% {
-        transform: scale(1.05);
-    }
-    
-    100% {
-        transform: scale(1);
-    }
+.main-container .image:hover img {
+    transform: scale(1.05); /* Увеличиваем изображение при наведении */
 }
 
 .main-container .content {
