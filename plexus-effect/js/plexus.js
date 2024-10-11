@@ -287,3 +287,11 @@ var Cursor = function (_plexus, _options) {
 
     }();
 }; 
+
+// Добавьте этот код в конец вашего plexus.js
+function initPlexus(canvasId) {
+    var plexus = new Plexus(canvasId);
+    plexus.fit();
+    plexus.setOptimizedConfig();
+    plexus.init(); // Это вызовет вашу инициализацию, включая управление событиями
+}
