@@ -87,7 +87,7 @@ var Plexus = function (_id, _options) {
             that.points[i].update();
         }
 
-        //requestAnimationFrame(that.update);
+        requestAnimationFrame(that.update);
     };
 
     this.init = function () {
