@@ -207,7 +207,7 @@ section{
 .content button{
     width: 50%;
     height: 6vh;
-    margin: 30px 0 30px 20px;;
+    margin: 30px;
     background-color: #077b32;
     color: white;
     border: none;
