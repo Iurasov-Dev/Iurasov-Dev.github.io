@@ -81,11 +81,54 @@ window.onload = () => {
     // Добавляем обработчик для кнопки проект
     const projectButton = document.querySelector('button'); // Предполагается, что у вас только одна кнопка
     projectButton.addEventListener('click', toggleSections);
+document.addEventListener('DOMContentLoaded', function () {
+    // Плавная прокрутка
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
 
-    // Инициализация Plexus
-    const canvas = document.getElementById('plexus-canvas');
-    if (canvas) {
-        const plexus = new Plexus(canvas);
-        plexus.start(); // Запустите эффект Plexus
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+
+            targetElement.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        });
+    });
+
+    // Инициализация AOS
+    AOS.init({ offset: 0 });
+
+    // Функция воспроизведения звука
+    function playSound() {
+        const sound = document.getElementById('dingSound');
+        sound.play();
     }
+
+    // Привязка события к элементу
+    const soundElement = document.querySelector('span[data-aos="fade-up"]'); // Убедитесь, что селектор правильный
+    if (soundElement) {
+        soundElement.onmouseover = playSound;
+    }
+
+    // Наблюдатель для анимации (если потребуется)
+    const animatedImage = document.getElementById('animatedImage');
+    const options = {
+        root: null,
+        threshold: 0.1
+    };
+
+    const callback = (entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animatedImage.classList.add('animate__animated', 'animate__fadeIn');
+            }
+        });
+    };
+
+    const observer = new IntersectionObserver(callback, options);
+    observer.observe(animatedImage);
+});
+
 };
