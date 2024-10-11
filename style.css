@@ -274,14 +274,14 @@ section{
 
     .main-container .image{
         z-index: -1;
-        width: 40%;
-        height: 50%;
+        width: 30%;
+        height: auto;
     }
 }
 
 @media (max-width:440px){
     .main-container .image{
-        width: 60%;
+        width: 50%;
         height: auto; 
         margin-bottom: 0px;
     }
