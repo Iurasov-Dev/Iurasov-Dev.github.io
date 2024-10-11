@@ -11,7 +11,6 @@ function cancel() {
 }
 
 // Typewriter Effect
-
 const texts = [
     "DATA SCIENTIST",
     "DESIGNER",
@@ -20,7 +19,7 @@ const texts = [
     "TILTED HORIZON"
 ];
 
-let speed  = 100;
+let speed = 100;
 const textElements = document.querySelector(".typewriter-text");
 
 let textIndex = 0;
@@ -30,7 +29,7 @@ function typeWriter() {
     if (charcterIndex < texts[textIndex].length) {
         textElements.innerHTML += texts[textIndex].charAt(charcterIndex);
         charcterIndex++;
-        setTimeout(typeWriter, speed); 
+        setTimeout(typeWriter, speed);
     } else {
         setTimeout(eraseText, 1000);
     }
@@ -47,26 +46,6 @@ function eraseText() {
     }
 }
 
-window.onload = () => {
-    typeWriter();
-    const hamburgIcon = document.querySelector(".hamburg");
-    hamburgIcon.addEventListener("click", hamburg); // Добавляем обработчик клика
-    const cancelIcon = document.querySelector(".cancel");
-    cancelIcon.addEventListener("click", cancel); // Добавляем обработчик клика
-    
-    // Закрытие меню при клике вне него
-    window.addEventListener('click', function(event) {
-        const navbar = document.querySelector(".dropdown");
-        if (!navbar.contains(event.target) && !hamburgIcon.contains(event.target)) {
-            cancel();
-        }
-    });
-    
-    // Добавляем обработчик для кнопки
-    const projectButton = document.querySelector('button'); // Предполагается, что у вас только одна кнопка
-    projectButton.addEventListener('click', toggleSections); // Добавляем обработчик клика
-};
-
 function toggleSections() {
     const aboutSection = document.querySelector('#about');
     const skillsSection = document.querySelector('#skills');
@@ -82,6 +61,24 @@ function toggleSections() {
 }
 
 window.onload = () => {
+    // Запускаем эффект печати
+    typeWriter();
+
+    const hamburgIcon = document.querySelector(".hamburg");
+    hamburgIcon.addEventListener("click", hamburg); // Добавляем обработчик клика
+
+    const cancelIcon = document.querySelector(".cancel");
+    cancelIcon.addEventListener("click", cancel); // Добавляем обработчик клика
+
+    // Закрытие меню при клике вне него
+    window.addEventListener('click', function(event) {
+        const navbar = document.querySelector(".dropdown");
+        if (!navbar.contains(event.target) && !hamburgIcon.contains(event.target)) {
+            cancel();
+        }
+    });
+    
+    // Добавляем обработчик для кнопки проект
     const projectButton = document.querySelector('button'); // Предполагается, что у вас только одна кнопка
-    projectButton.addEventListener('click', toggleSections); // Добавляем обработчик клика
+    projectButton.addEventListener('click', toggleSections);
 };
