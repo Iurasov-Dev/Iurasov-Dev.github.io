@@ -98,7 +98,7 @@ var Plexus = function (_id, _options) {
 
         that.fit();
         that.spawn();
-        //that.update();
+        that.update();
     }();
 
 };
