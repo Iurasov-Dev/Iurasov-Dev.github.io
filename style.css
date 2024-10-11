@@ -227,6 +227,15 @@ section{
     box-shadow: 0 0 40px #077b32;
 }
 
+#plexusBackground {
+    position: absolute; /* Или другой способ позиционирования */
+    top: 0;
+    left: 0;
+    width: 100vw; /* Занять всю ширину окна */
+    height: 100vh; /* Занять всю высоту окна */
+    overflow: hidden; /* Скрыть переполнение, если необходимо */
+    z-index: -1; /* Поместить позади других элементов */
+}
 
 @media (max-width:884px) {
     nav .logo{
