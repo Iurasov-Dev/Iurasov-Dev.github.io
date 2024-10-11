@@ -103,6 +103,10 @@ var Plexus = function (_id, _options) {
 
 };
 
+var plexus = new Plexus('plexusBackground'); // храним экземпляр в переменной
+plexus.init(); // инициируем
+
+
 var Point = function (_position, _plexus) {
     var that = this;
     this.app = _plexus;
