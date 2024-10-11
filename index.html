@@ -93,9 +93,9 @@
             </div>
         </section>
    
-   <section id="plexus-section" style="height: 100vh; position: relative;">
-        <canvas id="plexus-test" class="plexus" style="width: 100%; height: 100%;"></canvas>
-        <div class="controls" id="plexus-control" style="position: absolute; top: 20px; left: 20px; z-index: 10; background: rgba(0, 0, 0, 0.5); padding: 10px; border-radius: 5px;">
+    <section id="plexus-section" style="height: 100vh; position: relative;">
+        <canvas id="plexus-test" class="plexus" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></canvas>
+        <div class="controls" id="plexus-control" style="position: absolute; top: 20px; left: 20px; z-index: 10; background: black; padding: 10px; border-radius: 5px;">
             <form>
                 <label>
                     line distance
@@ -160,10 +160,6 @@
             pointsStartDistance: 60
         });
         
-        // Инициализация контролов
-        var controls = new Controls("plexus-control", plexus);
-        var cursor = new Cursor(plexus, { pointsSpeed: 0.5 });
-
         // Обработчик событий для контролов
         document.querySelectorAll('input[data-plexus]').forEach(input => {
             input.addEventListener('input', function() {
