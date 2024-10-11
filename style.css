@@ -228,16 +228,6 @@ section{
     box-shadow: 0 0 40px #077b32;
 }
 
-#plexusBackground {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw; /* Заполняет всю ширину */
-    height: 100vh; /* Заполняет всю высоту */
-    z-index: -1; /* Позволяет другим элементам быть выше */
-    overflow: hidden; /* Скрывает любое переполнение */
-}
-
 @media (max-width:884px) {
     nav .logo{
         position: absolute;
