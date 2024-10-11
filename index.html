@@ -184,12 +184,11 @@
     </script>
     <script src="script.js"></script>
     
-<script src="plexus-effect/js/math.js"></script> <!-- Путь к math.js -->
-    <script src="plexus-effect/js/plexus.js"></script> <!-- Путь к plexus.js -->
+    <script src="plexus-effect/js/math.js"></script>
+    <script src="plexus-effect/js/plexus.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            initPlexus('plexusBackground'); // Передаем ID канваса в функцию инициализации
-        });
+        var plexus = new Plexus('plexusBackground');
+        plexus.init();
     </script>
 </body>
 </html>
