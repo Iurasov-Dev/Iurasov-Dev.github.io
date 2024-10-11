@@ -11,6 +11,9 @@
     <title>Viacheslav Portfolio</title>
 </head>
 <body>
+        <!-- Контейнер для анимации Plexus Effect -->
+    <div id="plexusBackground"></div>
+    
     <nav>
         <div class="nav-container">
             <div class="logo" data-aos="zoom-in" data-aos-duration="1500">
@@ -180,6 +183,15 @@
         });
     </script>
     <script src="script.js"></script>
+    
+        <script src="path/to/plexus-effect/js/math.js"></script> <!-- Путь к math.js -->
+    <script src="path/to/plexus-effect/js/plexus.js"></script> <!-- Путь к plexus.js -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const plexusCanvas = document.getElementById('plexusBackground');
+            initPlexus(plexusCanvas); // Пример инициализации функции в plexus.js
+        });
+    </script>
 </body>
 </html>
 
