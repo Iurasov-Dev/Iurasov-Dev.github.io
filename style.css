@@ -116,7 +116,7 @@ section{
     height: 90vh;
 }
 
-.main-container{
+.main-container {
     width: 100%;
     height: 100%;
     display: flex;
@@ -124,40 +124,39 @@ section{
     align-items: center;
 }
 
-.main-container .image{
+.main-container .image {
     width: 500px;
     height: 80vh;
     border-radius: 100%;
     overflow: hidden;
     box-shadow: 0 0 50px #077b32;
-     margin-top: -50px; /* Поднимаем изображение на 20 пикселей */
+    margin-top: -50px; /* Поднимаем изображение на 50 пикселей */
 }
 
-.main-container .image img{
+.main-container .image img {
     width: 100%;
     height: auto;
 }
 
-.main-container .image:hover{
+.main-container .image:hover {
     animation: animate 1.5s ease-in-out infinite;
 }
 
-}
 @keyframes animate {
-    0%{
-        scale: 1;
+    0% {
+        transform: scale(1);
     }
     
-    50%{
-        scale: 1.05;
+    50% {
+        transform: scale(1.05);
     }
     
-    100%{
-        scale: 1;
+    100% {
+        transform: scale(1);
     }
 }
 
-.main-container .content{
+.main-container .content {
     color: white;
     width: 40%;
     min-height: 100px;
