@@ -216,7 +216,6 @@ section{
     font-weight: 700;
     border-radius: 5px;
     transition: 0.2s linear;
-    transform: translateX(-30px);
 }
 
 .content button:hover{
