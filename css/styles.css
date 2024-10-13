@@ -236,8 +236,8 @@ section{
     box-shadow: 0 0 40px #077b32;
 }
 
-@media (max-width:884px) {
-    nav .logo{
+@media (max-width: 884px) {
+    nav .logo {
         position: absolute;
         top: 16px;
         left: 15px;
@@ -250,51 +250,60 @@ section{
         flex-direction: column;
     }
 
-    .nav-container .links{
-        display: none;
+    .nav-container .links {
+        display: none; /* Скрыть ссылки на мобильных */
     }
 
     .hamburg,
-    .cancel{
+    .cancel {
         display: block;
-        z-index: 50;
+        z-index: 50; /* Убедитесь, что кнопки меню выше */
     }
 
-    .main-container .content{
-        width: 80%;
+    .dropdown-menu {
+        position: absolute; /* Позиционирование выпадающего меню */
+        top: 100%; /* Под навигацией */
+        left: 0;
+        z-index: 100; /* Больше, чем у изображения */
+        display: none; /* Скрыто по умолчанию */
     }
-    
+
+    .hamburg:hover + .dropdown-menu,
+    .hamburg:focus + .dropdown-menu {
+        display: block; /* Показать меню при наведении или фокусе */
+    }
+
+    .main-container .content {
+        width: 80%;
+        z-index: 50; /* Убедитесь, что контент выше изображения */
+    }
+
     .content button {
         width: 80%; /* Увеличиваем ширину кнопки на мобильных */
         height: 50px; /* Задаем фиксированную высоту кнопки */
     }
 
-    .main-container .image{
-        z-index: 10;
+    .main-container .image {
+        z-index: -1; /* Изображение с низким z-index */
         width: 30%;
         height: auto;
     }
 }
 
-@media (max-width:440px){
-    .main-container .image{
+@media (max-width: 440px) {
+    .main-container .image {
         width: 50%;
         height: auto; 
         margin-bottom: 0px;
-        z-index: 10;
+        z-index: 0; /* Убедитесь, что изображение все еще ниже */
     }
 
-    .main-container .content{
+    .main-container .content {
         width: 80%;
-    }
-
-    .hamburg,
-    .cancel{
-        display: block;
         z-index: 50;
     }
 
-    .main-container button{
+    .main-container button {
         margin-top: 15px;
     }
 }
