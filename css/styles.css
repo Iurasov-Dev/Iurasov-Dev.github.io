@@ -245,6 +245,10 @@ section{
         z-index: 10;
     }
 
+    .fullscreen {
+        z-index: -2; /* Низкий z-index для фона */
+      }
+
     .main-container {
         display: flex;
         flex-direction: column;
@@ -306,4 +310,8 @@ section{
     .main-container button {
         margin-top: 15px;
     }
+
+    .fullscreen {
+        z-index: -2; /* Низкий z-index для фона */
+      }
 }
