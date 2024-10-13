@@ -25,7 +25,7 @@ var Plexus = function (_id, _options) {
             b : 255,
             a : 0.2
         },
-        lineDistance : 100,
+        lineDistance : 66,
 
         // Start
         targetsBoundsOffset : 200,
