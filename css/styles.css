@@ -295,7 +295,7 @@ section{
         width: 50%;
         height: auto; 
         margin-bottom: 0px;
-        z-index: 0; /* Убедитесь, что изображение все еще ниже */
+        z-index: -1; /* Убедитесь, что изображение все еще ниже */
     }
 
     .main-container .content {
