@@ -26,7 +26,7 @@ body {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.0); /* Полупрозрачный фон для анимации */
-  z-index: 0; /* Низкий z-index для фона */
+  z-index: -2; /* Низкий z-index для фона */
 }
 
 .controls {
