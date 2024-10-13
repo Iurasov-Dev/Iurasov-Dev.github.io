@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css" media="screen">
+    <link rel="stylesheet" href="css/styles.css" media="screen">
+    <title>Viacheslav Portfolio</title>
+</head>
+    <body>
+        <div class="fullscreen">
+            <canvas id="plexus-test" class="plexus"></canvas>
+        </div>
+        <div class="controls" id="plexus-control">
+            <form>
+                <label>
+                    Line Distance
+                    <input type="range" data-plexus="lineDistance" value="100" step="10" max="400" min="0">
+                </label>
+                <label>
+                    Speed
+                    <input type="range" data-plexus="pointsSpeed" value="0.5" step="0.2" max="5" min="0">
+                </label>
+            </form>
+        </div>
+      <nav>
+        <div class="nav-container">
+            <div class="logo" data-aos="zoom-in" data-aos-duration="1500">
+                Iurasov <span>Viacheslav</span>
+            </div>
+            <div class="links">
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">
+                    <a href="#home">Home</a>
+                </div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">
+                    <a href="#about">About</a>
+                </div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300">
+                    <a href="#skills">Skills</a>
+                </div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500">
+                    <a href="#contact">Contact</a>
+                </div>
+                <div>
+                    <i class="fa-solid fa-ellipsis-v menu-icon" onclick="toggleMenu()"></i>
+                </div>
+                <div class="dropdown">
+                    <div class="links">
+                        <a href="#">Home</a>
+                        <a href="#">About</a>
+                        <a href="#">Skills</a>
+                        <a href="#">Contact</a>
+                        <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
+                    </div>
+                </div>                
+    </nav>
+    <section id="home" style="height: 100vh;">
+        <div class="main-container">
+            <div class="image" data-aos="zoom-out" data-aos-duration="3000">
+                <img src="img/main.gif" alt="">
+            </div>
+            <div class="content">
+                <h1 data-aos="fade-left" data-aos-duration="1500" data-aos-delay="700">Hey I'm <span>Viacheslav</span></h1>
+                <div class="typewriter" data-aos="fade-right" data-aos-duration="1500" data-aos-delay="700">I'm a <span class="typewriter-text"></span><label for="">|</label></div>
+                <p data-aos="flip-down" data-aos-duration="1500" data-aos-delay="1100">I am looking for an opportunity to apply and develop my professional skills in navigation, data analysis and web design. I am ready for new challenges and strive for continuous learning.</p>
+                <div class="social-links">
+                    <a href="https://github.com/Iurasov-Dev" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1300"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://vk.com/seawolf63" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1400"><i class="fa-brands fa-vk"></i></a>
+                    <a href="https://t.me/vi_pyc" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1500"><i class="fa-brands fa-telegram"></i></a>
+                    <a href="#" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1600"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+                <div class="btn" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="1800">
+                    <a href="projects.html"><button>Here my DS projects</button></a>
+                </div>
+            </div>
+        </div>  
+    </section>
+
+    <section id="about" style="height: 100vh; display: flex; align-items: center; justify-content: center; color: white;">
+        <div class="content" style="text-align: center; max-width: 800px; padding: 20px;">
+            <span data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100" onmouseover="playSound()" style="cursor: pointer;">Ding Dong</span>
+            <br><br>
+            <p>
+                Good morning/afternoon/evening.
+                <br><br>
+                I was born on December 18, 1988, in the Kuibyshev region, Soviet Union.
+                <br><br>
+                My educations:
+                <br><br>
+                - Volga State Academy of Water Transport, Astrakhan, Russia. Specialty: Engineer-Navigator. Full ahead!
+                <br><br>
+                - Professional retraining in Plekhanov Russian University of Economics, Moscow. Specialty: "Procedural Programming in Applied Data Analysis for Economics"
+                <br><br>
+                - Certificate of Advanced Training Financial University under the Government of the Russian Federation, Moscow. Specialty: "Architect in the Field of Artificial Intelligence"
+                <br><br>
+                I crave your feedback like mesozoic mammals crave an asteroid.
+            </p>
+            <audio id="dingSound" src="sounds/airplane-ding-dong.mp3"></audio>
+        </div>
+    </section>
+
+    <section id="skills" style="height: 100vh; display: flex; align-items: center; justify-content: center; color: white; flex-direction: column;">
+        <div class="content" style="text-align: center;">
+            <h2 data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1000">Skills:</h2>
+            <ul style="list-style-type: none; padding: 0;">
+                <li data-aos="fade-right" data-aos-duration="1500" data-aos-delay="1200">Navigation on IMO type III tankers</li>
+                <li data-aos="fade-left" data-aos-duration="1500" data-aos-delay="1300">Programming in Python</li>
+                <li data-aos="fade-right" data-aos-duration="1500" data-aos-delay="1400">Creative design with Adobe</li>
+                <li data-aos="fade-left" data-aos-duration="1500" data-aos-delay="1500">SQL</li>
+                <li data-aos="fade-right" data-aos-duration="1500" data-aos-delay="1600">Figma</li>
+                <li data-aos="fade-left" data-aos-duration="1500" data-aos-delay="1700">Kali Linux</li>
+                <li data-aos="fade-right" data-aos-duration="1500" data-aos-delay="1800">Docker</li>
+            </ul>
+            <div class="skills-icons">
+                <i class="material-icons" style="font-size: 24px;" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1200">directions_boat</i>
+                <i class="fab fa-python" style="font-size: 24px;" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1200"></i>
+                <i class="fab fa-adobe" style="font-size: 24px;" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1300"></i>
+                <i class="fas fa-database" style="font-size: 24px;" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1400"></i>
+                <i class="fab fa-figma" style="font-size: 24px;" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1500"></i>
+                <i class="fab fa-linux" style="font-size: 24px;" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1600"></i>
+                <i class="fab fa-docker" style="font-size: 24px;" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1700"></i>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" style="height: 100vh; display: flex; align-items: center; justify-content: center; color: white;">
+        <div class="content" style="text-align: center; max-width: 800px; padding: 20px;">
+            <h2 data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">Contact Me</h2>
+            <p data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">Get in touch with me by the next ways:</p>
+            <ul style="list-style-type: none; padding: 0;">
+                <li data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300">Email: v.iurasov@mail.ru</li>
+                <li data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400">Phone: +79379800630</li>
+            </ul>
+            <div class="btn" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="500">
+                <a href="cv/cv_land_Iurasov.pdf" download><button>Download CV</button></a>
+            </div>
+            <div class="btn" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="600">
+                <a href="cv/cv_sea_Iurasov.pdf" download><button>Seaman CV</button></a>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/math.js"></script>
+    <script src="js/plexus.js"></script>
+    <script src="js/script.js"></script>
+
+    <script>
+
+        function playSound() {
+            const sound = document.getElementById('dingSound');
+            sound.play();
+        }
+        
+        AOS.init({ offset: 0 });
+
+        // Плавная прокрутка
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+
+        // Анимация для изображения при скролле
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedImage = document.getElementById('animatedImage');
+            const options = { root: null, threshold: 0.1 };
+            const callback = (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animatedImage.classList.add('animate__animated', 'animate__fadeIn');
+                    }
+                });
+            };
+            const observer = new IntersectionObserver(callback, options);
+            observer.observe(animatedImage);
+        });
+
+        var plexus = new Plexus("plexus-test", {
+            pointsSpeed: 0.5,
+            pointsRadius: 1.1,
+            pointsStartDistance: 60
+        });
+        var controls = new Controls("plexus-control", plexus);
+        var cursor = new Cursor(plexus, { pointsSpeed: 0.5 });
+
+    </script>
+</body>
+</html>

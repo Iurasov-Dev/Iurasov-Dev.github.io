@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Projects with Matrix Effect</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Courier New', monospace;
+            background: #000; /* Черный фон для "Матрицы" */
+            overflow: hidden; /* Скрываем полосу прокрутки */
+        }
+
+        canvas {
+            position: absolute; /* Позиционируем холст */
+            top: 0;
+            left: -2;
+            z-index: 1; /* Холст ниже контейнера */
+        }
+
+        h1 {
+            color: #00ff00; /* Цвет заголовка */
+            text-align: center;
+            text-shadow: 0 0 10px #00ff00;
+            position: relative;
+            z-index: 2; /* Чтобы заголовок был выше фона */
+            margin-top: 10px; /* Отступ сверху */
+            animation: fadeIn 3s ease-in forwards, glitch-animation 5s infinite 2s forwards, normal-state 1s forwards 7s; /* Появление, затем глитч и возврат к нормальному состоянию */
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes glitch-animation {
+            0%, 100% {
+                text-shadow: 0 0 10px #00ff00; /* Обычное состояние */
+                transform: translate(0);
+            }
+            10% {
+                text-shadow: 1px 1px red, -1px -1px blue;
+                transform: translate(2px, -1px);
+            }
+            20% {
+                text-shadow: -1px -1px red, 1px 1px blue;
+                transform: translate(-2px, 2px);
+            }
+            30% {
+                text-shadow: 1px 1px blue, -1px -1px red;
+                transform: translate(2px, 1px);
+            }
+            40% {
+                text-shadow: -2px -2px red, 2px 2px blue;
+                transform: translate(-1px, 1px);
+            }
+        }
+        
+        @keyframes normal-state {
+            0% {
+                text-shadow: 1px 1px red, -1px -1px blue; /* Признак глитча */
+            }
+            100% {
+                text-shadow: 0 0 10px #00ff00; /* Вернуться к обычному состоянию */
+                transform: translate(0);
+            }
+        }
+
+        .project-list {
+            max-width: 800px; /* Максимальная ширина контейнера */
+            margin: 20px auto; /* Центрирование по горизонтали с отступом сверху */
+            max-height: 80vh; /* Максимальная высота контейнера, 80% от высоты окна */
+            overflow-y: auto; /* Включаем прокрутку при необходимости */
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.7); /* Полупрозрачный белый фон для контейнера */
+            border: 2px solid #00ff00; /* Зеленая рамка для контейнера */
+            border-radius: 10px; /* Закругленные углы */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7); /* Тень для контейнера */
+            position: relative; /* Чтобы проекты были выше фона */
+            z-index: 3; /* Чтобы контейнер был поверх фона */
+        }
+
+        .project {
+            list-style: none;
+            margin: 20px 0;
+            text-align: center;
+            transition: transform 0.3s;
+            margin-left: -40px; /* Добавьте этот отступ, измените значение по вашему усмотрению */
+        }
+
+        .project img {
+            width: 250px; /* Задай нужный размер */
+            border-radius: 10px; /* Закругленные углы */
+            transition: transform 0.3s;
+        }
+
+        .project:hover img {
+            transform: scale(1.05); /* Увеличиваем изображение при наведении */
+        }
+        .project-list p {
+            color: white; /* Устанавливаем цвет шрифта на белый */
+            font-weight: bold; /* Делаем текст жирным */
+            text-decoration: none; /* Убираем подчеркивание, если оно есть */
+        }
+
+    </style>
+</head>
+<body>
+    <canvas></canvas>
+    <h1>My Data Science Projects</h1>
+    <div class="project-list">
+        <ul>
+            <li class="project">
+                <a href="https://github.com/Iurasov-Dev/kaprekara_num_app" target="_blank">
+                    <img src="img/kaprekara.jpg" alt="Kaprekara Number App">
+                    <p>Kaprekara Number Application</p>
+                </a>
+            </li>
+            <li class="project">
+                <a href="https://github.com/Iurasov-Dev/New-York-City-Taxi-Fare-Prediction/blob/main/F_W_taxi_nyc.ipynb" target="_blank">
+                    <img src="img/New-York-City-Taxi-Fare-Prediction.jpg" alt="Taxi Fare Prediction">
+                    <p>New York taxi fare pred Project</p>
+                </a>
+            </li>
+            <li class="project">
+                <a href="https://github.com/Iurasov-Dev/convolutional-neural-net-CNN/blob/main/H_W_3RAZDEL.ipynb" target="_blank">
+                    <img src="img/CNN.jpg" alt="Convolutional Neural Network">
+                    <p>CNN Project</p>
+                </a>
+            </li>
+            <li class="project">
+                <a href="https://github.com/Iurasov-Dev/pipelines/blob/main/H_W_2RAZDEL_pro.ipynb" target="_blank">
+                    <img src="img/heart.jpg" alt="Heart disease prediction Project">
+                    <p>Heart disease pred Project</p>
+                </a>
+            </li>
+                        <li class="project">
+                <a href="https://github.com/Iurasov-Dev/time-series/blob/main/H_W_2_7_air_pass_pro.ipynb" target="_blank">
+                    <img src="img/time-series.jpg" alt="time-series Project">
+                    <p>Time series Project</p>
+                </a>
+            </li>
+                        <li class="project">
+                <a href="https://github.com/Iurasov-Dev/clustering/blob/main/H_W_2_6_hum_act.ipynb" target="_blank">
+                    <img src="img/clustering.jpg" alt="Clustering Project">
+                    <p>Human activity Project</p>
+                </a>
+            </li>
+                        <li class="project">
+                <a href="https://github.com/Iurasov-Dev/feature-engineering/blob/main/H_W_2_5_grant_data_imb_pro.ipynb" target="_blank">
+                    <img src="img/feature-engineering.jpeg" alt="Grant Project">
+                    <p>Grant data Project</p>
+                </a>
+                        <li class="project">
+                <a href="https://github.com/Iurasov-Dev/pipelines/blob/main/H_W_2RAZDEL_pro.ipynb" target="_blank">
+                    <img src="img/ensembling-and-regularization.jpg" alt="Red wine Project">
+                    <p>Red wine Project</p>
+                </a>
+            </li>
+                        <li class="project">
+                <a href="https://github.com/Iurasov-Dev/decision-trees/blob/main/H_W_2_3_mall_custumers.ipynb" target="_blank">
+                    <img src="img/decision-trees.jpg" alt="decision-trees Project">
+                    <p>Mall customer Project</p>
+                </a>
+            </li>
+                        <li class="project">
+                <a href="https://github.com/Iurasov-Dev/linear-algebra/blob/main/H_W_2_2_iris_virginia.ipynb" target="_blank">
+                    <img src="img/linear-algebra.jpg" alt="linear-algebra Project">
+                    <p>Iris Project</p>
+                </a>
+            </li>
+                        <li class="project">
+                <a href="https://github.com/Iurasov-Dev/ML-intro/blob/main/H_W_2_1_load_diabetes.ipynb" target="_blank">
+                    <img src="img/Visualisation.jpg" alt=Diabetes Project">
+                    <p>Diabetics pred Project</p>
+                </a>
+            </li>
+                        <li class="project">
+                <a href="https://github.com/Iurasov-Dev/EDA/blob/main/HW_1RAZDEL_PRO_forstud.ipynb" target="_blank">
+                    <img src="img/EDA.jpg" alt="Client analyses Project">
+                    <p>Clients analyses Project</p>
+                </a>
+            </li>
+                        <li class="project">
+                <a href="https://github.com/Iurasov-Dev/visualisation/blob/main/HW_1_7_BASE_for_stud.ipynb" target="_blank">
+                    <img src="img/patients.jpg" alt="Ambulance patients Project">
+                    <p>Ambulance patients Project</p>
+                </a>
+            </li>
+                        <li class="project">
+                <a href="https://github.com/Iurasov-Dev/statistic-methods/blob/main/HW_stat_PRO_for_stud_NEW.ipynb" target="_blank">
+                    <img src="img/statistic-methods.jpg" alt="Statistic methods Project">
+                    <p>Statistic methods Project</p>
+                </a>
+            </li>
+                        </li>
+                        <li class="project">
+                <a href="https://github.com/Iurasov-Dev/pandas/blob/main/pandas_for_students_base_v3.ipynb" target="_blank">
+                    <img src="img/Pandas.jpg" alt="Pandas Project">
+                    <p>Pandas Project</p>
+                </a>
+            </li>
+                        <li class="project">
+                <a href="https://github.com/Iurasov-Dev/python-construction/blob/main/%D0%97%D0%B0%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5%201.3.ipynb" target="_blank">
+                    <img src="img/python-construction.jpg" alt="First Project">
+                    <p>First Project</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <script src="js/matrix.js"></script> <!-- Подключаем внешний скрипт -->
+</body>
+</html>
