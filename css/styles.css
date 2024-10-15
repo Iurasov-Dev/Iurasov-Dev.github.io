@@ -317,47 +317,6 @@ ul {
     background: linear-gradient(-45deg, #000000, #000000); /* Стандартный синтаксис */
   }
 
-@media (max-width: 884px) {
-    nav .logo {
-        position: absolute;
-        top: 16px;
-        left: 15px;
-        font-size: 1.5rem;
-        z-index: 10;
-    }
-
-    .fullscreen {
-        z-index: -2; /* Низкий z-index для фона */
-      }
-
-    .main-container {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .nav-container .links {
-        display: none; /* Скрыть ссылки на мобильных */
-    }
-
-    .hamburg,
-    .cancel {
-        display: block;
-        z-index: 50; /* Убедитесь, что кнопки меню выше */
-    }
-
-    .dropdown-menu {
-        position: absolute; /* Позиционирование выпадающего меню */
-        top: 100%; /* Под навигацией */
-        left: 0;
-        z-index: 100; /* Больше, чем у изображения */
-        display: none; /* Скрыто по умолчанию */
-    }
-
-    .hamburg:hover + .dropdown-menu,
-    .hamburg:focus + .dropdown-menu {
-        display: block; /* Показать меню при наведении или фокусе */
-    }
-
     .main-container .content {
         width: 80%;
         z-index: 50; /* Убедитесь, что контент выше изображения */
@@ -370,7 +329,7 @@ ul {
 
     .main-container .image {
         z-index: -1; /* Изображение с низким z-index */
-        width: 50%;
+        width: 30%;
         height: auto;
     }
 }
@@ -378,8 +337,7 @@ ul {
 @media (max-width: 440px) {
     .main-container .image {
         width: 50%;
-        height: 80vh; /* Исходная высота */
-        height: auto; 
+        height: auto; 
         margin-bottom: 0px;
         z-index: -1; /* Убедитесь, что изображение все еще ниже */
     }
@@ -397,3 +355,4 @@ ul {
         z-index: -2; /* Низкий z-index для фона */
       }
 }
+
