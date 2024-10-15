@@ -132,7 +132,7 @@ section{
     border-radius: 50%; /* Круглая форма */
     overflow: hidden;
     box-shadow: 0 0 50px #077b32;
-    margin-top: -50px; /* Поднимаем изображение на 50 пикселей */
+    margin-top: -120px; /* Поднимаем изображение на 50 пикселей */
     transition: transform 0.5s ease; /* Плавный переход */
 }
 
@@ -371,6 +371,7 @@ ul {
     .main-container .image {
         z-index: -1; /* Изображение с низким z-index */
         width: 30%;
+        margin-top: -20px; /* Поднимаем изображение на 50 пикселей */
         height: auto;
     }
 }
@@ -379,6 +380,7 @@ ul {
     .main-container .image {
         width: 50%;
         height: auto; 
+        margin-top: -40px; /* Поднимаем изображение на 50 пикселей */
         margin-bottom: 0px;
         z-index: -1; /* Убедитесь, что изображение все еще ниже */
     }
