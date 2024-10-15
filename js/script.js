@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 var plexus = new Plexus("plexus-test", {
-    pointsSpeed: 0.3,
+    pointsSpeed: 0.4,
     pointsRadius: 1.1,
     pointsStartDistance: 60
 });
