@@ -370,7 +370,7 @@ ul {
 
     .main-container .image {
         z-index: -1; /* Изображение с низким z-index */
-        width: 30%;
+        width: 50%;
         height: auto;
     }
 }
@@ -378,6 +378,7 @@ ul {
 @media (max-width: 440px) {
     .main-container .image {
         width: 50%;
+        height: 80vh; /* Исходная высота */
         height: auto; 
         margin-bottom: 0px;
         z-index: -1; /* Убедитесь, что изображение все еще ниже */
