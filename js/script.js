@@ -9,7 +9,6 @@ function cancel() {
     navbar.style.transform = "translateY(-500px)"; // Hide the dropdown menu
 }
 
-
 // Typewriter Effect
 const texts = [
     "DATA SCIENTIST",
@@ -66,53 +65,3 @@ document.addEventListener('scroll', () => {
     }
 });
 
-
-function playSound() {
-    const sound = document.getElementById('dingSound');
-    sound.play();
-}
-
-AOS.init({ offset: 0 });
-
-// Плавная прокрутка
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
-        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-});
-
-// Анимация для изображения при скролле
-document.addEventListener('DOMContentLoaded', function() {
-    const animatedImage = document.getElementById('animatedImage');
-    const options = { root: null, threshold: 0.1 };
-    const callback = (entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                animatedImage.classList.add('animate__animated', 'animate__fadeIn');
-            }
-        });
-    };
-    const observer = new IntersectionObserver(callback, options);
-    observer.observe(animatedImage);
-});
-
-var plexus = new Plexus("plexus-test", {
-    pointsSpeed: 0.4,
-    pointsRadius: 1.1,
-    pointsStartDistance: 60
-});
-var controls = new Controls("plexus-control", plexus);
-// Initialize the Cursor
-var cursor = new Cursor(plexus, { pointsSpeed: 1 });
-
-// Optionally, you can add more features or interactions here
-// For example, handling the pause and resume functionality for the cursor
-function toggleCursorActivity() {
-    cursor.config.active = !cursor.config.active;
-}
-
-// Example: Add a button to toggle cursor activity
-document.getElementById("toggle-cursor").addEventListener("click", toggleCursorActivity);
