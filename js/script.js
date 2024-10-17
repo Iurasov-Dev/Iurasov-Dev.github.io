@@ -29,7 +29,7 @@ function typeWriter() {
     if (characterIndex < texts[textIndex].length) {
         textElements.innerHTML += texts[textIndex].charAt(characterIndex);
         characterIndex++;
-        setTimeout(typeWriter, speed); 
+        setTimeout(typeWriter, speed);
     } else {
         setTimeout(eraseText, 1000); // Wait before starting to erase
     }
@@ -49,32 +49,27 @@ function eraseText() {
 // Start the typewriter effect on window load
 window.onload = typeWriter;
 
+// Show/hide controls when section is in view
 document.addEventListener('scroll', () => {
     const skillsSection = document.getElementById('contact');
     const controls = document.querySelector('.controls');
 
-    // Получаем положение секции
     const rect = skillsSection.getBoundingClientRect();
-    
-    console.log(rect.top, rect.bottom); // Отладочное сообщение
 
-    // Проверяем, попадает ли секция в видимую область
-    if (rect.top < window.innerHeight && rect.bottom > 0) {
-        controls.style.display = 'block'; // Показываем контроллер
-    } else {
-        controls.style.display = 'none'; // Скрываем контроллер
-    }
+    // Показываем контроллер, если секция в видимой области
+    controls.style.display = (rect.top < window.innerHeight && rect.bottom > 0) ? 'block' : 'none';
 });
 
-
+// Play sound on hover
 function playSound() {
     const sound = document.getElementById('dingSound');
     sound.play();
 }
 
+// AOS (Animate on Scroll) Initialization
 AOS.init({ offset: 0 });
 
-// Плавная прокрутка
+// Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -84,35 +79,23 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Анимация для изображения при скролле
-document.addEventListener('DOMContentLoaded', function() {
-    const animatedImage = document.getElementById('animatedImage');
-    const options = { root: null, threshold: 0.1 };
-    const callback = (entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                animatedImage.classList.add('animate__animated', 'animate__fadeIn');
-            }
-        });
-    };
-    const observer = new IntersectionObserver(callback, options);
-    observer.observe(animatedImage);
-});
-
+// Plexus Initialization
 var plexus = new Plexus("plexus-test", {
-    pointsSpeed: 0.3,
+    pointsSpeed: 0.4,
     pointsRadius: 1.1,
     pointsStartDistance: 60
 });
 var controls = new Controls("plexus-control", plexus);
-// Initialize the Cursor
-var cursor = new Cursor(plexus, { pointsSpeed: 1 });
 
-// Optionally, you can add more features or interactions here
-// For example, handling the pause and resume functionality for the cursor
-function toggleCursorActivity() {
-    cursor.config.active = !cursor.config.active;
+// Cursor Initialization
+var cursor = new Cursor(plexus, { pointsSpeed: 0.9 });
+
+function animateText(element) {
+    element.style.transform = 'rotate(-10deg)'; // Наклон влево
+    setTimeout(() => {
+        element.style.transform = 'rotate(10deg)'; // Наклон вправо
+    }, 600); // Время ожидания перед изменением
+    setTimeout(() => {
+        element.style.transform = 'rotate(0deg)'; // Возврат в исходное состояние
+    }, 1800); // Время ожидания перед возвратом
 }
-
-// Example: Add a button to toggle cursor activity
-document.getElementById("toggle-cursor").addEventListener("click", toggleCursorActivity);
