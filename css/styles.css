@@ -450,12 +450,27 @@ section{
         width: 80%; /* Увеличиваем ширину кнопки на мобильных */
         height: 6vh; /* Высота, совпадающая с обычной кнопкой */
         margin: 30px 0; /* Отступы сверху и снизу */
+        background-color: #077b32; /* Добавляем фоновый цвет */
+        color: white; /* Цвет текста */
+        border: none; /* Убираем рамку */
+        border-radius: 27px; /* Радиус закругления */
+        font-size: 120%; /* Размер шрифта */
+        font-weight: 700; /* Жирность шрифта */
+        transition: 0.2s linear; /* Переход при наведении */
+    }
+
+    .btn-liquid:hover {
+        scale: 1.1; /* Увеличиваем при наведении */
+        color: #077b32; /* Меняем цвет текста */
+        border: 2px solid #077b32; /* Добавляем рамку при наведении */
+        background-color: transparent; /* Делает фон прозрачным */
+        box-shadow: 0 0 40px #077b32; /* Добавляем тень */
     }
 
     .main-container .image {
         z-index: -1; /* Изображение с низким z-index */
         width: 30%;
-        margin-top: -20px; /* Поднимаем изображение на 50 пикселей */
+        margin-top: -20px; /* Поднимаем изображение на 20 пикселей */
         height: auto;
     }
 
@@ -483,7 +498,7 @@ section{
     .main-container .image {
         width: 50%;
         height: auto; 
-        margin-top: -40px; /* Поднимаем изображение на 50 пикселей */
+        margin-top: -40px; /* Поднимаем изображение на 40 пикселей */
         margin-bottom: 0px;
         z-index: -1; /* Убедитесь, что изображение все еще ниже */
     }
