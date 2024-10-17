@@ -273,6 +273,11 @@ section{
     width: 80%; /* Занимает всю доступную ширину */
 }
 
+.ding-dong {
+    display: inline-block;
+    transition: transform 0.3s; /* Плавный переход для трансформации */
+}
+
 /* Выравнивание для текста и списков */
 #about h2, #skills h2, #contact h2 {
     margin-bottom: 20px;
