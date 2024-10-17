@@ -299,11 +299,12 @@ section{
     margin-top: 20px;
 }
 
-#run-solar-system iframe {
-    border: 2px solid #0f5c6e;
-    max-width: 100%;
-    height: 100px; /* Можно адаптировать */
-    width: 100%;
+.solar-system-iframe {
+    width: 100%; /* Растягивается на всю ширину родителя */
+    height: 100%; /* Занимает всю высоту родителя */
+    min-width: 1200px; /* Минимальная ширина */
+    min-height: 685px; /* Минимальная высота */
+    border: 2px solid #0f5c6e; /* Граница */
 }
 
 .btn-liquid {
