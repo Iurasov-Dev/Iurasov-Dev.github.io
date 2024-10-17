@@ -386,8 +386,8 @@ section{
     background: linear-gradient(-45deg, #000000, #000000); /* Стандартный синтаксис */
   }
 
-@media (max-width: 884px) {
-        /* Адаптация для экранов до 884px */
+  @media (max-width: 884px) {
+    /* Адаптация для экранов до 884px */
     .container {
         width: 90%; /* Увеличиваем ширину контейнера на мобильных */
         min-height: 60vh; /* Снижаем минимальную высоту для мобильных */
@@ -398,7 +398,7 @@ section{
         font-size: 14px; /* Уменьшаем размер шрифта для мобильных */
         padding: 5px 0; /* Уменьшаем отступы для текста */
     }
-    
+
     nav .logo {
         position: absolute;
         top: 16px;
@@ -409,7 +409,7 @@ section{
 
     .fullscreen {
         z-index: -2; /* Низкий z-index для фона */
-      }
+    }
 
     .main-container {
         display: flex;
@@ -444,14 +444,11 @@ section{
         z-index: 50; /* Убедитесь, что контент выше изображения */
     }
 
-    .content button {
+    .content button,
+    .btn-liquid {
         width: 80%; /* Увеличиваем ширину кнопки на мобильных */
-        height: 50px; /* Задаем фиксированную высоту кнопки */
-    }
-
-        .btn-liquid {
-        width: 80%; /* Увеличиваем ширину кнопки на мобильных */
-        height: 50px; /* Задаем фиксированную высоту кнопки */
+        height: 6vh; /* Высота, совпадающая с обычной кнопкой */
+        margin: 30px 0; /* Отступы сверху и снизу */
     }
 
     .main-container .image {
@@ -495,15 +492,18 @@ section{
         z-index: 50;
     }
 
-    .main-container button {
-        margin-top: 15px;
+    .main-container button,
+    .btn-liquid {
+        width: 80%; /* Увеличиваем ширину кнопки на очень маленьких устройствах */
+        height: 6vh; /* Высота, совпадающая с обычной кнопкой */
+        margin: 30px 0; /* Отступы */
     }
 
     .fullscreen {
         z-index: -2; /* Низкий z-index для фона */
-      }
+    }
 
-      #run-solar-system {
+    #run-solar-system {
         display: none; /* Скрыть секцию Space на мобильных */
     }
 
