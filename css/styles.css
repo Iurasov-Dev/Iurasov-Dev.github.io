@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
 
 *{
@@ -68,7 +67,7 @@ nav{
     transition: 0.3s linear;
 }
 
-.nav-container .links a::before{
+.nav-container .links a::before {
     position: absolute;
     content: "";
     bottom: -3px;
@@ -79,15 +78,29 @@ nav{
     transition: 0.2s linear;
 }
 
-.nav-container .links a:hover::before{
+.nav-container .links a:hover::before {
     width: 100%;
 }
 
-.nav-container .links a:hover{
+.nav-container .links a:hover {
     color: #077b32;
 }
 
-.dropdown{
+.nav-container .links a.highlight::before {
+    background-color: #0f5c6e; /* Цвет подчеркивания для ссылки "Space" */
+}
+
+.nav-container .links a.highlight:hover {
+    color: #0f5c6e; /* Цвет текста при наведении на "Space" */
+    text-shadow: 0 0 10px #0f5c6e; /* Эффект свечения */
+}
+
+/* Убедитесь, что для других ссылок подчеркивание работает нормально */
+.nav-container .links a:not(.highlight):hover::before {
+    background-color: #077b32; /* Цвет подчеркивания для остальных ссылок */
+}
+
+.dropdown {
     z-index: 100;
     position: absolute;
     top: 0;
@@ -95,11 +108,11 @@ nav{
     width: 100%;
     height: auto;
     backdrop-filter: blur(4px) brightness(40%);
-    box-shadow:  0 0 20px black;
+    box-shadow: 0 0 20px black;
     transition: 0.2s linear;
 }
 
-.dropdown .links a{
+.dropdown .links a {
     display: flex;
     color: white;
     text-decoration: none;
@@ -163,7 +176,7 @@ section{
     color: white;
     width: 40%;
     min-height: 100px;
-    z-index: 10; /* Убедитесь, что это значение выше, чем у других элементов */
+    z-index: 0; /* Убедитесь, что это значение выше, чем у других элементов */
 }
 
 .content h1{
@@ -184,11 +197,6 @@ section{
     color: #077b32;
     text-shadow: 0 0 10px #077b32;
     font-size: clamp(1rem, 2vw + 1rem, 2rem);
-}
-
-.content p{
-    font-size: clamp(0.4rem, 0.2rem + 9vw, 1rem);
-    margin: 10px 0;
 }
 
 .social-links i {
@@ -237,7 +245,160 @@ section{
     box-shadow: 0 0 40px #077b32;
 }
 
+.container {
+    display: flex;
+    flex-direction: column; /* Вертикальная ориентация секций */
+    justify-content: center; /* Центрируем по вертикали */
+    align-items: center; /* Центрируем по горизонтали */
+    width: 50%; /* Ширина контейнера */
+    margin: 0 auto; /* Центрируем контейнер по горизонтали */
+    min-height: 80vh; /* Занимает всю высоту экрана */
+    border-radius: 18px; /* Скругление углов */
+}
+
+.desc {
+    text-align: center; /* Центрируем текст внутри каждого блока */
+    
+}
+
+#about, #skills, #contact, #run-solar-system {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    position: relative;
+    z-index: 0;
+    margin: 40px 0; /* Отступы между секциями */
+    width: 80%; /* Занимает всю доступную ширину */
+}
+
+/* Выравнивание для текста и списков */
+#about h2, #skills h2, #contact h2 {
+    margin-bottom: 20px;
+}
+
+#skills ul {
+    list-style: none;
+    padding: 0;
+}
+
+#contact ul {
+    list-style: none;
+    padding: 0;
+}
+
+#skills ul li {
+    margin: 10px 0;
+}
+
+#skills .skills-icons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+#run-solar-system iframe {
+    border: 2px solid #0f5c6e;
+    max-width: 100%;
+    height: 100px; /* Можно адаптировать */
+    width: 100%;
+}
+
+.btn-liquid {
+    display: inline-block;
+    position: relative;
+    width: 160px;
+    height: 45px;
+    border-radius: 27px;
+    color: #fff;
+    font: 700 1.2em/6vh 'Poppins', sans-serif; 
+    letter-spacing: 0.05em; 
+    text-align: center;
+    text-decoration: none;
+}
+  
+  .btn-liquid .inner {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .btn-liquid canvas {
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      bottom: -50px;
+      left: -50px;
+      z-index: -1; /* Убедитесь, что у вас ниже, чем у Plexus */
+      pointer-events: none; /* Позволяет взаимодействовать с элементами под канвасом */
+  }
+
+/* Фон для анимации плексус */
+
+  .fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.0); /* Полупрозрачный фон для анимации */
+    z-index: 0; /* Низкий z-index для фона */
+  }
+  
+  .controls {
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 5px 5px 10px var(--shadow-color);
+    opacity: 0.3;
+    position: fixed;
+    z-index: 1000;
+    bottom: 10px;
+    right: 10px;
+    transition: opacity 0.1s;
+    display: none; /* Скрываем по умолчанию */
+  }
+  
+  .controls label {
+    display: block;
+    color: white; /* Цвет текста белым */
+  }
+  
+  .controls input {
+    display: block;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.8); /* Полупрозрачный фон для инпутов */
+    color: black; /* Цвет текста внутри инпутов */
+  }
+  
+  .controls:hover {
+    opacity: 1;
+  }
+  
+  .plexus {
+    background: black; /* Для браузеров, не поддерживающих градиенты */
+    background: -webkit-linear-gradient(-45deg, #000000, #000000); /* Для Safari */
+    background: -o-linear-gradient(-45deg, #000000, #000000); /* Для Opera */
+    background: -moz-linear-gradient(-45deg, #000000, #000000); /* Для Firefox */
+    background: -webkit-linear-gradient(135deg, #000000, #000000);
+    background: -o-linear-gradient(135deg, #000000, #000000);
+    background: linear-gradient(-45deg, #000000, #000000); /* Стандартный синтаксис */
+  }
+
 @media (max-width: 884px) {
+        /* Адаптация для экранов до 884px */
+    .container {
+        width: 90%; /* Увеличиваем ширину контейнера на мобильных */
+        min-height: 60vh; /* Снижаем минимальную высоту для мобильных */
+        padding: 10px; /* Уменьшаем отступы */
+    }
+
+    .desc {
+        font-size: 14px; /* Уменьшаем размер шрифта для мобильных */
+        padding: 5px 0; /* Уменьшаем отступы для текста */
+    }
+    
     nav .logo {
         position: absolute;
         top: 16px;
@@ -294,9 +455,28 @@ section{
         margin-top: -20px; /* Поднимаем изображение на 50 пикселей */
         height: auto;
     }
+
+    #run-solar-system {
+        display: none; /* Скрыть секцию Space на мобильных */
+    }
+
+    .dropdown a[href="#run-solar-system"] {
+        display: none; /* Скрыть элемент */
+    }
 }
 
 @media (max-width: 440px) {
+    /* Адаптация для экранов до 440px */
+    .container {
+        width: 95%; /* Почти вся ширина экрана для очень маленьких устройств */
+        min-height: 50vh; /* Еще уменьшенная высота контейнера */
+    }
+
+    .desc {
+        font-size: 12px; /* Уменьшаем размер шрифта для маленьких экранов */
+        padding: 3px 0; /* Еще меньше отступы для текста */
+    }
+
     .main-container .image {
         width: 50%;
         height: auto; 
@@ -317,4 +497,12 @@ section{
     .fullscreen {
         z-index: -2; /* Низкий z-index для фона */
       }
+
+      #run-solar-system {
+        display: none; /* Скрыть секцию Space на мобильных */
+    }
+
+    .dropdown a[href="#run-solar-system"] {
+        display: none; /* Скрыть элемент */
+    }
 }
