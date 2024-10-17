@@ -310,30 +310,30 @@ section{
 .btn-liquid {
     display: inline-block;
     position: relative;
-    width: 160px;
-    height: 45px;
-    border-radius: 27px;
+    width: 50%; /* Сделаем ширину такой же, как у обычной кнопки */
+    height: 6vh; /* Сделаем высоту такой же, как у обычной кнопки */
+    border-radius: 5px; /* Оставим радиус закругления прежним */
     color: #fff;
     font: 700 1.2em/6vh 'Poppins', sans-serif; 
     letter-spacing: 0.05em; 
     text-align: center;
     text-decoration: none;
 }
-  
-  .btn-liquid .inner {
+
+.btn-liquid .inner {
     position: relative;
     z-index: 2;
-  }
-  
-  .btn-liquid canvas {
-      position: absolute;
-      top: -50px;
-      right: -50px;
-      bottom: -50px;
-      left: -50px;
-      z-index: -1; /* Убедитесь, что у вас ниже, чем у Plexus */
-      pointer-events: none; /* Позволяет взаимодействовать с элементами под канвасом */
-  }
+}
+
+.btn-liquid canvas {
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    bottom: -50px;
+    left: -50px;
+    z-index: -1;
+    pointer-events: none; 
+}
 
 /* Фон для анимации плексус */
 
