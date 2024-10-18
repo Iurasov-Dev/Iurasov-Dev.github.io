@@ -100,13 +100,3 @@ function animateText(element) {
     }, 1800); // Время ожидания перед возвратом
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    const downloadLink = document.querySelector('.download-cv');
-    
-    if (window.innerWidth <= 884) { // Проверяем размер экрана
-        downloadLink.addEventListener('click', function(event) {
-            event.preventDefault(); // Предотвращаем скачивание
-            alert('Скачивание недоступно на мобильных устройствах.'); // Сообщение для пользователя
-        });
-    }
-});
