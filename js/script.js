@@ -100,3 +100,25 @@ function animateText(element) {
     }, 1800); // Время ожидания перед возвратом
 }
 
+document.addEventListener('DOMContentLoaded', function() {
+    const downloadButton = document.querySelector('.download-cv');
+    const seamanButton = document.querySelector('.seaman-cv');
+
+    downloadButton.addEventListener('click', function(event) {
+        if (window.innerWidth <= 884) {
+            event.preventDefault();
+            alert('Downloading is not available on mobile devices.');
+        } else {
+            window.location.href = 'cv/cv_land_Iurasov.pdf';
+        }
+    });
+
+    seamanButton.addEventListener('click', function(event) {
+        if (window.innerWidth <= 884) {
+            event.preventDefault();
+            alert('Downloading is not available on mobile devices.');
+        } else {
+            window.location.href = 'cv/cv_sea_Iurasov.pdf';
+        }
+    });
+});
