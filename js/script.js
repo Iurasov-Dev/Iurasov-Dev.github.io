@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function() {
             event.preventDefault();
             alert('Downloading is not available on mobile devices.');
         } else {
-            window.location.href = 'cv/cv_land_Iurasov.pdf';
+            window.location.href = 'cv/VIACHESLAV IURASOV.docx';
         }
     });
 
@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function() {
             event.preventDefault();
             alert('Downloading is not available on mobile devices.');
         } else {
-            window.location.href = 'cv/cv_sea_Iurasov.pdf';
+            window.location.href = 'cv/ВЯЧЕСЛАВ ЮРАСОВ.docx';
         }
     });
 });
