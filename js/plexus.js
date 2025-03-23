@@ -11,7 +11,7 @@ var Plexus = function (_id, _options) {
         // Points
         pointsStartDistance : 90,
         pointsStartNoise : 100,
-        pointsSpeed : 0.3,
+        pointsSpeed : 0.1,
         pointsRadius : 1,
         pointsColor : "#ffffff",
         pointsTargetRange : 100,
