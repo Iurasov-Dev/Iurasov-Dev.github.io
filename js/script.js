@@ -1,16 +1,15 @@
 // Hamburger Menu Functionality
 function hamburg() {
     const navbar = document.querySelector(".dropdown");
-    navbar.style.transform = "translateY(0px)"; // Show the dropdown menu
+    navbar.style.transform = "translateY(0px)";
 }
 
 function cancel() {
     const navbar = document.querySelector(".dropdown");
-    navbar.style.transform = "translateY(-500px)"; // Hide the dropdown menu
+    navbar.style.transform = "translateY(-500px)";
 }
 
-
-// Typewriter Effect
+// Улучшенный Typewriter Effect
 const texts = [
     "DATA SCIENTIST",
     "DESIGNER",
@@ -19,45 +18,43 @@ const texts = [
     "TILTED HORIZON"
 ];
 
-let speed = 100; // Speed of typing effect
-const textElements = document.querySelector(".typewriter-text");
-
-let textIndex = 0; // Current text index
-let characterIndex = 0; // Current character index
+let speed = 50; // Увеличенная скорость
+let textIndex = 0;
+let characterIndex = 0;
+let isTyping = false;
+const textElement = document.querySelector(".typewriter-text");
 
 function typeWriter() {
     if (characterIndex < texts[textIndex].length) {
-        textElements.innerHTML += texts[textIndex].charAt(characterIndex);
+        textElement.innerHTML += texts[textIndex].charAt(characterIndex);
         characterIndex++;
-        setTimeout(typeWriter, speed);
+        requestAnimationFrame(typeWriter);
     } else {
-        setTimeout(eraseText, 1000); // Wait before starting to erase
+        setTimeout(eraseText, 1000);
     }
 }
 
 function eraseText() {
-    if (textElements.innerHTML.length > 0) {
-        textElements.innerHTML = textElements.innerHTML.slice(0, -1); // Remove last character
-        setTimeout(eraseText, 50);
+    if (textElement.innerHTML.length > 0) {
+        textElement.innerHTML = textElement.innerHTML.slice(0, -1);
+        requestAnimationFrame(eraseText);
     } else {
-        textIndex = (textIndex + 1) % texts.length; // Move to the next text
-        characterIndex = 0; // Reset character index
-        setTimeout(typeWriter, 500); // Wait before starting to type
+        textIndex = (textIndex + 1) % texts.length;
+        characterIndex = 0;
+        setTimeout(() => {
+            isTyping = true;
+            typeWriter();
+        }, 500);
     }
 }
 
-// Start the typewriter effect on window load
-window.onload = typeWriter;
-
-// Show/hide controls when section is in view
-document.addEventListener('scroll', () => {
-    const skillsSection = document.getElementById('contact');
-    const controls = document.querySelector('.controls');
-
-    const rect = skillsSection.getBoundingClientRect();
-
-    // Показываем контроллер, если секция в видимой области
-    controls.style.display = (rect.top < window.innerHeight && rect.bottom > 0) ? 'block' : 'none';
+// Запускаем эффект после полной загрузки DOM
+document.addEventListener('DOMContentLoaded', () => {
+    // Добавляем задержку, чтобы дать странице загрузиться
+    setTimeout(() => {
+        isTyping = true;
+        typeWriter();
+    }, 500);
 });
 
 // Play sound on hover
