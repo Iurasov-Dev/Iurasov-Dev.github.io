@@ -149,5 +149,23 @@
     <script src="js/plexus.js"></script>
     <script src="js/script.js"></script>
     <script src="js/btn-liquid.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Инициализируем AOS
+            AOS.init({ offset: 0 });
+
+            // Задержка инициализации Plexus на 7 секунд
+            setTimeout(() => {
+                var plexus = new Plexus("plexus-test", {
+                    pointsSpeed: 0.4,
+                    pointsRadius: 1.1,
+                    pointsStartDistance: 60
+                });
+                
+                var controls = new Controls("plexus-control", plexus);
+                var cursor = new Cursor(plexus, { pointsSpeed: 0.9 });
+            }, 7000);
+        });
+    </script>
 </body>
 </html>
