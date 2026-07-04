@@ -15,7 +15,7 @@ const texts = [
     "DESIGNER",
     "DEVELOPER", 
     "SEAFARER",
-    "TILTED HORIZON"
+    "PHOTOGRRAPHER"
 ];
 
 let speed = 100;
