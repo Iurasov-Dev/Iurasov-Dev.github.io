@@ -1,12 +1,12 @@
 // Hamburger Menu Functionality
 function hamburg() {
     const navbar = document.querySelector(".dropdown");
-    navbar.style.transform = "translateY(0px)"; // Show the dropdown menu
+    navbar.style.transform = "translateY(0px)";
 }
 
 function cancel() {
     const navbar = document.querySelector(".dropdown");
-    navbar.style.transform = "translateY(-500px)"; // Hide the dropdown menu
+    navbar.style.transform = "translateY(-500px)";
 }
 
 // Typewriter Effect
@@ -18,11 +18,10 @@ const texts = [
     "TILTED HORIZON"
 ];
 
-let speed = 100; // Speed of typing effect
+let speed = 100;
 const textElements = document.querySelector(".typewriter-text");
-
-let textIndex = 0; // Current text index
-let characterIndex = 0; // Current character index
+let textIndex = 0;
+let characterIndex = 0;
 let typewriterComplete = false;
 
 function typeWriter() {
@@ -32,39 +31,39 @@ function typeWriter() {
         setTimeout(typeWriter, speed);
     } else {
         typewriterComplete = true;
-        setTimeout(eraseText, 1000); // Wait before starting to erase
+        setTimeout(eraseText, 1000);
     }
 }
 
 function eraseText() {
     if (textElements.innerHTML.length > 0) {
-        textElements.innerHTML = textElements.innerHTML.slice(0, -1); // Remove last character
+        textElements.innerHTML = textElements.innerHTML.slice(0, -1);
         setTimeout(eraseText, 50);
     } else {
-        textIndex = (textIndex + 1) % texts.length; // Move to the next text
-        characterIndex = 0; // Reset character index
-        setTimeout(typeWriter, 500); // Wait before starting to type
+        textIndex = (textIndex + 1) % texts.length;
+        characterIndex = 0;
+        setTimeout(typeWriter, 500);
     }
 }
 
-// Show/hide controls when section is in view
+// Show/hide controls
 document.addEventListener('scroll', () => {
     const skillsSection = document.getElementById('contact');
     const controls = document.querySelector('.controls');
 
-    const rect = skillsSection.getBoundingClientRect();
-
-    // Показываем контроллер, если секция в видимой области
-    controls.style.display = (rect.top < window.innerHeight && rect.bottom > 0) ? 'block' : 'none';
+    if (skillsSection && controls) {
+        const rect = skillsSection.getBoundingClientRect();
+        controls.style.display = (rect.top < window.innerHeight && rect.bottom > 0) ? 'block' : 'none';
+    }
 });
 
 // Play sound on hover
 function playSound() {
     const sound = document.getElementById('dingSound');
-    sound.play();
+    if (sound) sound.play();
 }
 
-// AOS (Animate on Scroll) Initialization
+// AOS Initialization
 AOS.init({ offset: 0 });
 
 // Smooth scroll
@@ -73,53 +72,85 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         e.preventDefault();
         const targetId = this.getAttribute('href');
         const targetElement = document.querySelector(targetId);
-        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
     });
 });
 
 // Функция для инициализации Plexus
 function initPlexus() {
     console.log('Initializing Plexus...');
-    var plexus = new Plexus("plexus-test", {
-        pointsSpeed: 0.4,
-        pointsRadius: 1.1,
-        pointsStartDistance: 60
+    try {
+        var plexus = new Plexus("plexus-test", {
+            pointsSpeed: 0.4,
+            pointsRadius: 1.1,
+            pointsStartDistance: 60
+        });
+        var controls = new Controls("plexus-control", plexus);
+        var cursor = new Cursor(plexus, { pointsSpeed: 0.9 });
+        console.log('Plexus initialized successfully');
+        return plexus;
+    } catch (error) {
+        console.error('Error initializing Plexus:', error);
+    }
+}
+
+// Ленивая загрузка iframe
+function lazyLoadIframe() {
+    const iframes = document.querySelectorAll('iframe[data-src]');
+    iframes.forEach(iframe => {
+        // Загружаем iframe только когда он в видимой области
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    iframe.src = iframe.dataset.src;
+                    iframe.loading = 'eager';
+                    observer.unobserve(iframe);
+                }
+            });
+        });
+        observer.observe(iframe);
     });
-    var controls = new Controls("plexus-control", plexus);
-    var cursor = new Cursor(plexus, { pointsSpeed: 0.9 });
-    return plexus;
 }
 
 // Ждем полной загрузки страницы
-window.addEventListener('load', function() {
-    console.log('Page fully loaded');
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM fully loaded');
     
-    // Запускаем Typewriter
+    // Запускаем Typewriter сразу
     console.log('Starting Typewriter...');
     typeWriter();
     
-    // Ждем завершения первого цикла typewriter, затем запускаем Plexus
-    const checkTypewriter = setInterval(() => {
-        if (typewriterComplete) {
-            clearInterval(checkTypewriter);
-            console.log('Typewriter complete, initializing Plexus...');
-            // Небольшая задержка перед запуском Plexus для плавности
-            setTimeout(() => {
-                initPlexus();
-            }, 500);
+    // Запускаем Plexus с небольшой задержкой, чтобы typewriter успел начать
+    setTimeout(() => {
+        console.log('Initializing Plexus...');
+        initPlexus();
+    }, 300);
+    
+    // Настраиваем ленивую загрузку iframe
+    lazyLoadIframe();
+    
+    // Показываем iframe только после загрузки всего контента
+    window.addEventListener('load', function() {
+        console.log('All resources loaded');
+        // Инициализируем Plexus если еще не инициализирован
+        if (typeof window.plexusInitialized === 'undefined') {
+            initPlexus();
+            window.plexusInitialized = true;
         }
-    }, 100);
+    });
 });
 
 // Функция для анимации текста
 function animateText(element) {
-    element.style.transform = 'rotate(-10deg)'; // Наклон влево
+    element.style.transform = 'rotate(-10deg)';
     setTimeout(() => {
-        element.style.transform = 'rotate(10deg)'; // Наклон вправо
-    }, 600); // Время ожидания перед изменением
+        element.style.transform = 'rotate(10deg)';
+    }, 600);
     setTimeout(() => {
-        element.style.transform = 'rotate(0deg)'; // Возврат в исходное состояние
-    }, 1800); // Время ожидания перед возвратом
+        element.style.transform = 'rotate(0deg)';
+    }, 1800);
 }
 
 // Обработчики для кнопок скачивания CV
@@ -145,18 +176,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 alert('Downloading is not available on mobile devices.');
             } else {
                 window.location.href = 'cv/ВЯЧЕСЛАВ ЮРАСОВ.docx';
-                window.location.href = 'cv/ЮРАСОВ ВЯЧЕСЛАВ.docx';
             }
         });
     }
 });
 
-// Альтернативный метод: если по какой-то причине typewriter не запустился,
-// запускаем Plexus через 5 секунд как резервный вариант
+// Резервный запуск Plexus через 2 секунды
 setTimeout(() => {
     if (typeof window.plexusInitialized === 'undefined') {
         console.log('Fallback: Initializing Plexus after timeout');
         initPlexus();
         window.plexusInitialized = true;
     }
-}, 8000);
+}, 2000);
