@@ -120,6 +120,19 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             window.location.href = 'cv/ВЯЧЕСЛАВ ЮРАСОВ.docx';
             window.location.href = 'cv/ЮРАСОВ ВЯЧЕСЛАВ.docx';
-        }
-    });
+
+    // Ленивая загрузка iframe с solar system
+document.addEventListener('DOMContentLoaded', function() {
+    const iframe = document.querySelector('.solar-system-iframe');
+    if (iframe && iframe.dataset.src) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    iframe.src = iframe.dataset.src;
+                    observer.unobserve(iframe);
+                }
+            });
+        });
+        observer.observe(iframe);
+    }
 });
