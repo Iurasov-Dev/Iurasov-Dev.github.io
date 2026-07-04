@@ -12,11 +12,11 @@ function cancel() {
 
 // Typewriter Effect
 const texts = [
-    "DATA SCIENTIST 👨‍💻",
-    "DESIGNER 👨‍🏭",
-    "DEVELOPER 👷",
-    "SEAFARER 👮",
-    "PHOTHOGRAPHER 👨‍💼"
+    "DATA SCIENTIST",
+    "DESIGNER",
+    "DEVELOPER",
+    "SEAFARER",
+    "TILTED HORIZON"
 ];
 
 let speed = 100; // Speed of typing effect
