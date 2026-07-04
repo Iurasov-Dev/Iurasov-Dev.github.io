@@ -9,7 +9,6 @@ function cancel() {
     navbar.style.transform = "translateY(-500px)"; // Hide the dropdown menu
 }
 
-
 // Typewriter Effect
 const texts = [
     "DATA SCIENTIST",
@@ -24,6 +23,7 @@ const textElements = document.querySelector(".typewriter-text");
 
 let textIndex = 0; // Current text index
 let characterIndex = 0; // Current character index
+let typewriterComplete = false;
 
 function typeWriter() {
     if (characterIndex < texts[textIndex].length) {
@@ -31,6 +31,7 @@ function typeWriter() {
         characterIndex++;
         setTimeout(typeWriter, speed);
     } else {
+        typewriterComplete = true;
         setTimeout(eraseText, 1000); // Wait before starting to erase
     }
 }
@@ -45,9 +46,6 @@ function eraseText() {
         setTimeout(typeWriter, 500); // Wait before starting to type
     }
 }
-
-// Start the typewriter effect on window load
-window.onload = typeWriter;
 
 // Show/hide controls when section is in view
 document.addEventListener('scroll', () => {
@@ -79,8 +77,9 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Plexus Initialization с задержкой
-setTimeout(() => {
+// Функция для инициализации Plexus
+function initPlexus() {
+    console.log('Initializing Plexus...');
     var plexus = new Plexus("plexus-test", {
         pointsSpeed: 0.4,
         pointsRadius: 1.1,
@@ -88,11 +87,31 @@ setTimeout(() => {
     });
     var controls = new Controls("plexus-control", plexus);
     var cursor = new Cursor(plexus, { pointsSpeed: 0.9 });
-}, 5000); // Задержка 2 секунды
+    return plexus;
+}
 
-// Cursor Initialization
-var cursor = new Cursor(plexus, { pointsSpeed: 0.9 });
+// Ждем полной загрузки страницы
+window.addEventListener('load', function() {
+    console.log('Page fully loaded');
+    
+    // Запускаем Typewriter
+    console.log('Starting Typewriter...');
+    typeWriter();
+    
+    // Ждем завершения первого цикла typewriter, затем запускаем Plexus
+    const checkTypewriter = setInterval(() => {
+        if (typewriterComplete) {
+            clearInterval(checkTypewriter);
+            console.log('Typewriter complete, initializing Plexus...');
+            // Небольшая задержка перед запуском Plexus для плавности
+            setTimeout(() => {
+                initPlexus();
+            }, 500);
+        }
+    }, 100);
+});
 
+// Функция для анимации текста
 function animateText(element) {
     element.style.transform = 'rotate(-10deg)'; // Наклон влево
     setTimeout(() => {
@@ -103,26 +122,41 @@ function animateText(element) {
     }, 1800); // Время ожидания перед возвратом
 }
 
+// Обработчики для кнопок скачивания CV
 document.addEventListener('DOMContentLoaded', function() {
     const downloadButton = document.querySelector('.download-cv');
     const seamanButton = document.querySelector('.seaman-cv');
 
-    downloadButton.addEventListener('click', function(event) {
-        if (window.innerWidth <= 884) {
-            event.preventDefault();
-            alert('Downloading is not available on mobile devices.');
-        } else {
-            window.location.href = 'cv/VIACHESLAV IURASOV.docx';
-        }
-    });
+    if (downloadButton) {
+        downloadButton.addEventListener('click', function(event) {
+            if (window.innerWidth <= 884) {
+                event.preventDefault();
+                alert('Downloading is not available on mobile devices.');
+            } else {
+                window.location.href = 'cv/VIACHESLAV IURASOV.docx';
+            }
+        });
+    }
 
-    seamanButton.addEventListener('click', function(event) {
-        if (window.innerWidth <= 884) {
-            event.preventDefault();
-            alert('Downloading is not available on mobile devices.');
-        } else {
-            window.location.href = 'cv/ВЯЧЕСЛАВ ЮРАСОВ.docx';
-            window.location.href = 'cv/ЮРАСОВ ВЯЧЕСЛАВ.docx';
-        }
-    });
+    if (seamanButton) {
+        seamanButton.addEventListener('click', function(event) {
+            if (window.innerWidth <= 884) {
+                event.preventDefault();
+                alert('Downloading is not available on mobile devices.');
+            } else {
+                window.location.href = 'cv/ВЯЧЕСЛАВ ЮРАСОВ.docx';
+                window.location.href = 'cv/ЮРАСОВ ВЯЧЕСЛАВ.docx';
+            }
+        });
+    }
 });
+
+// Альтернативный метод: если по какой-то причине typewriter не запустился,
+// запускаем Plexus через 5 секунд как резервный вариант
+setTimeout(() => {
+    if (typeof window.plexusInitialized === 'undefined') {
+        console.log('Fallback: Initializing Plexus after timeout');
+        initPlexus();
+        window.plexusInitialized = true;
+    }
+}, 8000);
