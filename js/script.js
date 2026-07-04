@@ -79,13 +79,16 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Plexus Initialization
-var plexus = new Plexus("plexus-test", {
-    pointsSpeed: 0.4,
-    pointsRadius: 1.1,
-    pointsStartDistance: 60
-});
-var controls = new Controls("plexus-control", plexus);
+// Plexus Initialization с задержкой
+setTimeout(() => {
+    var plexus = new Plexus("plexus-test", {
+        pointsSpeed: 0.4,
+        pointsRadius: 1.1,
+        pointsStartDistance: 60
+    });
+    var controls = new Controls("plexus-control", plexus);
+    var cursor = new Cursor(plexus, { pointsSpeed: 0.9 });
+}, 5000); // Задержка 2 секунды
 
 // Cursor Initialization
 var cursor = new Cursor(plexus, { pointsSpeed: 0.9 });
