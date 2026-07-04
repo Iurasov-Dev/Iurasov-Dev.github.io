@@ -123,20 +123,3 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
-
-// Ленивая загрузка iframe
-document.addEventListener('DOMContentLoaded', function() {
-    const iframe = document.querySelector('.solar-system-iframe');
-    if (iframe && iframe.dataset.src) {
-        // Загружаем iframe только когда он в видимой области
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    iframe.src = iframe.dataset.src;
-                    observer.unobserve(iframe);
-                }
-            });
-        });
-        observer.observe(iframe);
-    }
-});
