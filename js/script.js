@@ -104,11 +104,11 @@ function animateText(element) {
 
 // ========== DOWNLOAD CV BUTTONS ==========
 document.addEventListener('DOMContentLoaded', function() {
-    const downloadButton = document.querySelector('.download-cv');
-    const seamanButton = document.querySelector('.seaman-cv');
+    const engButton = document.querySelector('.eng-cv');
+    const rusButton = document.querySelector('.rus-cv');
 
-    if (downloadButton) {
-        downloadButton.addEventListener('click', function(event) {
+    if (engButton) {
+        engButton.addEventListener('click', function(event) {
             if (window.innerWidth <= 884) {
                 event.preventDefault();
                 alert('Downloading is not available on mobile devices.');
@@ -118,8 +118,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    if (seamanButton) {
-        seamanButton.addEventListener('click', function(event) {
+    if (rusButton) {
+        rusButton.addEventListener('click', function(event) {
             if (window.innerWidth <= 884) {
                 event.preventDefault();
                 alert('Downloading is not available on mobile devices.');
