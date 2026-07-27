@@ -106,18 +106,7 @@ function animateText(element) {
 document.addEventListener('DOMContentLoaded', function() {
     const engButton = document.querySelector('.eng-cv');
     const rusButton = document.querySelector('.rus-cv');
-
-    if (engButton) {
-        engButton.addEventListener('click', function(event) {
-            if (window.innerWidth <= 884) {
-                event.preventDefault();
-                alert('Downloading is not available on mobile devices.');
-            } else {
-                window.location.href = 'cv/IURASOV_VIACHESLAV_CV.docx';
-            }
-        });
-    }
-
+    
     if (rusButton) {
         rusButton.addEventListener('click', function(event) {
             if (window.innerWidth <= 884) {
@@ -128,6 +117,17 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+    if (engButton) {
+        engButton.addEventListener('click', function(event) {
+            if (window.innerWidth <= 884) {
+                event.preventDefault();
+                alert('Downloading is not available on mobile devices.');
+            } else {
+                window.location.href = 'cv/IURASOV_VIACHESLAV_CV.docx';
+            }
+        });
+    }
+    
 });
 
 // ========== LAZY LOAD IFRAME ==========
