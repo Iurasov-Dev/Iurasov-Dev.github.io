@@ -104,8 +104,8 @@ function animateText(element) {
 
 // ========== DOWNLOAD CV BUTTONS ==========
 document.addEventListener('DOMContentLoaded', function() {
-    const engButton = document.querySelector('.eng-cv');
     const rusButton = document.querySelector('.rus-cv');
+    const engButton = document.querySelector('.eng-cv');
     
     if (rusButton) {
         rusButton.addEventListener('click', function(event) {
