@@ -278,50 +278,6 @@ section{
     transition: transform 0.3s; /* Плавный переход для трансформации */
 }
 
-/* ИХТИС Минималистичный вариант */
-.ichthys-drop-minimal {
-    background: transparent;
-    border: 1px solid rgba(7, 123, 50, 0.3);
-    border-radius: 8px;
-    padding: 12px 20px;
-    cursor: pointer;
-    color: white;
-    font-family: 'Poppins', sans-serif;
-    transition: all 0.3s ease;
-    width: 100%;
-    max-width: 500px;
-    text-align: left;
-}
-
-.ichthys-drop-minimal:hover {
-    border-color: #077b32;
-    box-shadow: 0 0 20px rgba(7, 123, 50, 0.15);
-}
-
-.ichthys-drop-minimal .drop-header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.ichthys-drop-minimal .drop-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease, padding 0.3s ease;
-}
-
-.ichthys-drop-minimal.active .drop-content {
-    max-height: 200px;
-    padding-top: 15px;
-}
-
-.ichthys-drop-minimal .drop-content p {
-    margin: 0;
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.8);
-    line-height: 1.6;
-}
-
 /* Адаптация для мобильных устройств */
 @media (max-width: 884px) {
     .ichthys-drop {
