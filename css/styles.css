@@ -278,137 +278,48 @@ section{
     transition: transform 0.3s; /* Плавный переход для трансформации */
 }
 
-/* ========================================
-   КНОПКА ИХТИС
-   ======================================== */
-
-.ichthys-wrapper {
-    display: flex;
-    justify-content: center;
-    margin: 20px 0;
-}
-
-.ichthys-drop {
-    background: rgba(255, 255, 255, 0.05);
+/* ИХТИС Минималистичный вариант */
+.ichthys-drop-minimal {
+    background: transparent;
     border: 1px solid rgba(7, 123, 50, 0.3);
-    border-radius: 12px;
-    padding: 0;
+    border-radius: 8px;
+    padding: 12px 20px;
     cursor: pointer;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
     width: 100%;
     max-width: 500px;
     text-align: left;
-    transition: all 0.4s ease;
-    font-family: 'Poppins', sans-serif;
-    overflow: hidden;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
-.ichthys-drop:hover {
+.ichthys-drop-minimal:hover {
     border-color: #077b32;
-    box-shadow: 0 0 30px rgba(7, 123, 50, 0.2);
-    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(7, 123, 50, 0.15);
 }
 
-.ichthys-drop__head {
+.ichthys-drop-minimal .drop-header {
     display: flex;
     align-items: center;
-    gap: 12px;
-    padding: 14px 20px;
-    color: #ffffff;
-    background: rgba(7, 123, 50, 0.1);
-    transition: background 0.3s ease;
+    gap: 10px;
 }
 
-.ichthys-drop:hover .ichthys-drop__head {
-    background: rgba(7, 123, 50, 0.15);
-}
-
-.ichthys-drop__head svg {
-    flex-shrink: 0;
-    width: 24px;
-    height: 24px;
-    transition: transform 0.3s ease;
-}
-
-.ichthys-drop:hover .ichthys-drop__head svg {
-    transform: scale(1.1);
-}
-
-.ichthys-title {
-    font-size: 1rem;
-    font-weight: 500;
-    letter-spacing: 0.5px;
-    flex: 1;
-}
-
-.ichthys-label {
-    color: rgba(255, 255, 255, 0.5);
-    font-weight: 300;
-    font-size: 0.85rem;
-    transition: color 0.3s ease;
-}
-
-.ichthys-drop:hover .ichthys-label {
-    color: rgba(255, 255, 255, 0.8);
-}
-
-.ichthys-arrow {
-    font-size: 0.7rem;
-    color: #077b32;
-    transition: transform 0.3s ease;
-    margin-left: auto;
-    padding-left: 10px;
-}
-
-.ichthys-drop.active .ichthys-arrow {
-    transform: rotate(180deg);
-}
-
-.ichthys-drop__body {
+.ichthys-drop-minimal .drop-content {
     max-height: 0;
-    opacity: 0;
     overflow: hidden;
-    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
-                opacity 0.4s ease,
-                padding 0.3s ease;
-    background: rgba(0, 0, 0, 0.3);
-    border-top: 0px solid rgba(7, 123, 50, 0.2);
+    transition: max-height 0.4s ease, padding 0.3s ease;
 }
 
-.ichthys-drop.active .ichthys-drop__body {
-    max-height: 300px;
-    opacity: 1;
-    padding: 16px 20px;
-    border-top-width: 1px;
-    border-top-style: solid;
+.ichthys-drop-minimal.active .drop-content {
+    max-height: 200px;
+    padding-top: 15px;
 }
 
-.ichthys-drop__wrap p {
+.ichthys-drop-minimal .drop-content p {
     margin: 0;
     font-size: 0.9rem;
-    line-height: 1.7;
-    color: rgba(255, 255, 255, 0.85);
-}
-
-/* Стиль для текста "узнать значение символа" с точками */
-.ichthys-label {
-    position: relative;
-}
-
-.ichthys-label::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 0;
-    height: 1px;
-    background: #077b32;
-    transition: width 0.3s ease;
-}
-
-.ichthys-drop:hover .ichthys-label::after {
-    width: 100%;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
 }
 
 /* Адаптация для мобильных устройств */
