@@ -66,6 +66,90 @@ function playSound() {
     }
 }
 
+/* Стили для кнопки-дропдауна Ихтис */
+.ichthys-drop {
+    background: #f8f9fa;
+    border: 2px solid #2c3e50;
+    border-radius: 12px;
+    padding: 0;
+    cursor: pointer;
+    width: 100%;
+    max-width: 450px;
+    text-align: left;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.ichthys-drop:hover {
+    border-color: #c0392b;
+    box-shadow: 0 4px 16px rgba(192, 57, 43, 0.2);
+    transform: translateY(-2px);
+}
+
+.ichthys-drop__head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #2c3e50;
+    background: #ffffff;
+}
+
+.ichthys-drop__head svg {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    fill: #c0392b;
+}
+
+.ichthys-drop__head svg use {
+    fill: #c0392b;
+}
+
+.ichthys-drop__backData {
+    color: #7f8c8d;
+    font-weight: 400;
+    font-size: 0.9rem;
+}
+
+.ichthys-drop__body {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, opacity 0.4s ease, padding 0.3s ease;
+    background: #fafafa;
+    border-top: 0px solid #ddd;
+}
+
+.ichthys-drop__body.open {
+    max-height: 400px;
+    opacity: 1;
+    padding: 16px 20px;
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: #ddd;
+}
+
+.ichthys-drop__wrap p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #34495e;
+}
+
+/* Анимация для заголовка при наведении */
+.ichthys-drop:hover .ichthys-drop__head {
+    color: #c0392b;
+}
+
+.ichthys-drop:hover .ichthys-drop__backData {
+    color: #c0392b;
+}
+
 // ========== AOS INITIALIZATION ==========
 AOS.init({ offset: 0 });
 
