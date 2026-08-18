@@ -66,6 +66,28 @@ function playSound() {
     }
 }
 
+// Функция для переключения кнопки Ихтис
+function toggleIchthys(button) {
+    button.classList.toggle('active');
+}
+
+// Если у вас уже есть функция playSound, она остаётся
+function playSound() {
+    const audio = document.getElementById('dingSound');
+    if (audio) {
+        audio.currentTime = 0;
+        audio.play().catch(e => console.log('Audio play failed:', e));
+    }
+}
+
+function animateText(element) {
+    // Ваша существующая функция
+    element.style.transform = 'scale(1.1)';
+    setTimeout(() => {
+        element.style.transform = 'scale(1)';
+    }, 200);
+}
+
 // ========== AOS INITIALIZATION ==========
 AOS.init({ offset: 0 });
 
