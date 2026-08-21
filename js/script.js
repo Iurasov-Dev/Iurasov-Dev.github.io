@@ -154,7 +154,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
 });
 
-// ===== ТОГГЛ ДЛЯ КНОПКИ ИХТИС =====
+// ===== ТОГГЛ ДЛЯ КНОПКИ ИХТИС (как CV) =====
 function toggleIchthysDrop(event) {
     event.stopPropagation();
     const button = event.currentTarget;
@@ -163,7 +163,7 @@ function toggleIchthysDrop(event) {
 
 // Закрытие при клике вне кнопки
 document.addEventListener('click', function(e) {
-    const drops = document.querySelectorAll('.styles-module-scss-module__G3ynJa__drop');
+    const drops = document.querySelectorAll('.ichthys-cv-btn');
     drops.forEach(function(drop) {
         if (!drop.contains(e.target)) {
             drop.classList.remove('active');
@@ -174,7 +174,7 @@ document.addEventListener('click', function(e) {
 // Закрытие при нажатии ESC
 document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
-        const drops = document.querySelectorAll('.styles-module-scss-module__G3ynJa__drop.active');
+        const drops = document.querySelectorAll('.ichthys-cv-btn.active');
         drops.forEach(function(drop) {
             drop.classList.remove('active');
         });
