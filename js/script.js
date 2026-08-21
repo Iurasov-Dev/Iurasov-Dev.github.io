@@ -47,56 +47,32 @@ function eraseText() {
 // ========== INITIALIZE TYPEWRITER ==========
 window.onload = typeWriter;
 
-// ========== SHOW/HIDE CONTROLS ==========
-document.addEventListener('scroll', () => {
+// ========== SHOW/HIDE CONTROLS (только на Home, отключено на мобильных) ==========
+function isMobile() {
+    return window.innerWidth <= 884;
+}
+
+function updateControlsVisibility() {
     const controls = document.querySelector('.controls');
     if (!controls) return;
 
-    // Определяем, мобильное устройство или нет
-    const isMobile = window.innerWidth <= 884;
+    // На мобильных - всегда скрыты
+    if (isMobile()) {
+        controls.style.display = 'none';
+        return;
+    }
 
-    // Выбираем нужную секцию в зависимости от устройства
-    const targetSection = isMobile 
-        ? document.getElementById('skills') 
-        : document.getElementById('home');
-
-    if (targetSection) {
-        const rect = targetSection.getBoundingClientRect();
+    // На десктопе - показываем только на Home
+    const homeSection = document.getElementById('home');
+    if (homeSection) {
+        const rect = homeSection.getBoundingClientRect();
         controls.style.display = (rect.top < window.innerHeight && rect.bottom > 0) ? 'block' : 'none';
     }
-});
+}
 
-// При загрузке страницы
-document.addEventListener('DOMContentLoaded', function() {
-    const controls = document.querySelector('.controls');
-    if (!controls) return;
-
-    const isMobile = window.innerWidth <= 884;
-    const targetSection = isMobile 
-        ? document.getElementById('skills') 
-        : document.getElementById('home');
-
-    if (targetSection) {
-        const rect = targetSection.getBoundingClientRect();
-        controls.style.display = (rect.top < window.innerHeight && rect.bottom > 0) ? 'block' : 'none';
-    }
-});
-
-// При изменении размера окна (переход между мобильной и десктопной версией)
-window.addEventListener('resize', function() {
-    const controls = document.querySelector('.controls');
-    if (!controls) return;
-
-    const isMobile = window.innerWidth <= 884;
-    const targetSection = isMobile 
-        ? document.getElementById('skills') 
-        : document.getElementById('home');
-
-    if (targetSection) {
-        const rect = targetSection.getBoundingClientRect();
-        controls.style.display = (rect.top < window.innerHeight && rect.bottom > 0) ? 'block' : 'none';
-    }
-});
+document.addEventListener('scroll', updateControlsVisibility);
+document.addEventListener('DOMContentLoaded', updateControlsVisibility);
+window.addEventListener('resize', updateControlsVisibility);
 
 // ========== SOUND EFFECT ==========
 function playSound() {
