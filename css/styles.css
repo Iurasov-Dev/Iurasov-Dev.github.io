@@ -600,8 +600,8 @@ section{
 }
 
 .ichthys-cv-btn img {
-    width: 1.2em;
-    height: 1.2em;
+    width: 5.2em;
+    height: 5.2em;
     flex-shrink: 0;
 }
 
@@ -643,25 +643,6 @@ section{
         opacity: 1;
         transform: translateX(-50%) translateY(0) scale(1);
     }
-}
-
-/* Треугольник сверху */
-.ichthys-drop-body-cv::before {
-    content: '';
-    position: absolute;
-    top: -8px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-bottom: 8px solid #077b32;
-}
-
-.ichthys-drop-body-cv p {
-    font-size: clamp(0.7rem, 0.8vw + 0.4rem, 0.9rem);
-    line-height: 1.6;
 }
 
 /* Мобильная адаптация */
