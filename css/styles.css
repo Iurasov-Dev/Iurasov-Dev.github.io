@@ -594,3 +594,188 @@ section{
         display: none; /* Скрыть элемент */
     }
 }
+
+/* ===== КНОПКА ИХТИС ===== */
+.ichthys-drop-btn {
+    background: rgba(7, 123, 50, 0.1);
+    border: 1px solid #077b32;
+    border-radius: 30px;
+    padding: 10px 20px 10px 16px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    color: #077b32;
+}
+
+.ichthys-drop-btn:hover {
+    background: rgba(7, 123, 50, 0.2);
+    border-color: #0a9a40;
+    box-shadow: 0 0 25px rgba(7, 123, 50, 0.2);
+    transform: scale(1.02);
+}
+
+.ichthys-drop-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #077b32;
+}
+
+.ichthys-drop-head svg {
+    flex-shrink: 0;
+}
+
+.ichthys-title {
+    font-weight: 600;
+    color: #077b32;
+}
+
+.ichthys-sep {
+    color: #666;
+    font-weight: 300;
+}
+
+.ichthys-label {
+    color: #aaa;
+    font-size: 12px;
+    font-weight: 400;
+    white-space: nowrap;
+}
+
+.ichthys-arrow {
+    transition: transform 0.3s ease;
+    margin-left: 4px;
+    color: #077b32;
+}
+
+.ichthys-drop-btn.active .ichthys-arrow {
+    transform: rotate(180deg);
+}
+
+.ichthys-drop-btn.active {
+    border-color: #0a9a40;
+    background: rgba(7, 123, 50, 0.18);
+    box-shadow: 0 0 30px rgba(7, 123, 50, 0.25);
+}
+
+/* Тело дропдауна */
+.ichthys-drop-body {
+    display: none;
+    position: absolute;
+    top: calc(100% + 12px);
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 320px;
+    max-width: 420px;
+    background: rgba(20, 20, 40, 0.97);
+    backdrop-filter: blur(12px);
+    border: 1px solid #077b32;
+    border-radius: 14px;
+    padding: 18px 22px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    text-align: left;
+    color: #e0e0e0;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.ichthys-drop-btn.active .ichthys-drop-body {
+    display: block;
+    animation: ichthysFadeIn 0.3s ease;
+}
+
+@keyframes ichthysFadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-8px) scale(0.97);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0) scale(1);
+    }
+}
+
+.ichthys-drop-wrap p {
+    margin: 0;
+    font-size: 13.5px;
+    line-height: 1.7;
+}
+
+/* Треугольник сверху */
+.ichthys-drop-body::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid #077b32;
+}
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+    .ichthys-drop-btn {
+        padding: 8px 14px 8px 12px;
+    }
+    
+    .ichthys-drop-head {
+        font-size: 12px;
+        gap: 5px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .ichthys-label {
+        font-size: 10px;
+    }
+    
+    .ichthys-drop-body {
+        min-width: 260px;
+        max-width: 320px;
+        padding: 14px 16px;
+        font-size: 12px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .ichthys-drop-body::before {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+@media (max-width: 440px) {
+    .ichthys-drop-btn {
+        padding: 6px 10px 6px 8px;
+    }
+    
+    .ichthys-drop-head {
+        font-size: 10px;
+        gap: 3px;
+    }
+    
+    .ichthys-label {
+        font-size: 9px;
+    }
+    
+    .ichthys-drop-body {
+        min-width: 200px;
+        max-width: 260px;
+        padding: 10px 12px;
+        font-size: 11px;
+    }
+    
+    .ichthys-drop-body::before {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
