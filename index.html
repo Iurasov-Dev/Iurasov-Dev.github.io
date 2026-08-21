@@ -13,25 +13,6 @@
     <title>Viacheslav Portfolio</title>
 </head>
 <body>
-        <!-- Определение иконки Ихтис (добавьте где-нибудь в начале body) -->
-    <svg style="display:none;" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-            <symbol id="menu-fish" viewBox="0 0 24 24">
-                <!-- Рыба (стилизованная) -->
-                <path d="M12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4Z" stroke="#077b32" stroke-width="1.5" fill="none"/>
-                <path d="M8 12L12 8M12 8L16 12M12 8V16" stroke="#077b32" stroke-width="1.5" stroke-linecap="round"/>
-                <!-- Глаз -->
-                <circle cx="14" cy="10" r="1" fill="#077b32"/>
-                <!-- Хвост -->
-                <path d="M4 12L2 10L2 14L4 12Z" fill="#077b32"/>
-            </symbol>
-        </defs>
-    </svg>
-    <!-- Plexus Canvas -->
-    <div class="fullscreen">
-        <canvas id="plexus-test" class="plexus"></canvas>
-    </div>
-    
     <!-- Plexus Controls -->
     <div class="controls" id="plexus-control">
         <form>
@@ -161,8 +142,7 @@
                     <li data-aos="fade-left" data-aos-duration="1500" data-aos-delay="1700">Kali Linux</li>
                     <li data-aos="fade-right" data-aos-duration="1500" data-aos-delay="1800">Docker</li>
                 </ul>
-                <!-- Кнопка Ихтис с дропдауном -->
-                <div class="skills-icons" style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 10px;">
+                <div class="skills-icons">
                     <i class="material-icons" style="font-size: 24px;" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1200">directions_boat</i>
                     <i class="fab fa-python" style="font-size: 24px;" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1200"></i>
                     <i class="fab fa-adobe" style="font-size: 24px;" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1300"></i>
@@ -170,36 +150,9 @@
                     <i class="fab fa-figma" style="font-size: 24px;" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1500"></i>
                     <i class="fab fa-linux" style="font-size: 24px;" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1600"></i>
                     <i class="fab fa-docker" style="font-size: 24px;" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1700"></i>
-                
-                    <!-- ✅ КНОПКА ИХТИС (как в примере) -->
-                    <div class="ichthys-drop-wrapper" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1800">
-                        <button class="ichthys-drop-btn" onclick="toggleIchthys(event)">
-                            <div class="ichthys-drop-head">
-                                <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" width="20" height="20" fill="none" viewBox="0 0 24 24">
-                                    <use xlink:href="#menu-fish"></use>
-                                </svg>
-                                <span class="ichthys-title">ΙΧΘΥΣ</span>
-                                <span class="ichthys-separator">·</span>
-                                <span class="ichthys-label">узнать значение символа</span>
-                                <svg class="ichthys-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                    <polyline points="6 9 12 15 18 9"></polyline>
-                                </svg>
-                            </div>
-                        </button>
-                        
-                        <!-- Тело дропдауна -->
-                        <div class="ichthys-drop-body">
-                            <div class="ichthys-drop-wrap">
-                                <p>
-                                    <strong style="color: #077b32;">Ихтис</strong> — древний христианский символ в форме рыбы. 
-                                    Греческое слово <strong style="color: #fff;">ΙΧΘΥΣ</strong> складывается из первых букв фразы 
-                                    <em style="color: #077b32;">«Иисус Христос, Сын Божий, Спаситель»</em>. 
-                                    Знак использовали ранние христиане как способ узнавать друг друга.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
                 </div>
+            </div>
+        </section> 
 
         <!-- Contact Section -->
         <section id="contact" style="height: 100vh; display: flex; align-items: center; justify-content: center;">
