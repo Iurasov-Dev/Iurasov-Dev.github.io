@@ -199,3 +199,23 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(iframe);
     }
 });
+
+// ===== СМЕНА ИЗОБРАЖЕНИЯ ДЛЯ МОБИЛЬНЫХ =====
+function updateProfileImage() {
+    const img = document.getElementById('profile-image');
+    if (!img) return;
+    
+    const isMobile = window.innerWidth <= 884;
+    
+    if (isMobile) {
+        img.src = 'img/Снимок.PNG';
+    } else {
+        img.src = 'img/IMAG0297.jpg';
+    }
+}
+
+// При загрузке
+document.addEventListener('DOMContentLoaded', updateProfileImage);
+
+// При изменении размера окна
+window.addEventListener('resize', updateProfileImage);
