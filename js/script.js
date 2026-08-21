@@ -49,11 +49,51 @@ window.onload = typeWriter;
 
 // ========== SHOW/HIDE CONTROLS ==========
 document.addEventListener('scroll', () => {
-    const skillsSection = document.getElementById('contact');
     const controls = document.querySelector('.controls');
+    if (!controls) return;
 
-    if (skillsSection && controls) {
-        const rect = skillsSection.getBoundingClientRect();
+    // Определяем, мобильное устройство или нет
+    const isMobile = window.innerWidth <= 884;
+
+    // Выбираем нужную секцию в зависимости от устройства
+    const targetSection = isMobile 
+        ? document.getElementById('skills') 
+        : document.getElementById('home');
+
+    if (targetSection) {
+        const rect = targetSection.getBoundingClientRect();
+        controls.style.display = (rect.top < window.innerHeight && rect.bottom > 0) ? 'block' : 'none';
+    }
+});
+
+// При загрузке страницы
+document.addEventListener('DOMContentLoaded', function() {
+    const controls = document.querySelector('.controls');
+    if (!controls) return;
+
+    const isMobile = window.innerWidth <= 884;
+    const targetSection = isMobile 
+        ? document.getElementById('skills') 
+        : document.getElementById('home');
+
+    if (targetSection) {
+        const rect = targetSection.getBoundingClientRect();
+        controls.style.display = (rect.top < window.innerHeight && rect.bottom > 0) ? 'block' : 'none';
+    }
+});
+
+// При изменении размера окна (переход между мобильной и десктопной версией)
+window.addEventListener('resize', function() {
+    const controls = document.querySelector('.controls');
+    if (!controls) return;
+
+    const isMobile = window.innerWidth <= 884;
+    const targetSection = isMobile 
+        ? document.getElementById('skills') 
+        : document.getElementById('home');
+
+    if (targetSection) {
+        const rect = targetSection.getBoundingClientRect();
         controls.style.display = (rect.top < window.innerHeight && rect.bottom > 0) ? 'block' : 'none';
     }
 });
