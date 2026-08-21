@@ -563,7 +563,7 @@ section{
 
 /* ===== КНОПКА ИХТИС КАК CV (с адаптивным шрифтом) ===== */
 .ichthys-cv-btn {
-    width: 80%;
+    width: 77%;
     height: 6vh;
     min-height: 45px;
     background-color: #077b32;
@@ -618,8 +618,8 @@ section{
     top: calc(100% + 12px);
     left: 50%;
     transform: translateX(-50%);
-    min-width: 320px;
-    max-width: 420px;
+    min-width: 420px;
+    max-width: 520px;
     background: rgba(20, 20, 40, 0.97);
     backdrop-filter: blur(12px);
     border: 1px solid #077b32;
