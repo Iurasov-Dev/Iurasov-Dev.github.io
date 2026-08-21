@@ -175,29 +175,30 @@
                     </div>
                 </div>
         
-                <!-- КНОПКА ИХТИС (с белой иконкой) -->
-                <div style="display: flex; justify-content: center; margin-top: 25px;" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1900">
-                    <button class="styles-module-scss-module__G3ynJa__drop" onclick="toggleIchthysDrop(event)">
-                        <div class="styles-module-scss-module__G3ynJa__drop__head">
-                            <img src="img/i.png" alt="Ихтис" width="44" height="44" style="flex-shrink: 0; filter: brightness(0) invert(1);">
-                                <span class="styles-module-scss-module__G3ynJa__backData">
-                                    <p data-block-key="fv1af">узнать значение</p>
-                                </span>
-                            </span>
-                        </div>
-                        <div class="styles-module-scss-module__G3ynJa__drop__body">
-                            <div class="styles-module-scss-module__G3ynJa__drop__wrap">
-                                <p data-block-key="g0wsv" style="font-size: 10px; line-height: 1.3;">
-                                    Ихтис — древний христианский символ в&nbsp;форме рыбы. 
-                                    Греческое слово ΙΧΘΥΣ складывается из&nbsp;первых букв фразы 
-                                    «Иисус Христос, Сын Божий, Спаситель». 
-                                    Знак использовали ранние христиане как&nbsp;способ узнавать друг друга.
-                                </p>
-                            </div>
+                <!-- КНОПКА ИХТИС (как кнопки CV) -->
+                <div style="display: flex; justify-content: center; margin-top: 30px;" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1900">
+                    <button class="ichthys-cv-btn" onclick="toggleIchthysDrop(event)">
+                        <div style="display: flex; align-items: center; gap: 10px; justify-content: center;">
+                            <img src="img/i.png" alt="Ихтис" width="24" height="24" style="filter: brightness(0) invert(1);">
+                            <span>ΙΧΘΥΣ · узнать значение символа</span>
+                            <svg class="ichthys-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="transition: transform 0.3s ease;">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
                         </div>
                     </button>
+                    
+                    <!-- Тело дропдауна -->
+                    <div class="ichthys-drop-body-cv">
+                        <div style="padding: 16px 20px;">
+                            <p style="margin: 0; font-size: 14px; line-height: 1.6; color: #e0e0e0;">
+                                <strong style="color: #077b32;">Ихтис</strong> — древний христианский символ в форме рыбы. 
+                                Греческое слово <strong style="color: #fff;">ΙΧΘΥΣ</strong> складывается из первых букв фразы 
+                                <em style="color: #077b32;">«Иисус Христос, Сын Божий, Спаситель»</em>. 
+                                Знак использовали ранние христиане как способ узнавать друг друга.
+                            </p>
+                        </div>
+                    </div>
                 </div>
-            </div>
         </section>
 
         <!-- Solar System Section -->
