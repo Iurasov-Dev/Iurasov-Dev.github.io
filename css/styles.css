@@ -278,6 +278,41 @@ section{
     transition: transform 0.3s; /* Плавный переход для трансформации */
 }
 
+/* Показываем подсказку при наведении */
+.ichthys-tooltip:hover .tooltip-content {
+    display: block !important;
+    animation: tooltipFadeIn 0.3s ease;
+}
+
+/* Анимация появления */
+@keyframes tooltipFadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* Стили для самой иконки при наведении */
+.ichthys-tooltip:hover svg {
+    transform: scale(1.1);
+    transition: transform 0.2s ease;
+}
+
+/* Адаптив для мобильных устройств */
+@media (max-width: 768px) {
+    .tooltip-content {
+        width: 200px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        font-size: 12px !important;
+        padding: 10px 12px !important;
+    }
+}
+
 /* Адаптация для мобильных устройств */
 @media (max-width: 884px) {
     .ichthys-drop {
