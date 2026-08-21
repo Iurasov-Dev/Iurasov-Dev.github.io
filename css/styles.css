@@ -561,181 +561,119 @@ section{
     }
 }
 
-/* ===== КНОПКА ИХТИС (точная копия с сайта) ===== */
-.styles-module-scss-module__G3ynJa__drop {
-    z-index: 3;
-    width: 10.4rem;
-    color: #fff;
-    text-align: left;
-    background: transparent;
+/* ===== КНОПКА ИХТИС КАК CV ===== */
+.ichthys-cv-btn {
+    width: 80%;
+    height: 6vh;
+    min-height: 45px;
+    background-color: #077b32;
+    color: white;
     border: none;
-    position: relative;
+    outline: none;
+    font-size: 120%;
+    font-weight: 700;
+    border-radius: 27px;
+    transition: 0.2s linear;
     cursor: pointer;
     font-family: 'Poppins', sans-serif;
-}
-
-@media (min-width: 640px) {
-    .styles-module-scss-module__G3ynJa__drop:hover .styles-module-scss-module__G3ynJa__drop__body {
-        opacity: 1;
-        max-height: 18rem;
-    }
-    .styles-module-scss-module__G3ynJa__drop:hover .styles-module-scss-module__G3ynJa__drop__body:after {
-        transform: translateZ(0);
-    }
-}
-
-/* Активное состояние для мобильных */
-@media (max-width: 639px) {
-    .styles-module-scss-module__G3ynJa__drop.active .styles-module-scss-module__G3ynJa__drop__body {
-        opacity: 1;
-        max-height: 18rem;
-    }
-    .styles-module-scss-module__G3ynJa__drop.active .styles-module-scss-module__G3ynJa__drop__body:after {
-        transform: translateZ(0);
-    }
-}
-
-.styles-module-scss-module__G3ynJa__drop__head {
-    border: 1px solid rgba(236, 255, 251, 0.2);
-    white-space: nowrap;
-    z-index: 2;
-    height: 3rem;
-    font-size: 0.875rem;
-    line-height: 1;
-    font-family: 'Poppins', sans-serif;
-    background: #32436a;
-    border-radius: 2rem;
-    justify-content: space-between;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 0.65rem 0.75rem 0.75rem 0.55rem;
-    display: flex;
     position: relative;
-    color: #fff;
 }
 
-.styles-module-scss-module__G3ynJa__drop__head svg {
-    flex-shrink: 0;
-    width: 1.5rem;
-    height: 1.5rem;
+.ichthys-cv-btn:hover {
+    scale: 1.1;
+    color: #077b32;
+    border: 2px solid #077b32;
+    background-color: transparent;
+    box-shadow: 0 0 40px #077b32;
 }
 
-.styles-module-scss-module__G3ynJa__drop__head span {
-    display: flex;
-    align-items: center;
-    gap: 4px;
+.ichthys-cv-btn .ichthys-arrow {
+    transition: transform 0.3s ease;
 }
 
-.styles-module-scss-module__G3ynJa__drop__head .styles-module-scss-module__G3ynJa__backData p {
-    display: inline;
-    margin: 0;
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 0.75rem;
-    font-weight: 300;
+.ichthys-cv-btn.active .ichthys-arrow {
+    transform: rotate(180deg);
 }
 
-.styles-module-scss-module__G3ynJa__drop__body {
-    z-index: 1;
-    pointer-events: none;
-    max-height: 3rem;
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.875rem;
-    font-weight: 400;
-    line-height: 1.2;
-    transition: max-height 0.4s ease-in, opacity 0.3s ease;
+/* Тело дропдауна */
+.ichthys-drop-body-cv {
+    display: none;
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    overflow: hidden;
-    opacity: 0;
+    top: calc(100% + 12px);
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 320px;
+    max-width: 420px;
+    background: rgba(20, 20, 40, 0.97);
+    backdrop-filter: blur(12px);
+    border: 1px solid #077b32;
+    border-radius: 14px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    text-align: left;
 }
 
-@media (max-width: 639px) {
-    .styles-module-scss-module__G3ynJa__drop__body {
-        font-size: 0.75rem;
+.ichthys-cv-btn.active + .ichthys-drop-body-cv {
+    display: block;
+    animation: ichthysFadeIn 0.3s ease;
+}
+
+@keyframes ichthysFadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-8px) scale(0.97);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0) scale(1);
     }
 }
 
-.styles-module-scss-module__G3ynJa__drop__body:after {
-    content: "";
-    opacity: 0.95;
-    background: #1a1a2e;
-    border: 1px solid rgba(236, 255, 251, 0.2);
-    z-index: -1;
-    border-radius: 1.5rem;
+/* Треугольник сверху */
+.ichthys-drop-body-cv::before {
+    content: '';
     position: absolute;
-    inset: 0;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid #077b32;
 }
 
-.styles-module-scss-module__G3ynJa__drop__wrap {
-    padding: 4rem 1rem 1rem;
-    font-size: 0.875rem;
-    color: #e0e0e0;
-}
-
-.styles-module-scss-module__G3ynJa__drop__wrap p {
-    margin: 0;
-    line-height: 1.6;
-}
-
-/* Для мобильных устройств - показываем по клику */
-@media (max-width: 639px) {
-    .styles-module-scss-module__G3ynJa__drop__body {
-        pointer-events: none;
-    }
-    
-    .styles-module-scss-module__G3ynJa__drop.active .styles-module-scss-module__G3ynJa__drop__body {
-        pointer-events: auto;
-    }
-}
-
-/* Адаптация для очень маленьких экранов */
-@media (max-width: 440px) {
-    .styles-module-scss-module__G3ynJa__drop {
-        width: 14rem;
-    }
-    
-    .styles-module-scss-module__G3ynJa__drop__head {
-        height: 2.5rem;
-        font-size: 0.75rem;
-        padding: 0.5rem 0.6rem 0.6rem 0.45rem;
-        gap: 0.4rem;
-    }
-    
-    .styles-module-scss-module__G3ynJa__drop__head svg {
-        width: 1.2rem;
-        height: 1.2rem;
-    }
-    
-    .styles-module-scss-module__G3ynJa__drop__head .styles-module-scss-module__G3ynJa__backData p {
-        font-size: 0.6rem;
-    }
-    
-    .styles-module-scss-module__G3ynJa__drop__wrap {
-        padding: 3.5rem 0.8rem 0.8rem;
-        font-size: 0.75rem;
-    }
-}
-
-/* ===== УМЕНЬШЕННЫЙ ШРИФТ ДЛЯ ТЕКСТА ИХТИС ===== */
-.styles-module-scss-module__G3ynJa__drop__wrap p {
-    font-size: 11px !important;
-    line-height: 1.4 !important;
-    color: #e0e0e0;
-}
-
-/* Для мобильных устройств */
-@media (max-width: 639px) {
-    .styles-module-scss-module__G3ynJa__drop__wrap p {
-        font-size: 10px !important;
-        line-height: 1.3 !important;
+/* Мобильная адаптация */
+@media (max-width: 884px) {
+    .ichthys-cv-btn {
+        width: 80%;
+        height: 6vh;
+        min-height: 40px;
+        font-size: 100%;
+        border-radius: 27px;
     }
 }
 
 @media (max-width: 440px) {
-    .styles-module-scss-module__G3ynJa__drop__wrap p {
-        font-size: 10px !important;
-        line-height: 1.3 !important;
+    .ichthys-cv-btn {
+        width: 80%;
+        height: 6vh;
+        min-height: 35px;
+        font-size: 90%;
+        border-radius: 27px;
+    }
+    
+    .ichthys-cv-btn img {
+        width: 18px !important;
+        height: 18px !important;
+    }
+    
+    .ichthys-drop-body-cv {
+        min-width: 200px;
+        max-width: 280px;
+    }
+    
+    .ichthys-drop-body-cv p {
+        font-size: 12px !important;
     }
 }
