@@ -1,25 +1,17 @@
 // ========== HAMBURGER MENU ==========
-function hamburg() {
-    const navbar = document.querySelector(".dropdown");
-    navbar.style.transform = "translateY(0px)";
-}
+// Убрал inline onclick из HTML, навешиваем слушатели здесь
+document.querySelector('.hamburg')?.addEventListener('click', () => {
+    document.querySelector(".dropdown").style.transform = "translateY(0px)";
+});
 
-function cancel() {
-    const navbar = document.querySelector(".dropdown");
-    navbar.style.transform = "translateY(-500px)";
-}
+document.querySelector('.cancel')?.addEventListener('click', () => {
+    document.querySelector(".dropdown").style.transform = "translateY(-500px)";
+});
 
 // ========== TYPEWRITER EFFECT ==========
-const texts = [
-    "DATA SCIENTIST",
-    "DESIGNER",
-    "DEVELOPER", 
-    "SEAFARER",
-    "PHOTOGRAPHER"
-];
-
-let speed = 100;
+const texts = ["DATA SCIENTIST", "DESIGNER", "DEVELOPER", "SEAFARER", "PHOTOGRAPHER"];
 const textElements = document.querySelector(".typewriter-text");
+let speed = 100;
 let textIndex = 0;
 let characterIndex = 0;
 
@@ -44,115 +36,77 @@ function eraseText() {
     }
 }
 
-// ========== INITIALIZE TYPEWRITER ==========
 window.onload = typeWriter;
 
-// ========== SHOW/HIDE CONTROLS ==========
-document.addEventListener('scroll', () => {
-    const skillsSection = document.getElementById('contact');
-    const controls = document.querySelector('.controls');
+// ========== SHOW/HIDE CONTROLS (через IntersectionObserver вместо scroll) ==========
+const controls = document.querySelector('.controls');
+const contactSection = document.getElementById('contact');
 
-    if (skillsSection && controls) {
-        const rect = skillsSection.getBoundingClientRect();
-        controls.style.display = (rect.top < window.innerHeight && rect.bottom > 0) ? 'block' : 'none';
-    }
-});
+if (controls && contactSection) {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            controls.style.display = entry.isIntersecting ? 'block' : 'none';
+        });
+    }, { threshold: 0.1 });
+    observer.observe(contactSection);
+}
 
-// ========== SOUND EFFECT ==========
+// ========== SOUND & ANIMATION EFFECT ==========
 function playSound() {
-    const sound = document.getElementById('dingSound');
-    if (sound) {
-        sound.play();
-    }
+    document.getElementById('dingSound')?.play();
 }
 
 function animateText(element) {
-    // Ваша существующая функция
-    element.style.transform = 'scale(1.1)';
-    setTimeout(() => {
-        element.style.transform = 'scale(1)';
-    }, 200);
+    element.style.transform = 'rotate(-10deg)';
+    setTimeout(() => element.style.transform = 'rotate(10deg)', 600);
+    setTimeout(() => element.style.transform = 'rotate(0deg)', 1800);
 }
 
-// ========== AOS INITIALIZATION ==========
+// ========== AOS & SMOOTH SCROLL ==========
 AOS.init({ offset: 0 });
 
-// ========== SMOOTH SCROLL ==========
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
+        const targetElement = document.querySelector(this.getAttribute('href'));
+        if (targetElement) targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
 });
 
 // ========== PLEXUS INITIALIZATION ==========
-var plexus = new Plexus("plexus-test", {
+const plexus = new Plexus("plexus-test", {
     pointsSpeed: 0.4,
     pointsRadius: 1.1,
     pointsStartDistance: 60
 });
 
-var controls = new Controls("plexus-control", plexus);
-var cursor = new Cursor(plexus, { pointsSpeed: 0.9 });
-
-// ========== ANIMATE TEXT ==========
-function animateText(element) {
-    element.style.transform = 'rotate(-10deg)';
-    setTimeout(() => {
-        element.style.transform = 'rotate(10deg)';
-    }, 600);
-    setTimeout(() => {
-        element.style.transform = 'rotate(0deg)';
-    }, 1800);
-}
+new Controls("plexus-control", plexus);
+new Cursor(plexus, { pointsSpeed: 0.9 });
 
 // ========== DOWNLOAD CV BUTTONS ==========
 document.addEventListener('DOMContentLoaded', function() {
-    const rusButton = document.querySelector('.rus-cv');
-    const engButton = document.querySelector('.eng-cv');
-    
-    if (rusButton) {
-        rusButton.addEventListener('click', function(event) {
-            if (window.innerWidth <= 884) {
-                event.preventDefault();
-                alert('Downloading is not available on mobile devices.');
-            } else {
-                window.location.href = 'cv/IURASOV_VIACHESLAV_CV.docx';
-            }
-        });
-    }
-    if (engButton) {
-        engButton.addEventListener('click', function(event) {
-            if (window.innerWidth <= 884) {
-                event.preventDefault();
-                alert('Downloading is not available on mobile devices.');
-            } else {
-                window.location.href = 'cv/VIACHESLAV_IURASOV_CV.docx';
-            }
-        });
-    }
-    
+    // Делегирование событий для кнопок
+    document.querySelector('.rus-cv')?.addEventListener('click', function() {
+        window.location.href = 'cv/IURASOV_VIACHESLAV_CV.docx';
+    });
+
+    document.querySelector('.eng-cv')?.addEventListener('click', function() {
+        window.location.href = 'cv/VIACHESLAV_IURASOV_CV.docx';
+    });
 });
 
 // ========== LAZY LOAD IFRAME ==========
 document.addEventListener('DOMContentLoaded', function() {
     const iframe = document.querySelector('.solar-system-iframe');
-    
     if (iframe && iframe.dataset.src) {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     iframe.src = iframe.dataset.src;
                     observer.unobserve(iframe);
-                    console.log('Solar System iframe loaded');
                 }
             });
         });
-        
         observer.observe(iframe);
     }
 });
