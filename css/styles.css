@@ -582,7 +582,7 @@ section{
 }
 
 .ichthys-cv-btn:hover {
-    scale: 0.7;
+    scale: 1.1;
     color: #077b32;
     border: 2px solid #077b32;
     background-color: transparent;
@@ -600,8 +600,8 @@ section{
 }
 
 .ichthys-cv-btn img {
-    width: 2.2em;  /* ← ИСПРАВЛЕНО! */
-    height: 2.2em; /* ← ИСПРАВЛЕНО! */
+    width: 4.4em;  /* УВЕЛИЧЕНО на 100% (было 2.2em → стало 4.4em) */
+    height: 4.4em; /* УВЕЛИЧЕНО на 100% (было 2.2em → стало 4.4em) */
     flex-shrink: 0;
 }
 
@@ -660,7 +660,7 @@ section{
 }
 
 .ichthys-drop-body-cv p {
-    font-size: clamp(0.7rem, 0.8vw + 0.4rem, 0.9rem);
+    font-size: clamp(1.05rem, 1.2vw + 0.6rem, 1.35rem); /* УВЕЛИЧЕНО на 50% */
     line-height: 1.6;
 }
 
@@ -676,8 +676,8 @@ section{
     }
     
     .ichthys-cv-btn img {
-        width: 1em;
-        height: 1em;
+        width: 2em;    /* УВЕЛИЧЕНО на 100% (было 1em → стало 2em) */
+        height: 2em;   /* УВЕЛИЧЕНО на 100% (было 1em → стало 2em) */
     }
 }
 
@@ -693,8 +693,8 @@ section{
     }
     
     .ichthys-cv-btn img {
-        width: 0.9em;
-        height: 0.9em;
+        width: 1.8em;  /* УВЕЛИЧЕНО на 100% (было 0.9em → стало 1.8em) */
+        height: 1.8em; /* УВЕЛИЧЕНО на 100% (было 0.9em → стало 1.8em) */
     }
     
     .ichthys-drop-body-cv {
@@ -703,6 +703,6 @@ section{
     }
     
     .ichthys-drop-body-cv p {
-        font-size: clamp(0.6rem, 1.5vw + 0.2rem, 0.8rem);
+        font-size: clamp(0.9rem, 2.25vw + 0.3rem, 1.2rem); /* УВЕЛИЧЕНО на 50% */
     }
 }
