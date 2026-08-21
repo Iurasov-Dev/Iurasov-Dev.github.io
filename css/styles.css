@@ -278,28 +278,186 @@ section{
     transition: transform 0.3s; /* Плавный переход для трансформации */
 }
 
-/* Показываем подсказку при наведении */
-.ichthys-tooltip:hover .tooltip-content {
-    display: block !important;
-    animation: tooltipFadeIn 0.3s ease;
+/* ===== ИХТИС ДРОПДАУН ===== */
+.ichthys-drop-wrapper {
+    position: relative;
+    display: inline-block;
 }
 
-/* Анимация появления */
-@keyframes tooltipFadeIn {
+.ichthys-drop-btn {
+    background: transparent;
+    border: 1px solid #077b32;
+    border-radius: 20px;
+    padding: 6px 14px 6px 10px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+    background: rgba(7, 123, 50, 0.08);
+    display: flex;
+    align-items: center;
+}
+
+.ichthys-drop-btn:hover {
+    background: rgba(7, 123, 50, 0.2);
+    border-color: #0a9a40;
+    box-shadow: 0 0 25px rgba(7, 123, 50, 0.15);
+}
+
+.ichthys-drop-head {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #077b32;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.ichthys-drop-head svg {
+    flex-shrink: 0;
+}
+
+.ichthys-title {
+    font-weight: 600;
+    color: #077b32;
+}
+
+.ichthys-separator {
+    color: #666;
+    font-weight: 300;
+}
+
+.ichthys-label {
+    color: #aaa;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.ichthys-arrow {
+    transition: transform 0.3s ease;
+    margin-left: 2px;
+    color: #077b32;
+}
+
+.ichthys-drop-wrapper.active .ichthys-arrow {
+    transform: rotate(180deg);
+}
+
+.ichthys-drop-wrapper.active .ichthys-drop-btn {
+    border-color: #0a9a40;
+    background: rgba(7, 123, 50, 0.15);
+    box-shadow: 0 0 30px rgba(7, 123, 50, 0.2);
+}
+
+/* Тело дропдауна */
+.ichthys-drop-body {
+    display: none;
+    position: absolute;
+    top: calc(100% + 12px);
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 320px;
+    max-width: 420px;
+    background: rgba(20, 20, 40, 0.97);
+    backdrop-filter: blur(12px);
+    border: 1px solid #077b32;
+    border-radius: 14px;
+    padding: 18px 22px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    text-align: left;
+    color: #e0e0e0;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.ichthys-drop-wrapper.active .ichthys-drop-body {
+    display: block;
+    animation: ichthysFadeIn 0.3s ease;
+}
+
+@keyframes ichthysFadeIn {
     from {
         opacity: 0;
-        transform: translateX(-50%) translateY(10px);
+        transform: translateX(-50%) translateY(-8px) scale(0.97);
     }
     to {
         opacity: 1;
+        transform: translateX(-50%) translateY(0) scale(1);
+    }
+}
+
+.ichthys-drop-wrap p {
+    margin: 0;
+    font-size: 13.5px;
+    line-height: 1.7;
+}
+
+/* Треугольник сверху дропдауна */
+.ichthys-drop-body::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid #077b32;
+}
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+    .ichthys-drop-head {
+        font-size: 12px;
+        gap: 4px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .ichthys-label {
+        font-size: 10px;
+    }
+    
+    .ichthys-drop-body {
+        min-width: 260px;
+        max-width: 320px;
+        padding: 14px 16px;
+        font-size: 12px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .ichthys-drop-body::before {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .ichthys-drop-wrapper.active .ichthys-drop-body {
         transform: translateX(-50%) translateY(0);
     }
 }
 
-/* Стили для самой иконки при наведении */
-.ichthys-tooltip:hover svg {
-    transform: scale(1.1);
-    transition: transform 0.2s ease;
+@media (max-width: 440px) {
+    .ichthys-drop-btn {
+        padding: 4px 10px 4px 8px;
+    }
+    
+    .ichthys-drop-head {
+        font-size: 10px;
+        gap: 3px;
+    }
+    
+    .ichthys-label {
+        font-size: 9px;
+    }
+    
+    .ichthys-drop-body {
+        min-width: 200px;
+        max-width: 260px;
+        padding: 10px 12px;
+        font-size: 11px;
+    }
 }
 
 /* Адаптив для мобильных устройств */
