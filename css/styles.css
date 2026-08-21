@@ -600,8 +600,8 @@ section{
 }
 
 .ichthys-cv-btn img {
-    width: 1.2em;  /* ← ИСПРАВЛЕНО! */
-    height: 1.2em; /* ← ИСПРАВЛЕНО! */
+    width: 2.2em;  /* ← ИСПРАВЛЕНО! */
+    height: 2.2em; /* ← ИСПРАВЛЕНО! */
     flex-shrink: 0;
 }
 
