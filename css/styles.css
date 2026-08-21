@@ -1,286 +1,596 @@
-// VARIABLES
- $color: #100c0b;
- $green: #077b32;
- $green-dark: #0f5c6e;
- $white: #fff;
- $bg-color: #000000;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
 
-// RESET
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
 }
 
-body {
-  width: 100%;
-  min-height: 100vh;
-  background-color: $bg-color;
-  font-family: 'Poppins', sans-serif;
-  color: $white;
-  overflow-x: hidden;
+
+body{
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+    
 }
 
-// PLEXUS BACKGROUND
-.fullscreen {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  z-index: -1; /* Фон позади всего */
+nav{
+    width: 100%;
+    height: 10vh;
+    position: sticky;
 }
 
-.plexus {
-  background: $bg-color; /* Убраны бессмысленные градиенты из #000 в #000 */
+.nav-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 40;
 }
 
-.controls {
-  padding: 10px;
-  border-radius: 4px;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
-  background-color: rgba(255, 255, 255, 0.8);
-  opacity: 0.3;
-  position: fixed;
-  z-index: 1000;
-  bottom: 10px;
-  right: 10px;
-  transition: opacity 0.1s;
-  display: none; /* Скрываем по умолчанию */
-
-  label { display: block; color: black; }
-  input { display: block; width: 100%; }
-  &:hover { opacity: 1; }
+.logo{
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
 }
 
-// NAVIGATION
-nav {
-  width: 100%;
-  height: 10vh;
-  position: sticky;
-  top: 0;
-  z-index: 40;
+.logo span{
+    color: #077b32;
+    text-shadow: 0 0 10px #077b32;
 }
 
-.nav-container {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+.hamburg,
+.cancel{
+    cursor: pointer;
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    color: white;
+    display: none;
+    font-size: clamp(2.5rem, 0.5rem + 5vw, 3rem);
 }
 
-.logo {
-  color: $white;
-  font-size: 2rem;
-  font-weight: bold;
-  span {
-    color: $green;
-    text-shadow: 0 0 10px $green;
-  }
+.nav-container .links{
+    display: flex;
+    z-index: 40;
 }
 
-.hamburg, .cancel {
-  cursor: pointer;
-  position: absolute;
-  right: 15px;
-  top: 10px;
-  color: $white;
-  display: none;
-  font-size: clamp(2.5rem, 0.5rem + 5vw, 3rem);
-  z-index: 50;
-}
-
-.nav-container .links {
-  display: flex;
-  list-style: none;
-  gap: 20px;
-
-  a {
+.nav-container .links a{
     position: relative;
     font-size: 1.2rem;
-    color: $white;
+    color: white;
+    margin: 0 20px;
     text-decoration: none;
     font-weight: 550;
-    transition: color 0.3s linear;
+    transition: 0.3s linear;
+}
 
-    &::before {
-      position: absolute;
-      content: "";
-      bottom: -3px;
-      left: 0;
-      width: 0%;
-      height: 3px;
-      background-color: $green;
-      transition: width 0.2s linear;
-    }
+.nav-container .links a::before {
+    position: absolute;
+    content: "";
+    bottom: -3px;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background-color: #077b32;
+    transition: 0.2s linear;
+}
 
-    &:hover::before { width: 100%; }
-    &:hover { color: $green; }
-    
-    &.highlight::before { background-color: $green-dark; }
-    &.highlight:hover { color: $green-dark; text-shadow: 0 0 10px $green-dark; }
-  }
+.nav-container .links a:hover::before {
+    width: 100%;
+}
+
+.nav-container .links a:hover {
+    color: #077b32;
+}
+
+.nav-container .links a.highlight::before {
+    background-color: #0f5c6e; /* Цвет подчеркивания для ссылки "Space" */
+}
+
+.nav-container .links a.highlight:hover {
+    color: #0f5c6e; /* Цвет текста при наведении на "Space" */
+    text-shadow: 0 0 10px #0f5c6e; /* Эффект свечения */
+}
+
+/* Убедитесь, что для других ссылок подчеркивание работает нормально */
+.nav-container .links a:not(.highlight):hover::before {
+    background-color: #077b32; /* Цвет подчеркивания для остальных ссылок */
 }
 
 .dropdown {
-  z-index: 100;
-  position: absolute;
-  top: 0;
-  left: 0;
-  transform: translateY(-500px);
-  width: 100%;
-  height: auto;
-  backdrop-filter: blur(4px) brightness(40%);
-  box-shadow: 0 0 20px black;
-  transition: transform 0.2s linear; /* Изменено на transform для плавности */
-  
-  .links a {
-    display: block;
-    color: $white;
+    z-index: 100;
+    position: absolute;
+    top: 0;
+    transform: translateY(-500px);
+    width: 100%;
+    height: auto;
+    backdrop-filter: blur(4px) brightness(40%);
+    box-shadow: 0 0 20px black;
+    transition: 0.2s linear;
+}
+
+.dropdown .links a {
+    display: flex;
+    color: white;
     text-decoration: none;
-    text-align: center;
+    justify-content: center;
     padding: 15px 0;
-    transition: background-color 0.2s linear;
-    &:hover { background-color: $green; }
-  }
+    align-items: center;
+    transition: 0.2s linear;
 }
 
-// SECTIONS & LAYOUT
-section { width: 100%; }
-
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 50%;
-  margin: 0 auto;
-  min-height: 80vh;
-  border-radius: 18px;
+.dropdown .links a:hover{
+    background-color: #077b32;
 }
 
-.desc { text-align: center; }
-
-#about, #skills, #contact, #run-solar-system {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 40px 0;
-  width: 80%;
+section{
+    width: 100%;
+    height: 90vh;
 }
 
-#home { height: 100vh; }
-#contact { height: 100vh; }
-
-// HOME SECTION
 .main-container {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  
+}
 
-  .image {
-    width: 410px;
-    height: 75vh;
-    border-radius: 50%;
+.main-container .image {
+    width: 410px; /* Исходный размер */
+    height: 75vh; /* Исходная высота */
+    border-radius: 50%; /* Круглая форма */
     overflow: hidden;
-    box-shadow: 0 0 50px $green;
-    margin-top: -120px;
-    transition: transform 0.5s ease;
-    img { width: 100%; display: block; }
-    &:hover { animation: pulse 1.5s ease-in-out infinite; }
-  }
+    box-shadow: 0 0 50px #077b32;
+    margin-top: -120px; /* Поднимаем изображение на 50 пикселей */
+    transition: transform 0.5s ease; /* Плавный переход */
+}
 
-  .content {
-    color: $white;
+.main-container .image img{
+    width: 100%;
+}
+
+.main-container .image:hover{
+    animation: animate 1.5s ease-in-out infinite;
+}
+
+@keyframes animate {
+    0%{
+        scale: 1;
+    }
+    
+    50%{
+        scale: 1.05;
+    }
+    
+    100%{
+        scale: 1;
+    }
+}
+
+.main-container .content {
+    color: white;
     width: 40%;
     min-height: 100px;
-    z-index: 1;
-  }
+    z-index: 0; /* Убедитесь, что это значение выше, чем у других элементов */
 }
 
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
+.content h1{
+    font-size: clamp(1rem, 2vw + 1rem, 2rem);
 }
 
-.typewriter { font-size: clamp(1rem, 2vw + 1rem, 2rem); font-weight: 600; }
-.typewriter-text { color: $green; text-shadow: 0 0 10px $green; }
-.content h1 { font-size: clamp(1rem, 2vw + 1rem, 2rem); span { color: $green; text-shadow: 0 0 10px $green; } }
+.content h1 span{
+    color: #077b32;
+    text-shadow: 0  0 10px #077b32;
+}
 
-// BUTTONS & SOCIAL
-.btn, .content button {
-  width: 50%;
-  height: 6vh;
-  margin: 30px 0;
-  background-color: $green;
-  color: $white;
-  border: none;
-  outline: none;
-  font-size: 120%;
-  font-weight: 700;
-  border-radius: 27px;
-  cursor: pointer;
-  transition: all 0.2s linear;
-  text-align: center;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
+.content .typewriter{
+    font-size: clamp(1rem, 2vw + 1rem, 2rem);
+    font-weight: 600;
+}
 
-  &:hover {
-    transform: scale(1.1); /* Заменил scale: 1.1 на transform */
-    color: $green;
-    border: 2px solid $green;
-    background-color: transparent;
-    box-shadow: 0 0 40px $green;
-  }
+.content .typewriter-text{
+    color: #077b32;
+    text-shadow: 0 0 10px #077b32;
+    font-size: clamp(1rem, 2vw + 1rem, 2rem);
 }
 
 .social-links i {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  width: 3rem;
-  height: 3rem;
-  border: 0.2rem solid $green;
-  border-radius: 50%;
-  color: $green;
-  margin: 5px 10px;
-  font-size: 1.5rem;
-  transition: all 0.2s linear;
-  &:hover {
-    transform: scale(1.1);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+    background-color: transparent;
+    border: 0.2rem solid #077b32;
+    border-radius: 50%;
+    color: #077b32;
+    margin: 5px 10px;
+    font-size: 1.5rem;
+    transition: transform 0.2s linear, color 0.2s linear, background-color 0.2s linear;
+    position: relative; /* Добавьте это */
+}
+
+.social-links i:hover {
+    transform: scale(1.1); /* Используйте transform */
     color: black;
-    background-color: $green;
-    filter: drop-shadow(0 0 10px $green);
-  }
+    background-color: #077b32;
+    filter: drop-shadow(0 0 10px #077b32);
 }
 
-// SOLAR SYSTEM
-.solar-system-iframe {
-  width: 100%;
-  height: 600px;
-  min-width: 1200px;
-  border: 2px solid $green-dark;
+.content button{
+    width: 50%;
+    height: 6vh;
+    margin: 30px;
+    background-color: #077b32;
+    color: white;
+    border: none;
+    outline: none;
+    font-size: 120%;
+    font-weight: 700;
+    border-radius: 5px;
+    transition: 0.2s linear;
 }
 
-// RESPONSIVE
+.content button:hover{
+    scale: 1.1;
+    color: #077b32;
+    border: 2px solid #077b32;
+    background-color: transparent;
+    font-weight: 700;
+    box-shadow: 0 0 40px #077b32;
+}
+
+.container {
+    display: flex;
+    flex-direction: column; /* Вертикальная ориентация секций */
+    justify-content: center; /* Центрируем по вертикали */
+    align-items: center; /* Центрируем по горизонтали */
+    width: 50%; /* Ширина контейнера */
+    margin: 0 auto; /* Центрируем контейнер по горизонтали */
+    min-height: 80vh; /* Занимает всю высоту экрана */
+    border-radius: 18px; /* Скругление углов */
+}
+
+.desc {
+    text-align: center; /* Центрируем текст внутри каждого блока */
+    
+}
+
+#about, #skills, #contact, #run-solar-system {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    position: relative;
+    z-index: 0;
+    margin: 40px 0; /* Отступы между секциями */
+    width: 80%; /* Занимает всю доступную ширину */
+}
+
+.ding-dong {
+    display: inline-block;
+    transition: transform 0.3s; /* Плавный переход для трансформации */
+}
+
+/* Адаптация для мобильных устройств */
 @media (max-width: 884px) {
-  .container { width: 90%; min-height: 60vh; padding: 10px; }
-  .nav-container .links { display: none; }
-  .hamburg, .cancel { display: block; }
-  .main-container { flex-direction: column; }
-  .main-container .content { width: 80%; z-index: 50; }
-  .main-container .image { width: 30%; height: auto; margin-top: -20px; z-index: -1; }
-  #run-solar-system { display: none; }
+    .ichthys-drop {
+        max-width: 100%;
+        border-radius: 10px;
+    }
+    
+    .ichthys-drop__head {
+        padding: 12px 16px;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+    
+    .ichthys-title {
+        font-size: 0.9rem;
+    }
+    
+    .ichthys-label {
+        font-size: 0.75rem;
+        display: block;
+        margin-left: 0;
+        width: 100%;
+    }
+    
+    .ichthys-label::after {
+        display: none;
+    }
+    
+    .ichthys-drop__head svg {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .ichthys-drop.active .ichthys-drop__body {
+        padding: 12px 16px;
+    }
+    
+    .ichthys-drop__wrap p {
+        font-size: 0.8rem;
+    }
 }
 
 @media (max-width: 440px) {
-  .container { width: 95%; min-height: 50vh; }
-  .main-container .image { width: 50%; margin-top: -40px; }
+    .ichthys-drop__head {
+        padding: 10px 12px;
+        gap: 8px;
+    }
+    
+    .ichthys-title {
+        font-size: 0.8rem;
+    }
+    
+    .ichthys-label {
+        font-size: 0.7rem;
+    }
+    
+    .ichthys-drop__head svg {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+/* Выравнивание для текста и списков */
+#about h2, #skills h2, #contact h2 {
+    margin-bottom: 20px;
+}
+
+#skills ul {
+    list-style: none;
+    padding: 0;
+}
+
+#contact ul {
+    list-style: none;
+    padding: 0;
+}
+
+#skills ul li {
+    margin: 10px 0;
+}
+
+#skills .skills-icons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.solar-system-iframe {
+    width: 100%; /* Растягивается на всю ширину родителя */
+    height: 100%; /* Занимает всю высоту родителя */
+    min-width: 1200px; /* Минимальная ширина */
+    min-height: 660px; /* Минимальная высота */
+    border: 2px solid #0f5c6e; /* Граница */
+}
+
+.btn-liquid {
+    display: inline-block;
+    position: relative;
+    width: 50%; /* Сделаем ширину такой же, как у обычной кнопки */
+    height: 6vh; /* Сделаем высоту такой же, как у обычной кнопки */
+    border-radius: 5px; /* Оставим радиус закругления прежним */
+    color: #fff;
+    font: 700 1.2em/6vh 'Poppins', sans-serif; 
+    letter-spacing: 0.05em; 
+    text-align: center;
+    text-decoration: none;
+}
+
+.btn-liquid .inner {
+    position: relative;
+    z-index: 2;
+}
+
+.btn-liquid canvas {
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    bottom: -50px;
+    left: -50px;
+    z-index: -1;
+    pointer-events: none; 
+}
+
+/* Фон для анимации плексус */
+
+  .fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.0); /* Полупрозрачный фон для анимации */
+    z-index: 0; /* Низкий z-index для фона */
+  }
+  
+  .controls {
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 5px 5px 10px var(--shadow-color);
+    opacity: 0.3;
+    position: fixed;
+    z-index: 1000;
+    bottom: 10px;
+    right: 10px;
+    transition: opacity 0.1s;
+    display: none; /* Скрываем по умолчанию */
+  }
+  
+  .controls label {
+    display: block;
+    color: white; /* Цвет текста белым */
+  }
+  
+  .controls input {
+    display: block;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.8); /* Полупрозрачный фон для инпутов */
+    color: black; /* Цвет текста внутри инпутов */
+  }
+  
+  .controls:hover {
+    opacity: 1;
+  }
+  
+  .plexus {
+    background: black; /* Для браузеров, не поддерживающих градиенты */
+    background: -webkit-linear-gradient(-45deg, #000000, #000000); /* Для Safari */
+    background: -o-linear-gradient(-45deg, #000000, #000000); /* Для Opera */
+    background: -moz-linear-gradient(-45deg, #000000, #000000); /* Для Firefox */
+    background: -webkit-linear-gradient(135deg, #000000, #000000);
+    background: -o-linear-gradient(135deg, #000000, #000000);
+    background: linear-gradient(-45deg, #000000, #000000); /* Стандартный синтаксис */
+  }
+
+  @media (max-width: 884px) {
+    /* Адаптация для экранов до 884px */
+    .container {
+        width: 90%; /* Увеличиваем ширину контейнера на мобильных */
+        min-height: 60vh; /* Снижаем минимальную высоту для мобильных */
+        padding: 10px; /* Уменьшаем отступы */
+    }
+
+    .desc {
+        font-size: 14px; /* Уменьшаем размер шрифта для мобильных */
+        padding: 5px 0; /* Уменьшаем отступы для текста */
+    }
+
+    nav .logo {
+        position: absolute;
+        top: 16px;
+        left: 15px;
+        font-size: 1.5rem;
+        z-index: 10;
+    }
+
+    .fullscreen {
+        z-index: -2; /* Низкий z-index для фона */
+    }
+
+    .main-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .nav-container .links {
+        display: none; /* Скрыть ссылки на мобильных */
+    }
+
+    .hamburg,
+    .cancel {
+        display: block;
+        z-index: 50; /* Убедитесь, что кнопки меню выше */
+    }
+
+    .dropdown-menu {
+        position: absolute; /* Позиционирование выпадающего меню */
+        top: 100%; /* Под навигацией */
+        left: 0;
+        z-index: 100; /* Больше, чем у изображения */
+        display: none; /* Скрыто по умолчанию */
+    }
+
+    .hamburg:hover + .dropdown-menu,
+    .hamburg:focus + .dropdown-menu {
+        display: block; /* Показать меню при наведении или фокусе */
+    }
+
+    .main-container .content {
+        width: 80%;
+        z-index: 50; /* Убедитесь, что контент выше изображения */
+    }
+
+    .content button,
+    .btn-liquid {
+        width: 80%; /* Увеличиваем ширину кнопки на мобильных */
+        height: 6vh; /* Высота, совпадающая с обычной кнопкой */
+        margin: 30px 0; /* Отступы сверху и снизу */
+        background-color: #077b32; /* Добавляем фоновый цвет */
+        color: white; /* Цвет текста */
+        border: none; /* Убираем рамку */
+        border-radius: 27px; /* Радиус закругления */
+        font-size: 120%; /* Размер шрифта */
+        font-weight: 700; /* Жирность шрифта */
+        transition: 0.2s linear; /* Переход при наведении */
+    }
+
+    .btn-liquid:hover {
+        scale: 1.1; /* Увеличиваем при наведении */
+        color: #077b32; /* Меняем цвет текста */
+        border: 2px solid #077b32; /* Добавляем рамку при наведении */
+        background-color: transparent; /* Делает фон прозрачным */
+        box-shadow: 0 0 40px #077b32; /* Добавляем тень */
+    }
+
+    .main-container .image {
+        z-index: -1; /* Изображение с низким z-index */
+        width: 30%;
+        margin-top: -20px; /* Поднимаем изображение на 20 пикселей */
+        height: auto;
+    }
+
+    #run-solar-system {
+        display: none; /* Скрыть секцию Space на мобильных */
+    }
+
+    .dropdown a[href="#run-solar-system"] {
+        display: none; /* Скрыть элемент */
+    }
+}
+
+@media (max-width: 440px) {
+    /* Адаптация для экранов до 440px */
+    .container {
+        width: 95%; /* Почти вся ширина экрана для очень маленьких устройств */
+        min-height: 50vh; /* Еще уменьшенная высота контейнера */
+    }
+
+    .desc {
+        font-size: 12px; /* Уменьшаем размер шрифта для маленьких экранов */
+        padding: 3px 0; /* Еще меньше отступы для текста */
+    }
+
+    .main-container .image {
+        width: 50%;
+        height: auto; 
+        margin-top: -40px; /* Поднимаем изображение на 40 пикселей */
+        margin-bottom: 0px;
+        z-index: -1; /* Убедитесь, что изображение все еще ниже */
+    }
+
+    .main-container .content {
+        width: 80%;
+        z-index: 50;
+    }
+
+    .main-container button,
+    .btn-liquid {
+        width: 80%; /* Увеличиваем ширину кнопки на очень маленьких устройствах */
+        height: 6vh; /* Высота, совпадающая с обычной кнопкой */
+        margin: 30px 0; /* Отступы */
+    }
+
+    .fullscreen {
+        z-index: -2; /* Низкий z-index для фона */
+    }
+
+    #run-solar-system {
+        display: none; /* Скрыть секцию Space на мобильных */
+    }
+
+    .dropdown a[href="#run-solar-system"] {
+        display: none; /* Скрыть элемент */
+    }
 }
