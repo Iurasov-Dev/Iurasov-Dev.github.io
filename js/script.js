@@ -138,6 +138,33 @@ document.addEventListener('DOMContentLoaded', function() {
     
 });
 
+// ===== ТОГГЛ ДЛЯ КНОПКИ ИХТИС =====
+function toggleIchthysDrop(event) {
+    event.stopPropagation();
+    const button = event.currentTarget;
+    button.classList.toggle('active');
+}
+
+// Закрытие при клике вне кнопки
+document.addEventListener('click', function(e) {
+    const drops = document.querySelectorAll('.styles-module-scss-module__G3ynJa__drop');
+    drops.forEach(function(drop) {
+        if (!drop.contains(e.target)) {
+            drop.classList.remove('active');
+        }
+    });
+});
+
+// Закрытие при нажатии ESC
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        const drops = document.querySelectorAll('.styles-module-scss-module__G3ynJa__drop.active');
+        drops.forEach(function(drop) {
+            drop.classList.remove('active');
+        });
+    }
+});
+
 // ========== LAZY LOAD IFRAME ==========
 document.addEventListener('DOMContentLoaded', function() {
     const iframe = document.querySelector('.solar-system-iframe');
