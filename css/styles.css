@@ -600,8 +600,8 @@ section{
 }
 
 .ichthys-cv-btn img {
-    width: 4.4em;  /* УВЕЛИЧЕНО на 100% (было 2.2em → стало 4.4em) */
-    height: 4.4em; /* УВЕЛИЧЕНО на 100% (было 2.2em → стало 4.4em) */
+    width: 4em;    /* Большая иконка */
+    height: 4em;   /* Большая иконка */
     flex-shrink: 0;
 }
 
@@ -660,7 +660,7 @@ section{
 }
 
 .ichthys-drop-body-cv p {
-    font-size: clamp(1.05rem, 1.2vw + 0.6rem, 1.35rem); /* УВЕЛИЧЕНО на 50% */
+    font-size: clamp(1.05rem, 1.2vw + 0.6rem, 1.35rem);
     line-height: 1.6;
 }
 
@@ -676,8 +676,8 @@ section{
     }
     
     .ichthys-cv-btn img {
-        width: 2em;    /* УВЕЛИЧЕНО на 100% (было 1em → стало 2em) */
-        height: 2em;   /* УВЕЛИЧЕНО на 100% (было 1em → стало 2em) */
+        width: 2.5em;
+        height: 2.5em;
     }
 }
 
@@ -693,8 +693,8 @@ section{
     }
     
     .ichthys-cv-btn img {
-        width: 1.8em;  /* УВЕЛИЧЕНО на 100% (было 0.9em → стало 1.8em) */
-        height: 1.8em; /* УВЕЛИЧЕНО на 100% (было 0.9em → стало 1.8em) */
+        width: 2em;
+        height: 2em;
     }
     
     .ichthys-drop-body-cv {
@@ -703,6 +703,6 @@ section{
     }
     
     .ichthys-drop-body-cv p {
-        font-size: clamp(0.9rem, 2.25vw + 0.3rem, 1.2rem); /* УВЕЛИЧЕНО на 50% */
+        font-size: clamp(0.9rem, 2.25vw + 0.3rem, 1.2rem);
     }
 }
