@@ -33,6 +33,17 @@ function typeWriter() {
     }
 }
 
+function eraseText() {
+    if (textElements.innerHTML.length > 0) {
+        textElements.innerHTML = textElements.innerHTML.slice(0, -1);
+        setTimeout(eraseText, 50);
+    } else {
+        textIndex = (textIndex + 1) % texts.length;
+        characterIndex = 0;
+        setTimeout(typeWriter, 500);
+    }
+}
+
 // ========== INITIALIZE TYPEWRITER ==========
 window.onload = typeWriter;
 
