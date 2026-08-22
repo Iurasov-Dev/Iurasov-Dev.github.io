@@ -561,27 +561,26 @@ section{
     }
 }
 
-/* ===== КНОПКА ИХТИС КАК CV (с адаптивным шрифтом) ===== */
+/* ===== КНОПКА ИХТИС КАК CV ===== */
 .ichthys-cv-btn {
-    width: 50%;  /* ← УВЕЛИЧЕНО: было 50%, оставляем */
+    width: 50%;
     height: 6vh;
-    min-height: 55px;  /* ← УВЕЛИЧЕНО: было 45px */
+    min-height: 47px;
     background-color: #077b32;
     color: white;
     border: none;
     outline: none;
-    font-size: clamp(0.7rem, 1vw + 0.4rem, 1.1rem);  /* ← УВЕЛИЧЕНО */
-    font-weight: 700;
+    font-size: clamp(0.15rem, 0.4vw + 0.3rem, 1rem);
+    font-weight: 600;
     border-radius: 27px;
     transition: 0.2s linear;
     cursor: pointer;
     font-family: 'Poppins', sans-serif;
     position: relative;
-    padding: 0 20px;  /* ← УВЕЛИЧЕНО */
-    white-space: nowrap;
-    display: inline-block;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    padding: 0 15px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .ichthys-cv-btn:hover {
@@ -592,11 +591,32 @@ section{
     box-shadow: 0 0 40px #077b32;
 }
 
+.ichthys-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    justify-content: center;
+}
+
+.ichthys-label-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;       /* слова выровнены по левому краю */
+    /* если хочешь по центру — поставь align-items: center */
+    line-height: 1.2;
+    text-align: left;
+}
+
+.ichthys-label-column span {
+    margin: 0;
+    padding: 0;
+}
+
 .ichthys-cv-btn .ichthys-arrow {
-    display: inline-block;
     transition: transform 0.3s ease;
-    font-size: 0.7em;  /* ← УВЕЛИЧЕНО */
-    margin-left: 4px;  /* ← УВЕЛИЧЕНО */
+    font-size: 0.6em;
+    flex-shrink: 0;
 }
 
 .ichthys-cv-btn.active .ichthys-arrow {
@@ -604,23 +624,25 @@ section{
 }
 
 .ichthys-cv-btn img {
-    width: 2.5em;  /* ← УВЕЛИЧЕНО */
-    height: 2.5em; /* ← УВЕЛИЧЕНО */
+    width: 2.8em;
+    height: 2.8em;
     flex-shrink: 0;
 }
 
 .ichthys-cv-btn > div {
     display: flex;
     align-items: center;
-    gap: 8px;  /* ← УВЕЛИЧЕНО */
+    gap: 4px;
     justify-content: center;
     width: 100%;
+    white-space: nowrap;
 }
 
 .ichthys-cv-btn span {
     display: flex;
     align-items: center;
     gap: 4px;
+    white-space: nowrap;
 }
 
 /* Тело дропдауна */
@@ -630,15 +652,15 @@ section{
     top: calc(100% + 8px);
     left: 50%;
     transform: translateX(-50%);
-    min-width: 280px;  /* ← УВЕЛИЧЕНО */
-    max-width: 360px;  /* ← УВЕЛИЧЕНО */
+    min-width: 280px;
+    max-width: 360px;
     background: rgba(20, 20, 40, 0.97);
     backdrop-filter: blur(12px);
     border: 1px solid #077b32;
     border-radius: 14px;
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7);
     z-index: 1000;
-    text-align: left;
+    text-align: center;
 }
 
 .ichthys-cv-btn.active + .ichthys-drop-body-cv {
@@ -656,6 +678,7 @@ section{
         transform: translateX(-50%) translateY(0) scale(1);
     }
 }
+
 
 /* Треугольник сверху */
 .ichthys-drop-body-cv::before {
