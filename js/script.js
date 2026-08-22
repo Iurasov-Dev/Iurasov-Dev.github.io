@@ -205,7 +205,7 @@ function updateProfileImage() {
     const img = document.getElementById('profile-image');
     if (!img) return;
     
-    const isMobile = window.innerWidth <= 884;
+    const isMobile = window.innerWidth <= 1084;
     
     if (isMobile) {
         img.src = 'img/Снимок.PNG';

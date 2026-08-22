@@ -563,21 +563,21 @@ section{
 
 /* ===== КНОПКА ИХТИС КАК CV (с адаптивным шрифтом) ===== */
 .ichthys-cv-btn {
-    width: 76%;
+    width: 50%;  /* ← ИЗМЕНЕНО: было 76% */
     height: 6vh;
     min-height: 45px;
     background-color: #077b32;
     color: white;
     border: none;
     outline: none;
-    font-size: clamp(0.7rem, 1.2vw + 0.5rem, 1.2rem);
+    font-size: clamp(0.6rem, 0.9vw + 0.3rem, 1rem); /* ← ИЗМЕНЕНО: меньше */
     font-weight: 700;
     border-radius: 27px;
     transition: 0.2s linear;
     cursor: pointer;
     font-family: 'Poppins', sans-serif;
     position: relative;
-    padding: 0 20px;
+    padding: 0 15px; /* ← ИЗМЕНЕНО: меньше отступы */
     white-space: nowrap;
 }
 
@@ -592,7 +592,7 @@ section{
 .ichthys-cv-btn .ichthys-arrow {
     display: inline-block;
     transition: transform 0.3s ease;
-    font-size: 0.8em;
+    font-size: 0.7em; /* ← ИЗМЕНЕНО: меньше */
 }
 
 .ichthys-cv-btn.active .ichthys-arrow {
@@ -600,15 +600,15 @@ section{
 }
 
 .ichthys-cv-btn img {
-    width: 4em;    /* Большая иконка */
-    height: 4em;   /* Большая иконка */
+    width: 2.2em;  /* ← ИЗМЕНЕНО: было 4em */
+    height: 2.2em; /* ← ИЗМЕНЕНО: было 4em */
     flex-shrink: 0;
 }
 
 .ichthys-cv-btn span {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 4px; /* ← ИЗМЕНЕНО: меньше */
 }
 
 /* Тело дропдауна */
@@ -618,8 +618,8 @@ section{
     top: calc(100% + 8px);
     left: 50%;
     transform: translateX(-50%);
-    min-width: 320px;
-    max-width: 420px;
+    min-width: 280px; /* ← ИЗМЕНЕНО: было 320px */
+    max-width: 380px; /* ← ИЗМЕНЕНО: было 420px */
     background: rgba(20, 20, 40, 0.97);
     backdrop-filter: blur(12px);
     border: 1px solid #077b32;
@@ -660,11 +660,12 @@ section{
 }
 
 .ichthys-drop-body-cv p {
-    font-size: clamp(1.05rem, 1.2vw + 0.6rem, 1.35rem);
-    line-height: 1.6;
+    font-size: 11px; /* ← ИЗМЕНЕНО: фиксированный маленький размер */
+    line-height: 1.5;
+    color: #e0e0e0;
 }
 
-/* Мобильная адаптация */
+/* Мобильная адаптация (оставляем как было - хорошо на телефоне) */
 @media (max-width: 884px) {
     .ichthys-cv-btn {
         width: 80%;
@@ -676,8 +677,17 @@ section{
     }
     
     .ichthys-cv-btn img {
-        width: 2.5em;
-        height: 2.5em;
+        width: 3em;  /* ← УВЕЛИЧЕНО для мобильных */
+        height: 3em;
+    }
+    
+    .ichthys-drop-body-cv {
+        min-width: 260px;
+        max-width: 340px;
+    }
+    
+    .ichthys-drop-body-cv p {
+        font-size: 11px;
     }
 }
 
@@ -693,8 +703,8 @@ section{
     }
     
     .ichthys-cv-btn img {
-        width: 2em;
-        height: 2em;
+        width: 2.8em;  /* ← УВЕЛИЧЕНО для маленьких экранов */
+        height: 2.8em;
     }
     
     .ichthys-drop-body-cv {
@@ -703,6 +713,6 @@ section{
     }
     
     .ichthys-drop-body-cv p {
-        font-size: clamp(0.9rem, 2.25vw + 0.3rem, 1.2rem);
+        font-size: 10px;  /* ← Меньше для телефонов */
     }
 }
