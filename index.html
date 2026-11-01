@@ -180,17 +180,22 @@
         
                  <!-- КНОПКА ИХТИС (как кнопки CV) -->
                 <div style="display: flex; justify-content: center; margin-top: 30px; position: relative;" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1900">
-                    <button class="ichthys-cv-btn" onclick="toggleIchthysDrop(event)">
-                        <div style="display: flex; align-items: center; gap: 6px; justify-content: center;">
-                            <img src="img/i.png" alt="Ихтис" style="filter: brightness(0) invert(1); flex-shrink: 0; width: 58px; height: 38px;">
-                            <span class="ichthys-label-column">
-                                <span>узнать</span>
-                                <span>значение</span>
-                                <span>символа</span>
-                            </span>
-                            <span class="ichthys-arrow" style="display: inline-block; transition: transform 0.3s ease; font-size: 12px; margin-left: 2px; flex-shrink: 0;">▼</span>
-                        </div>
-                    </button>
+                  <button class="ichthys-cv-btn" onclick="toggleIchthysDrop(event)">
+                    <div style="display: flex; align-items: center; gap: 10px; justify-content: center; width: 100%;">
+                      <!-- Иконка -->
+                      <img src="img/i.png" alt="Ихтис" style="filter: brightness(0) invert(1); flex-shrink: 0; width: 58px; height: 38px;">
+                                      <!-- Греческое ΙΧΘΥΣ -->
+                      <span style="font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 1.1rem; color: white; white-space: nowrap;">ΙΧΘΥΣ</span>
+                                      <!-- Колонка с текстом -->
+                      <span class="ichthys-label-column" style="text-align: left; line-height: 1.2;">
+                        <span>узнать</span>
+                        <span>значение</span>
+                        <span>символа</span>
+                      </span>
+                                      <!-- Стрелочка -->
+                      <span class="ichthys-arrow" style="display: inline-block; transition: transform 0.3s ease; font-size: 12px; flex-shrink: 0;">▼</span>
+                    </div>
+                  </button>
                     
                     <!-- Тело дропдауна -->
                     <div class="ichthys-drop-body-cv">
